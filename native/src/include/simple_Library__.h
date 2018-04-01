@@ -26,10 +26,26 @@ JNIEXPORT jint JNICALL Java_simple_Library_00024_say
 /*
  * Class:     simple_Library__
  * Method:    openImgNat
- * Signature: (Ljava/lang/String;I)V
+ * Signature: (Ljava/lang/String;)V
  */
 JNIEXPORT jlong JNICALL Java_simple_Library_00024_openImgNat
-  (JNIEnv *, jobject, jstring, jint);
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     simple_Library__
+ * Method:    openFsNat
+ * Signature: (J)J
+ */
+JNIEXPORT jlong JNICALL
+Java_simple_Library_00024_openFsNat(JNIEnv *, jobject, jlong);
+
+/*
+ * Class:     simple_Library__
+ * Method:    getDirFilesNat
+ * Signature: (JLjava/lang/String;)[Lpl/dyskobol/model/File;
+ */
+JNIEXPORT jobjectArray JNICALL
+Java_simple_Library_00024_getDirFilesNat(JNIEnv*, jobject, jlong, jstring);
 
 #ifdef __cplusplus
 }
