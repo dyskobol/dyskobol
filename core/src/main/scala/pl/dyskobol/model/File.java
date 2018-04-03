@@ -1,5 +1,7 @@
 package pl.dyskobol.model;
 
+import java.io.InputStream;
+
 public class File {
     final public String name;
     final public String path;
@@ -17,6 +19,7 @@ public class File {
     final public long ctime_nano;
     final public long crtime;
     final public long crtime_nano;
+    final public long filesystem;
 
     public File(String name,
                 String path,
@@ -33,7 +36,8 @@ public class File {
                 long ctime,
                 long ctime_nano,
                 long crtime,
-                long crtime_nano) {
+                long crtime_nano,
+                long filesystem) {
         this.name = name;
         this.path = path;
         this.type = type;
@@ -50,5 +54,10 @@ public class File {
         this.ctime_nano = ctime_nano;
         this.crtime = crtime;
         this.crtime_nano = crtime_nano;
+        this.filesystem = filesystem;
+    }
+
+    public FileStream createStream() {
+        return new FileStream(filesystem, this);
     }
 }

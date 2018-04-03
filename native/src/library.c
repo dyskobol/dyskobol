@@ -79,7 +79,8 @@ TSK_WALK_RET_ENUM create_list(TSK_FS_FILE *file, const char *a_path, void *a_ptr
                                     (long) file->meta->ctime,
                                     (long) file->meta->ctime_nano,
                                     (long) file->meta->crtime,
-                                    (long) file->meta->crtime_nano
+                                    (long) file->meta->crtime_nano,
+                                    (long) file->fs_info
                                     );
 
     if( list->used >= list->size ) {
@@ -112,8 +113,8 @@ Java_simple_Library_00024_getDirFilesNat(JNIEnv * env, jclass obj, jlong fileSys
     list.used = 0;
     jclass cls = (*env)->FindClass(env, "pl/dyskobol/model/File");
     list.cls = &cls;
-    // String, String, int, long, int, long, int, int, long x 8
-    const char* methodParams = "(Ljava/lang/String;Ljava/lang/String;IJIJIIJJJJJJJJ)V";
+    // String, String, int, long, int, long, int, int, long x 9
+    const char* methodParams = "(Ljava/lang/String;Ljava/lang/String;IJIJIIJJJJJJJJJ)V";
     jmethodID constructor = (*env)->GetMethodID(env, *list.cls, "<init>", methodParams);
     list.constructor = &constructor;
     list.env = env;
@@ -144,4 +145,87 @@ Java_simple_Library_00024_getDirFilesNat(JNIEnv * env, jclass obj, jlong fileSys
 
     return ret;
 }
+
+/*
+ * Class:     simple_Library__
+ * Method:    openFileNat
+ * Signature: (JJ)J
+ */
+JNIEXPORT jlong JNICALL
+Java_simple_Library_00024_openFileNat(JNIEnv * env, jclass obj, jlong fileSystem, jlong inode) {
+    TSK_FS_INFO* filesystem = (TSK_FS_INFO*) fileSystem;
+    TSK_INUM_T address = (TSK_INUM_T) inode;
+    TSK_FS_FILE* file = tsk_fs_file_open_meta(filesystem, NULL, address);
+    return (jlong) file;
+}
+
+/*
+ * Class:     simple_Library__
+ * Method:    closeFileNat
+ * Signature: (J)V
+ */
+JNIEXPORT void JNICALL
+Java_simple_Library_00024_closeFileNat(JNIEnv * env, jclass obj, jlong file) {
+    TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
+    tsk_fs_file_close(file_);
+    return;
+}
+
+/*
+ * Class:     simple_Library__
+ * Method:    readNat
+ * Signature: (JJJ)[B
+ */
+JNIEXPORT jbyteArray JNICALL
+Java_simple_Library_00024_readNat(JNIEnv * env, jclass obj, jlong file, jlong offset, jlong count) {
+    TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
+
+    long bytesLeft = file_->meta->size - offset;
+    count = bytesLeft < count ? bytesLeft : count;
+
+    jbyteArray data = (*env)->NewByteArray(env, count);
+    if (data == NULL) {
+        return NULL; //  out of memory error thrown
+    }
+
+    jbyte *bytes = (*env)->GetByteArrayElements(env, data, 0);
+
+    ssize_t read = tsk_fs_file_read(file_, offset, bytes, count, TSK_FS_FILE_READ_FLAG_NONE);
+
+    (*env)->SetByteArrayRegion(env, data, 0, count, bytes);
+
+    return data;
+}
+
+/*
+ * Class:     simple_Library__
+ * Method:    readToBufferNat
+ * Signature: (JJJ[BJ)J
+ */
+JNIEXPORT jlong JNICALL
+Java_simple_Library_00024_readToBufferNat(JNIEnv * env, jclass obj, jlong file, jlong fileOffset, jlong count, jbyteArray buffer, jlong bufferOffset) {
+    TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
+
+    long bytesLeft = file_->meta->size - fileOffset;
+    count = bytesLeft < count ? bytesLeft : count;
+
+    if( count == 0 ) {
+        return -1; // File ended
+    }
+
+    jbyte *bytes = (*env)->GetByteArrayElements(env, buffer, bufferOffset);
+
+    ssize_t read = tsk_fs_file_read(file_, fileOffset, bytes, count, TSK_FS_FILE_READ_FLAG_NONE);
+
+    if( read < 0 ) {
+        return read;
+    }
+
+    (*env)->SetByteArrayRegion(env, buffer, bufferOffset, read, bytes);
+
+    return (jlong) read;
+}
+
+
+
 

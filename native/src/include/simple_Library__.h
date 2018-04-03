@@ -47,6 +47,37 @@ Java_simple_Library_00024_openFsNat(JNIEnv *, jobject, jlong);
 JNIEXPORT jobjectArray JNICALL
 Java_simple_Library_00024_getDirFilesNat(JNIEnv*, jobject, jlong, jstring);
 
+/*
+ * Class:     simple_Library__
+ * Method:    openFileNat
+ * Signature: (JJ)J
+ */
+JNIEXPORT jlong JNICALL
+Java_simple_Library_00024_openFileNat(JNIEnv*, jclass, jlong, jlong);
+
+/*
+ * Class:     simple_Library__
+ * Method:    closeFileNat
+ * Signature: (J)V
+ */
+JNIEXPORT void JNICALL
+Java_simple_Library_00024_closeFileNat(JNIEnv*, jclass, jlong);
+/*
+ * Class:     simple_Library__
+ * Method:    readNat
+ * Signature: (JJJ)[B
+ */
+JNIEXPORT jbyteArray JNICALL
+Java_simple_Library_00024_readNat(JNIEnv*, jclass, jlong, jlong, jlong);
+
+/*
+ * Class:     simple_Library__
+ * Method:    readToBufferNat
+ * Signature: (JJJ[BJ)J
+ */
+JNIEXPORT jlong JNICALL
+Java_simple_Library_00024_readToBufferNat(JNIEnv*, jclass, jlong, jlong, jlong, jbyteArray, jlong);
+
 #ifdef __cplusplus
 }
 #endif
