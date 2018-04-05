@@ -21,6 +21,9 @@ public class File {
     final public long crtime_nano;
     final public long filesystem;
 
+    public static final int REGULAR_FILE = 5;
+    public static final int DIRECTORY = 3;
+
     public File(String name,
                 String path,
                 int type,

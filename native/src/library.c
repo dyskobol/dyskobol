@@ -84,12 +84,12 @@ TSK_WALK_RET_ENUM create_list(TSK_FS_FILE *file, const char *a_path, void *a_ptr
                                     );
 
     if( list->used >= list->size ) {
-        jobject* files = malloc(sizeof(jobject*) * list->size * 2); // Double the length
-        memcpy(files, list->files, sizeof(list->files));
+        const int bytes = sizeof(jobject) * list->size;
+        jobject* files = malloc(bytes*2); // Double the length
+        memcpy(files, list->files, bytes);
         free(list->files);
         list->files = files;
         list->size *= 2;
-
     }
 
     list->files[list->used] = obj;
