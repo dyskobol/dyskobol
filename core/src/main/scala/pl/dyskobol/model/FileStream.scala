@@ -18,6 +18,8 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
   }
 
   override def close(): Unit = {
+    if( !opened ) return
+
     Library.closeFileNat(fileHandle)
     fileHandle = 0
     opened = false
@@ -61,4 +63,6 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
     fileOffset += skipping
     return skipping
   }
+
+  override def finalize(): Unit = close()
 }
