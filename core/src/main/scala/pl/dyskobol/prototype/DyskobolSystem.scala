@@ -8,8 +8,11 @@ object DyskobolSystem extends App {
   val log = dyskobolSystem.log
 
   val dispatcher = dyskobolSystem.actorOf(Props[Dispatcher], name = "dispatcher")
-  val reader = dyskobolSystem.actorOf(Props(new DiskReader("/home/przemek/test.iso", dispatcher)), name = "reader")
+  val reader = dyskobolSystem.actorOf(Props(new DiskReader("./core/res/test.iso", dispatcher)), name = "reader")
   reader! "start"
+
+  //TODO: poczekać na innych aktorów, dopiero potem terminate
+  //dyskobolSystem.terminate()
 
 
 

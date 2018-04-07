@@ -18,9 +18,15 @@ class Dispatcher extends Actor with ActorLogging{
     case file: File =>
       tika.detect(file.createStream(),file.name) match {
 
-        case "application/pdf" => log.info("dispatching pdf")
-        case "text/plain" => log.info("dipatching text/plain")
-        case _ => log.info("dispatching oth")
+        case "application/pdf" => {
+          log.info("dispatching\t<pdf>\t{} ", file.name)
+
+        }
+        case "text/plain" => {
+          log.info("dispatching\t<text/plain>\t{}", file.name)
+        }
+        case message: String => log.info("dispatching other {} <{}>: ", file.name, message)
+        case _ => log.info("Unknown")
       }
 
   }
