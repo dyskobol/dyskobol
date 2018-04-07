@@ -1,15 +1,18 @@
 package pl.dyskobol.prototype
 
-import akka.actor.{Actor, ActorLogging}
+import akka.actor.{Actor, ActorLogging, ActorRef, Props}
+
+import scala.reflect._
 import org.apache.tika.Tika
 import pl.dyskobol.model.File
-import pl.dyskobol.prototype.workers.AbstractFileWorker
+import pl.dyskobol.prototype.workers.application.{PdfFileWorker, TextFileWorker}
 
-import scala.collection.immutable.Queue
+import scala.collection.mutable
+import scala.collection.mutable.Queue
 
 class Dispatcher extends Actor with ActorLogging{
   val actorsPerFileType = 5
-  //val workersMap = scala.collection.mutable.Map[String, Queue[AbstractFileWorker]]
+  val workersMap = scala.collection.mutable.Map[String, mutable.Queue[ActorRef]]()
   val tika = new Tika
 
 
@@ -20,10 +23,12 @@ class Dispatcher extends Actor with ActorLogging{
 
         case "application/pdf" => {
           log.info("dispatching\t<pdf>\t{} ", file.name)
+          dispatch(classTag[PdfFileWorker], file)
 
         }
         case "text/plain" => {
           log.info("dispatching\t<text/plain>\t{}", file.name)
+          dispatch(classTag[TextFileWorker], file)
         }
         case message: String => log.info("dispatching other {} <{}>: ", file.name, message)
         case _ => log.info("Unknown")
@@ -31,7 +36,26 @@ class Dispatcher extends Actor with ActorLogging{
 
   }
 
-  def dispatch() ={}
+  def dispatch(cls: ClassTag[_], file:File) ={
+    val workersQueue = workersMap.getOrElse(cls.runtimeClass.getCanonicalName,
+    {
+      val newBornWorkers = Queue[ActorRef]()
+      for (i: Int <- 1 to actorsPerFileType){
+        val actor  = context.actorOf(
+          Props( cls.runtimeClass),
+          cls.runtimeClass.getCanonicalName.concat(i.toString))
+        newBornWorkers.enqueue(actor)
+
+      }
+      workersMap.put(cls.runtimeClass.getCanonicalName, newBornWorkers)
+
+      newBornWorkers
+    })
+    val worker : ActorRef = workersQueue.dequeue
+    worker ! file
+    workersQueue.enqueue(worker)
+
+  }
 
 
 }
