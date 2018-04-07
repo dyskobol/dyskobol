@@ -1,8 +1,6 @@
-package pl.dyskobol.prototype.workers.application
-
+package pl.dyskobol.prototype.workers
 
 import pl.dyskobol.model.File
-import pl.dyskobol.prototype.workers.AbstractFileWorker
 
 trait StupidFileWorker extends AbstractFileWorker{
   override def canWork: Boolean = {

@@ -5,7 +5,8 @@ import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 import scala.reflect._
 import org.apache.tika.Tika
 import pl.dyskobol.model.File
-import pl.dyskobol.prototype.workers.application.{PdfFileWorker, TextFileWorker}
+import pl.dyskobol.prototype.workers.application.PdfFileWorker
+import pl.dyskobol.prototype.workers.text.TextFileWorker
 
 import scala.collection.mutable
 import scala.collection.mutable.Queue
