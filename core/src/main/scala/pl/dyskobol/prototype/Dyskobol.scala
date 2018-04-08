@@ -15,13 +15,13 @@ import scala.collection.mutable
 object Dyskobol extends App {
   var counter = 0;
 
-  val img = Library.openImgNat("/home/kuba/Downloads/test.iso")
+  val img = Library.openImgNat("/home/kuba/downloads.iso")
   println("Image opened")
 
   val filesystem = Library.openFsNat(img)
   println("Filesystem opened")
 
-  printFilesRec(filesystem, ".")
+  printFilesRec(filesystem, Library.getFileInode(filesystem, "."))
   println(f"Files processed: ${counter}")
 
   def readString(file: File, fileStream: FileStream, count: Int = 100): String = {
@@ -39,8 +39,8 @@ object Dyskobol extends App {
     tika.detect(fileStream, file.name)
   }
 
-  def printFilesRec(filesystem: Long, path: String): Unit = {
-    val files = Library.getDirFilesNat(filesystem, path)
+  def printFilesRec(filesystem: Long, inode: Long): Unit = {
+    val files = Library.getDirFilesByInodeNat(filesystem, inode)
     for(file <- files if file.name != "." && file.name != "..") {
       counter += 1
       if( counter % 1000 == 0 ) {
@@ -48,18 +48,18 @@ object Dyskobol extends App {
       }
 
       if( file.`type` == File.REGULAR_FILE ) { // File
-        println(f"\n${path}${file.name} ${file.`type`}")
+//        println(f"\n${path}${file.name} ${file.`type`}")
         val fileStream = file.createStream()
-        getMimeType(file, fileStream)
-        fileStream.close()
 //        println(f"Guessed file content type is ${getMimeType(file, fileStream)}")
+        fileStream.close()
       }
       else
       if( file.`type` == File.DIRECTORY ) {
-        val filePath = f"${path}/${file.name}"
-        println("PATH = "+ filePath)
-        printFilesRec(filesystem, filePath)
+//        println("PATH = "+ filePath)
+        printFilesRec(filesystem, file.addr)
       }
     }
   }
+
+
 }
