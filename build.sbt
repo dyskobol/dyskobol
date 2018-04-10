@@ -1,4 +1,9 @@
+ivyLoggingLevel := UpdateLogging.Quiet
+
 lazy val root = (project in file(".")).
+  aggregate(core, native)
+
+lazy val core = (project in file("core")).
   settings(
     organizationName := "pl.dyskobol",
     name := "dyskobol",
@@ -12,6 +17,14 @@ lazy val root = (project in file(".")).
       "com.typesafe.akka" %% "akka-testkit" % "2.5.11" % Test,
       "org.xerial" % "sqlite-jdbc" % "3.7.2",
       "com.mchange" % "c3p0" % "0.9.2.1",
-      "org.sleuthkit" % "datamodel" % "4.6.0" from "file:////lib/sleuthkit-4.6.0.jar"
+      "org.apache.tika" % "tika-core" % "1.17",
+      "org.scalatest" %% "scalatest" % "3.0.2" % "test"
     )
-  )
+  ).
+
+  settings(target in javah := (sourceDirectory in nativeCompile in native).value / "include").
+  dependsOn(native % Runtime)
+
+lazy val native = (project in file("native")).
+  settings(sourceDirectory in nativeCompile := sourceDirectory.value).
+  enablePlugins(JniNative)
