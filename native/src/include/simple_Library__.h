@@ -49,6 +49,22 @@ Java_simple_Library_00024_getDirFilesNat(JNIEnv*, jobject, jlong, jstring);
 
 /*
  * Class:     simple_Library__
+ * Method:    getDirFilesByInodeNat
+ * Signature: (JJ)[Lpl/dyskobol/model/File;
+ */
+JNIEXPORT jobjectArray JNICALL
+Java_simple_Library_00024_getDirFilesByInodeNat(JNIEnv*, jclass, jlong, jlong);
+
+/*
+ * Class:     simple_Library__
+ * Method:    getFileInode
+ * Signature: (JLjava/lang/String;)J
+ */
+JNIEXPORT jlong JNICALL
+Java_simple_Library_00024_getFileInode(JNIEnv*, jclass, jlong, jstring);
+
+/*
+ * Class:     simple_Library__
  * Method:    openFileNat
  * Signature: (JJ)J
  */
