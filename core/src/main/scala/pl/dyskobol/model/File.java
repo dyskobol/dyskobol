@@ -29,7 +29,7 @@ public class File {
 
     private static Tika tika = new Tika();
     private String mime;
-    public Promise<Long> id = new scala.concurrent.impl.Promise.DefaultPromise<>();
+    public long id;
 
     public static final int REGULAR_FILE = 5;
     public static final int DIRECTORY = 3;
@@ -68,6 +68,7 @@ public class File {
         this.crtime = crtime;
         this.crtime_nano = crtime_nano;
         this.filesystem = filesystem;
+        id = 0;
     }
 
     public FileStream createStream() {

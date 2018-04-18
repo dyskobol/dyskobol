@@ -19,9 +19,10 @@ class PersistanceManager extends Actor with ActorLogging {
       log.info(file.toString)
     }
     case (props: FileProperties, file: File) =>
-      file.id.future.value match {
-        case Some(Success(id)) => log.info(f"${id}-----\n${props.toString}\n-----")
-        case _ =>   self ! (props, file)
+      if( file.id != 0 ) {
+        log.info(f"${id}-----\n${props.toString}\n-----")
+      } else {
+        self ! (props, file)
       }
   }
 }
