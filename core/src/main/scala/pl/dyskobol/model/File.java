@@ -1,6 +1,12 @@
 package pl.dyskobol.model;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.Future;
+
+import org.apache.tika.Tika;
+import scala.Int;
+import scala.concurrent.Promise;
 
 public class File {
     final public String name;
@@ -20,6 +26,10 @@ public class File {
     final public long crtime;
     final public long crtime_nano;
     final public long filesystem;
+
+    private static Tika tika = new Tika();
+    private String mime;
+    public Promise<Long> id = new scala.concurrent.impl.Promise.DefaultPromise<>();
 
     public static final int REGULAR_FILE = 5;
     public static final int DIRECTORY = 3;
@@ -62,5 +72,20 @@ public class File {
 
     public FileStream createStream() {
         return new FileStream(filesystem, this);
+    }
+
+    public synchronized String mime() throws IOException {
+        if( this.mime != null ) {
+            return mime;
+        }
+        FileStream stream = createStream();
+        String mime = tika.detect(stream, name);
+        stream.close();
+        this.mime = mime;
+        return mime;
+    }
+
+    public String toString() {
+        return name + " " + id;
     }
 }
