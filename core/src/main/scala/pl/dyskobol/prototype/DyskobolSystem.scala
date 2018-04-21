@@ -12,10 +12,11 @@ import org.apache.commons.imaging.formats.tiff.TiffImageMetadata
 object Main extends App {
   val simplePlugin = new SimplePlugin("file")
   simplePlugin.addProcessor("text/plain", SimpleProcessors.first200)
-  simplePlugin.addProcessor("image/jpeg", SimpleProcessors.imageMeta)
-  simplePlugin.addProcessor("image/jpg", SimpleProcessors.imageMeta)
-  simplePlugin.addProcessor("image/tiff", SimpleProcessors.imageMeta)
-  val s = SimpleProcessors.first200
+ // simplePlugin.addProcessor("image/jpeg", SimpleProcessors.imageMeta)
+ // simplePlugin.addProcessor("image/jpg", SimpleProcessors.imageMeta)
+ // simplePlugin.addProcessor("image/tiff", SimpleProcessors.imageMeta)
+  simplePlugin.addProcessor("application/zip", SimpleProcessors.zipExtract)
+ // val s = SimpleProcessors.first200
   print(simplePlugin.supportedFiles)
   DyskobolSystem.process( "./core/res/test.iso", List(simplePlugin) )
 }
