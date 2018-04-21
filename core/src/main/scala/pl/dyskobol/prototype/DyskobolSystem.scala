@@ -3,20 +3,20 @@ package pl.dyskobol.prototype
 import java.util.concurrent.CountDownLatch
 
 import akka.actor.{ActorSystem, Props}
-import pl.dyskobol.prototype.plugin.{FileProperties, Plugin, SimplePlugin}
+import pl.dyskobol.prototype.plugin.{FileProperties, Plugin, SimplePlugin, SimpleProcessors}
+import org.apache.commons.imaging.Imaging
+import org.apache.commons.imaging.common.ImageMetadata.Item
+import org.apache.commons.imaging.formats.tiff.TiffImageMetadata
 
 
 object Main extends App {
   val simplePlugin = new SimplePlugin("file")
-  simplePlugin.addProcessor("text/plain", (file) => {
-    val props = new FileProperties
-    val bytes = Array.ofDim[Byte](200)
-    file.createStream().read(bytes)
-    props.addProperty("first200", new String(bytes))
-    (props, Nil)
-  })
+  simplePlugin.addProcessor("text/plain", SimpleProcessors.first200)
+  simplePlugin.addProcessor("image/jpeg", SimpleProcessors.imageMeta)
+  simplePlugin.addProcessor("image/jpg", SimpleProcessors.imageMeta)
+  simplePlugin.addProcessor("image/tiff", SimpleProcessors.imageMeta)
+  val s = SimpleProcessors.first200
   print(simplePlugin.supportedFiles)
-
   DyskobolSystem.process( "./core/res/test.iso", List(simplePlugin) )
 }
 

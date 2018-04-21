@@ -18,7 +18,8 @@ lazy val core = (project in file("core")).
       "org.xerial" % "sqlite-jdbc" % "3.7.2",
       "com.mchange" % "c3p0" % "0.9.2.1",
       "org.apache.tika" % "tika-core" % "1.17",
-      "org.scalatest" %% "scalatest" % "3.0.2" % "test"
+      "org.scalatest" %% "scalatest" % "3.0.2" % "test",
+      "org.apache.commons" % "commons-imaging" % "1.0-R1401825" from "https://repo.adobe.com/nexus/content/repositories/public/org/apache/commons/commons-imaging/1.0-R1401825/commons-imaging-1.0-R1401825.jar"
     )
   ).
 

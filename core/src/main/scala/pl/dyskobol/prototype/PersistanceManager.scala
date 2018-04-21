@@ -14,13 +14,13 @@ class PersistanceManager extends Actor with ActorLogging {
 
   override def receive: Receive = {
     case file: File => {
-      file.id success nextId
+     // file.id success nextId
       nextId += 1
       log.info(file.toString)
     }
     case (props: FileProperties, file: File) =>
       if( file.id != 0 ) {
-        log.info(f"${id}-----\n${props.toString}\n-----")
+        //log.info(f"${id}-----\n${props.toString}\n-----")
       } else {
         self ! (props, file)
       }
