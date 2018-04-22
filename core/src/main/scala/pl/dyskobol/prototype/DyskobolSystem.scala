@@ -3,7 +3,7 @@ package pl.dyskobol.prototype
 import java.util.concurrent.CountDownLatch
 
 import akka.actor.{ActorSystem, Props}
-import pl.dyskobol.prototype.plugin.{FileProperties, Plugin, SimplePlugin, SimpleProcessors}
+import pl.dyskobol.prototype.plugin._
 import org.apache.commons.imaging.Imaging
 import org.apache.commons.imaging.common.ImageMetadata.Item
 import org.apache.commons.imaging.formats.tiff.TiffImageMetadata
@@ -11,14 +11,18 @@ import org.apache.commons.imaging.formats.tiff.TiffImageMetadata
 
 object Main extends App {
   val simplePlugin = new SimplePlugin("file")
+  val extractPlugin = new SimplePlugin("extract")
+
   simplePlugin.addProcessor("text/plain", SimpleProcessors.first200)
  // simplePlugin.addProcessor("image/jpeg", SimpleProcessors.imageMeta)
- // simplePlugin.addProcessor("image/jpg", SimpleProcessors.imageMeta)
+  //simplePlugin.addProcessor("image/jpg", SimpleProcessors.imageMeta)
  // simplePlugin.addProcessor("image/tiff", SimpleProcessors.imageMeta)
-  simplePlugin.addProcessor("application/zip", SimpleProcessors.zipExtract)
+  //simplePlugin.addProcessor("application/zip", SimpleProcessors.zipExtract)
  // val s = SimpleProcessors.first200
-  print(simplePlugin.supportedFiles)
-  DyskobolSystem.process( "./core/res/test.iso", List(simplePlugin) )
+  //print(simplePlugin.supportedFiles)
+  extractPlugin.addProcessor("text/html", TextExtractors.htmlExtract)
+      
+  DyskobolSystem.process( "./core/res/files.iso", List(simplePlugin, extractPlugin) )
 }
 
 object DyskobolSystem {
