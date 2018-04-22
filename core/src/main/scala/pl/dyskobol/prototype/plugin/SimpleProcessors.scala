@@ -9,7 +9,13 @@ import org.apache.commons.imaging.common.ImageMetadata.Item
 import pl.dyskobol.prototype.plugin.Plugin.Processor
 import akka.event.Logging
 import com.typesafe.config.ConfigFactory
+import org.apache.tika.metadata.Metadata
+import org.apache.tika.parser.ParseContext
+import org.apache.tika.parser.html.HtmlParser
+import org.apache.tika.sax.WriteOutContentHandler
 import pl.dyskobol.model.{File, FileStream}
+
+import scala.collection.parallel.immutable.ParVector
 
 object SimpleProcessors {
 
@@ -64,6 +70,8 @@ object SimpleProcessors {
 
     (props, filesUnzipped)
     }
+
+
 
 
 
