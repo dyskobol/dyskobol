@@ -80,7 +80,13 @@ public class File {
             return mime;
         }
         FileStream stream = createStream();
-        String mime = tika.detect(stream, name);
+        String mime;
+        try{
+            mime = tika.detect(stream, name);
+        }catch(Exception e){
+            mime = "text/plain";
+        }
+
         stream.close();
         this.mime = mime;
         return mime;
