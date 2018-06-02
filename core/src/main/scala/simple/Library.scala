@@ -15,6 +15,10 @@ object Library {
 
   @native def getDirFilesNat(filesystem: Long, path: String): Array[File]
 
+  @native def getDirFilesByInodeNat(filesystem: Long, inode: Long): Array[File]
+
+  @native def getFileInode(filesystem: Long, path: String): Long
+
   @native def openFileNat(filesystem: Long, inode: Long): Long
 
   @native def closeFileNat(file: Long)
