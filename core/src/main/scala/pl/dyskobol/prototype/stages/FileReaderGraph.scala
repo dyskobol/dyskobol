@@ -2,12 +2,12 @@ package pl.dyskobol.prototype.stages
 
 import akka.stream.{Attributes, Graph, Outlet, SourceShape}
 import akka.stream.stage.{GraphStage, GraphStageLogic, OutHandler}
-import pl.dyskobol.model.{File, FilePointer}
+import pl.dyskobol.model.{File, FilePointer, FileProperties, FlowElements}
 import simple.Library
 
-class FileReaderGraph(val path: String) extends GraphStage[SourceShape[File]] {
-  val out: Outlet[File] = Outlet("Files")
-  override val shape: SourceShape[File] = SourceShape(out)
+class FileReaderGraph(val path: String) extends GraphStage[SourceShape[FlowElements]] {
+  val out: Outlet[FlowElements] = Outlet("Files")
+  override val shape: SourceShape[FlowElements] = SourceShape(out)
 
   override def createLogic(inheritedAttributes: Attributes): GraphStageLogic =
     new GraphStageLogic(shape) {
@@ -21,9 +21,7 @@ class FileReaderGraph(val path: String) extends GraphStage[SourceShape[File]] {
       setHandler(out, new OutHandler {
         override def onPull(): Unit = {
           val file = getNext()
-          if( file.isDefined ) {
-            push(out, file.get)
-          } else {
+          if( file.isDefined ) push(out, (file.get, new FileProperties)) else {
             complete(out)
           }
         }

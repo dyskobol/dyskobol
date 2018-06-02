@@ -1,36 +1,92 @@
 package pl.dyskobol.prototype.plugin
 
-import pl.dyskobol.model.File
-
+import akka.NotUsed
+import akka.stream.{ FlowShape, Graph}
+import akka.stream.scaladsl.GraphDSL
+import pl.dyskobol.model.{File, FileProperties}
+import pl.dyskobol.prototype.plugin.Plugin.FlowElements
+import pl.dyskobol.prototype.plugin.factories._
+import akka.stream.scaladsl.GraphDSL.Implicits._
+import pl.dyskobol.prototype.plugin.persisters.Persisters
 trait Plugin {
   def name: String
-  def supportedFiles: Iterable[String]
-  def processor(): Plugin.Processor
+  def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed]
 }
 
 object Plugin {
+  type FlowElements = (File, FileProperties)
   type ProcessingResult = (FileProperties, Iterable[File])
-  type Processor = File => ProcessingResult
-  implicit def filePropertiesToResult(props: FileProperties): ProcessingResult = { (props, Nil) }
 }
 
-class SimplePlugin(val name: String) extends Plugin {
-  import Plugin._
-  var mapping: Map[String, Processor] = Map()
+class FileMetaExtract(val databaseUrl:String, val excludedMimeTypes: Seq[String] = Seq()) extends Plugin {
+  override def name: String = "file metadata extractor"
+  override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
+    GraphDSL.create() { implicit builder =>
+      val guard       = builder.add(Filters.mimesNotIn(excludedMimeTypes))
+      val extractor   = builder.add(Meta.fileMeta(true))
+      val persister   = builder.add(Persisters.oraclePersister(databaseUrl))
 
-  override def supportedFiles: Iterable[String] = mapping.keys
+      guard ~> extractor ~> persister
+      FlowShape(guard.in, persister.out)
+    }.named(name)
 
-  override def processor(): Processor = process
-
-  def addProcessor(mime: String, processor: Processor): SimplePlugin = {
-    mapping += (mime -> processor)
-    this
   }
+}
 
-  def process(file: File): ProcessingResult = {
-    if( mapping contains file.mime) {
-      return mapping(file.mime)(file)
-    }
-    throw new IllegalArgumentException(f"Mime ${file.mime} is not supported by plugin ${name}")
+class ImageMetaExtract(val mimeTypes: Seq[String] = Seq(), val databaseUrl:String, val thumbnailSizeWH: (Int, Int)= (25,25)) extends Plugin {
+  override def name: String = "image metadata extractor"
+  override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
+
+    GraphDSL.create() { implicit builder =>
+      val guard             = builder.add(Filters.mimesIn(mimeTypes))
+      val metaExtractor     = builder.add(Meta.imageMeta())
+      val miniatureCreator  = builder.add(Content.thumbNail(thumbnailSizeWH._1, thumbnailSizeWH._2))
+      val persister         = builder.add(Persisters.oraclePersister(databaseUrl))
+      guard ~> metaExtractor ~> miniatureCreator ~> persister
+      FlowShape(guard.in, persister.out)
+    }.named(name)
+
+  }
+}
+class DocsExtractor(val mimeTypes: Seq[String] = Seq(), val contentDatabaseUrl:String, val metaDatabaseUrl:String) extends Plugin {
+  override def name: String = "image metadata extractor"
+  override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
+
+
+    GraphDSL.create() { implicit builder =>
+      val guard               = builder.add(Filters.mimesIn(mimeTypes))
+      val broadcast           = builder.add(Linkers.broadcast(6))
+      val xmlExtractor        = builder.add(Meta.xmlExtract())
+      val pdfExtractor        = builder.add(Meta.PDFExtract())
+      val htmlExtractor       = builder.add(Meta.htmlExtract())
+      val msExtractor         = builder.add(Meta.msOfficeExtract())
+      val openOfficeExtractor = builder.add(Meta.openOfficeExtract())
+      val txtExtractor        = builder.add(Meta.txtExtract())
+      val xmlFilter           = builder.add(Meta.xmlExtract())
+      val pdfFilter           = builder.add(Meta.PDFExtract())
+      val htmlFilter          = builder.add(Meta.htmlExtract())
+      val msFilter            = builder.add(Meta.msOfficeExtract())
+      val openOfficeFilter    = builder.add(Meta.openOfficeExtract())
+      val txtExtractorFilter  = builder.add(Meta.txtExtract())
+      val txtContentExtractor = builder.add(Content.txtExtract())
+      val pdfContentExtractor = builder.add(Content.PDFExtract())
+      val contentDatabase     = builder.add(Persisters.oraclePersister(contentDatabaseUrl))
+      val metaDatabase        = builder.add(Persisters.oraclePersister(metaDatabaseUrl))
+      val joiner              = builder.add(Linkers.merge(6))
+
+
+
+
+      guard ~>  broadcast ~> xmlFilter          ~> xmlExtractor         ~> metaDatabase                              ~> joiner
+                broadcast ~> pdfFilter          ~> pdfExtractor         ~> pdfContentExtractor ~> contentDatabase    ~> joiner
+                broadcast ~> htmlFilter         ~> htmlExtractor        ~> metaDatabase                              ~> joiner
+                broadcast ~> msFilter           ~> msExtractor          ~> metaDatabase                              ~> joiner
+                broadcast ~> openOfficeFilter   ~> openOfficeExtractor  ~> metaDatabase                              ~> joiner
+                broadcast ~> txtExtractorFilter ~> txtExtractor         ~> txtContentExtractor ~> contentDatabase    ~> joiner
+
+
+      FlowShape(guard.in, joiner.out)
+    }.named(name)
+
   }
 }
