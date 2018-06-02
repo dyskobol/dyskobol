@@ -72,17 +72,19 @@ class DocsExtractor(val mimeTypes: Seq[String] = Seq(), val contentDatabaseUrl:S
       val pdfContentExtractor = builder.add(Content.PDFExtract())
       val contentDatabase     = builder.add(Persisters.oraclePersister(contentDatabaseUrl))
       val metaDatabase        = builder.add(Persisters.oraclePersister(metaDatabaseUrl))
+      val metaJoiner          = builder.add(Linkers.merge(4))
+      val contentJoiner       = builder.add(Linkers.merge(2))
       val joiner              = builder.add(Linkers.merge(6))
 
 
 
 
-      guard ~>  broadcast ~> xmlFilter          ~> xmlExtractor         ~> metaDatabase                              ~> joiner
-                broadcast ~> pdfFilter          ~> pdfExtractor         ~> pdfContentExtractor ~> contentDatabase    ~> joiner
-                broadcast ~> htmlFilter         ~> htmlExtractor        ~> metaDatabase                              ~> joiner
-                broadcast ~> msFilter           ~> msExtractor          ~> metaDatabase                              ~> joiner
-                broadcast ~> openOfficeFilter   ~> openOfficeExtractor  ~> metaDatabase                              ~> joiner
-                broadcast ~> txtExtractorFilter ~> txtExtractor         ~> txtContentExtractor ~> contentDatabase    ~> joiner
+      guard ~>  broadcast ~> xmlFilter          ~> xmlExtractor                                 ~> metaJoiner       ~> metaDatabase        ~> joiner
+                broadcast ~> pdfFilter          ~> pdfExtractor         ~> pdfContentExtractor  ~> contentJoiner    ~> contentDatabase     ~> joiner
+                broadcast ~> htmlFilter         ~> htmlExtractor                                ~> metaJoiner
+                broadcast ~> msFilter           ~> msExtractor                                  ~> metaJoiner
+                broadcast ~> openOfficeFilter   ~> openOfficeExtractor                          ~> metaJoiner
+                broadcast ~> txtExtractorFilter ~> txtExtractor         ~> txtContentExtractor  ~> contentJoiner
 
 
       FlowShape(guard.in, joiner.out)

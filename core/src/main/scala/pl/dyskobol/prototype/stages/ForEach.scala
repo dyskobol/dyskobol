@@ -2,8 +2,9 @@ package pl.dyskobol.prototype.stages
 
 import akka.stream.stage.{GraphStage, GraphStageLogic, InHandler, OutHandler}
 import akka.stream.{Attributes, FlowShape, Inlet, Outlet}
+import pl.dyskobol.model.FlowElements
 
-class ForEach[FlowElements](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowElements,FlowElements]] {
+class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowElements,FlowElements]] {
 
   val in: Inlet[FlowElements] = Inlet[FlowElements]("ForEach.in")
   val out: Outlet[FlowElements] = Outlet[FlowElements]("ForEach.out")
