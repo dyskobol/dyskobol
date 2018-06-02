@@ -15,6 +15,7 @@ lazy val core = (project in file("core")).
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-actor" % "2.5.11",
       "com.typesafe.akka" %% "akka-testkit" % "2.5.11" % Test,
+      "com.typesafe.akka" %% "akka-stream" % "2.5.11",
       "org.xerial" % "sqlite-jdbc" % "3.7.2",
       "com.mchange" % "c3p0" % "0.9.2.1",
       "org.apache.tika" % "tika-core" % "1.17",
