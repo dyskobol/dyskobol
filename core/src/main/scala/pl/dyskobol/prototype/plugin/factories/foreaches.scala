@@ -17,11 +17,9 @@ import org.apache.tika.parser.pdf.PDFParser
 import org.apache.tika.parser.txt.TXTParser
 import org.apache.tika.parser.xml.XMLParser
 import org.apache.tika.sax.WriteOutContentHandler
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTHeight
 import pl.dyskobol.model.{File, FileProperties}
 import pl.dyskobol.prototype.plugin.Plugin.FlowElements
-import pl.dyskobol.prototype.plugin.factories.Content.extract
-import pl.dyskobol.prototype.plugin.factories.TextExtractors.log
+
 import pl.dyskobol.prototype.stages.ForEach
 
 
@@ -67,15 +65,15 @@ object Meta {
 
   def htmlExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new HtmlParser())
 
-  def txtExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new TXTParser()())
+  def txtExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new TXTParser())
 
-  def PDFExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new PDFParser()())
+  def PDFExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new PDFParser())
 
-  def xmlExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new XMLParser()())
+  def xmlExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new XMLParser())
 
-  def msOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OfficeParser()())
+  def msOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OfficeParser())
 
-  def openOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OpenDocumentParser()())
+  def openOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OpenDocumentParser())
 
   private def extract(parser: Parser, inputStream: InputStream, props: FileProperties) = {
     val handler = new WriteOutContentHandler(-1)
@@ -84,7 +82,6 @@ object Meta {
     metadata.names().foreach((k) => {
       props.addProperty(k, metadata.get(k))
     })
-    log.info(s"${props.toString}\n-----")
 
   }
 
@@ -107,21 +104,21 @@ object Content {
     val metadata = new Metadata()
     parser.parse(inputStream, handler, metadata, new ParseContext())
     props.addProperty("content", handler.toString.replaceAll(" +|\t+", " ").replaceAll("\n+", "\n"))
-    log.info(s"${props.toString}\n-----")
+
 
   }
 
   def htmlExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new HtmlParser())
 
-  def txtExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new TXTParser()())
+  def txtExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new TXTParser())
 
-  def PDFExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new PDFParser()())
+  def PDFExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new PDFParser())
 
-  def xmlExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new XMLParser()())
+  def xmlExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new XMLParser())
 
-  def msOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OfficeParser()())
+  def msOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OfficeParser())
 
-  def openOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OpenDocumentParser()())
+  def openOfficeExtract(): ForEach[FlowElements] = Helper.extractSkeleton(extract, new OpenDocumentParser())
 }
 
 object Helper {

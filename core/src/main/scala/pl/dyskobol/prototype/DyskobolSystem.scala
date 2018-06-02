@@ -8,6 +8,7 @@ import akka.stream.scaladsl.{GraphDSL, RunnableGraph, Sink}
 import akka.stream.{ActorMaterializer, ClosedShape, Materializer}
 import pl.dyskobol.prototype.plugin.factories.Linkers
 import akka.stream.scaladsl.GraphDSL.Implicits._
+import pl.dyskobol.model.Constans
 import pl.dyskobol.prototype.plugin.{DocsExtractor, FileMetaExtract, ImageMetaExtract, Plugin}
 
 
@@ -15,8 +16,8 @@ object Main extends App {
   implicit val system = ActorSystem("dyskobol")
   implicit val materializer = ActorMaterializer()
   implicit val executionContext = ExecutionContexts.global();
-  implicit val imgsTypesToProess = Seq()
-  implicit val docsTyps = Seq()
+  implicit val imgsTypesToProess = Constans.imgs
+  implicit val docsTyps = Constans.msoffice ++ Constans.openOffice ++ Constans.xml
 
 
   RunnableGraph.fromGraph(GraphDSL.create() { implicit builder =>
