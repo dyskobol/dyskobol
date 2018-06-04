@@ -6,5 +6,5 @@ import pl.dyskobol.model.{File, FlowElements}
 package object stages {
   def FileSource(path: String): Source[FlowElements, NotUsed] = Source.fromGraph(new FileReaderGraph(path))
 
-  val FileTypeResolver: Flow[File, File, NotUsed] = Flow[File].map(f=> {f.mime(); f})
+  val FileTypeResolver: Flow[FlowElements, FlowElements, NotUsed] = Flow[FlowElements].map(f=> {f._1.mime(); f})
 }

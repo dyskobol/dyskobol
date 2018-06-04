@@ -74,7 +74,7 @@ class DocsExtractor(val mimeTypes: Seq[String] = Seq(), val contentDatabaseUrl:S
       val metaDatabase        = builder.add(Persisters.oraclePersister(metaDatabaseUrl))
       val metaJoiner          = builder.add(Linkers.merge(4))
       val contentJoiner       = builder.add(Linkers.merge(2))
-      val joiner              = builder.add(Linkers.merge(6))
+      val joiner              = builder.add(Linkers.merge(2))
 
 
 
