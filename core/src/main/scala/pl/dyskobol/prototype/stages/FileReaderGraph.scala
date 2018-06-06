@@ -21,7 +21,8 @@ class FileReaderGraph(val path: String) extends GraphStage[SourceShape[FlowEleme
       setHandler(out, new OutHandler {
         override def onPull(): Unit = {
           val file = getNext()
-          if( file.isDefined ) push(out, (file.get, new FileProperties)) else {
+          if( file.isDefined ) push(out, (file.get, new FileProperties))
+          else {
             complete(out)
           }
         }
@@ -36,7 +37,16 @@ class FileReaderGraph(val path: String) extends GraphStage[SourceShape[FlowEleme
 
         if( directoriesStack.isEmpty)  None
         else {
-          val newFiles = readNewFiles()
+          var newFiles = List[File]()
+
+          // There may be empty directories
+          while(newFiles.isEmpty && directoriesStack.nonEmpty) newFiles = readNewFiles()
+
+          // No more directories
+          if(newFiles.isEmpty) {
+            return None
+          }
+
           files = newFiles.tail ++ files
           Some(newFiles.head)
         }
