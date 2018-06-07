@@ -30,7 +30,7 @@ package object image {
 
   object foreaches extends foreaches {
 
-    def imageMeta(onlyKeys: Seq[String] = Nil)(implicit builder: GraphDSL.Builder[NotUsed]): FlowShape[(FlowElements), (FlowElements)] = {
+    def imageMeta(onlyKeys: Seq[String] = Nil): ForEach[(File, FileProperties)] = {
       onlyKeys match {
         case Nil =>
           //extract all metadata

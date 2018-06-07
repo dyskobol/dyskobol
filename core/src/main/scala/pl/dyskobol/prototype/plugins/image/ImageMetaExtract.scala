@@ -14,9 +14,9 @@ class ImageMetaExtract(val mimeTypes: Seq[String] = Seq(), val thumbnailSizeWH: 
   override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
 
     GraphDSL.create() { implicit builder =>
-      val guard = filters.mimesIn(mimeTypes)
-      val metaExtractor = foreaches.imageMeta()
-      val miniatureCreator = foreaches.resize(thumbnailSizeWH._1, thumbnailSizeWH._2, "thumbnail")
+      val guard = builder add filters.mimesIn(mimeTypes)
+      val metaExtractor = builder add foreaches.imageMeta()
+      val miniatureCreator = builder add foreaches.resize(thumbnailSizeWH._1, thumbnailSizeWH._2, "thumbnail")
 
       guard ~> metaExtractor ~> miniatureCreator
 

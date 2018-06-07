@@ -10,13 +10,13 @@ import pl.dyskobol.prototype.stages.ForEach
 package object file {
 
   object flows {
-      def FileMetadataExtract(full:Boolean=true)(implicit builder: GraphDSL.Builder[NotUsed]) = builder.add(new FileMetadataExtract(full).flow())
+      def FileMetadataExtract(full:Boolean=true) = new FileMetadataExtract(full).flow().async
   }
 
   object filters extends filters
 
   object foreaches extends foreaches {
-    def fileMeta(full: Boolean = true)(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def fileMeta(full: Boolean = true) =
       full match {
         case true => ForEach((pair: (FlowElements)) => {
           val (file, prop) = pair

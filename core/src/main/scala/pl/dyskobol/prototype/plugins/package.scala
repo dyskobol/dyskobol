@@ -15,13 +15,13 @@ package object plugins {
 
   class filters {
 
-    def sizeBetween(min: Long, max: Long)(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def sizeBetween(min: Long, max: Long) =
       Filter((p: FlowElements) => (min to max) contains p._1.size)
 
-    def mimesIn(mimeTypes: Seq[String])(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def mimesIn(mimeTypes: Seq[String]) =
       Filter((p: FlowElements) => mimeTypes contains p._1.mime)
 
-    def mimesNotIn(mimeTypes: Seq[String])(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def mimesNotIn(mimeTypes: Seq[String]) =
       Filter((p: FlowElements) => mimeTypes contains p._1.mime)
   }
 

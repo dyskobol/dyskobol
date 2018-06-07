@@ -19,61 +19,61 @@ import pl.dyskobol.prototype.stages.ForEach
 package object document {
 
   object flows {
-    def DocumentContentExtract()(implicit builder: GraphDSL.Builder[NotUsed]) = builder.add(new DocumentContentExtract().flow())
-    def DocumentMetaDataExtract()(implicit builder: GraphDSL.Builder[NotUsed]) = builder.add(new DocumentMetadataExtract().flow())
+    def DocumentContentExtract() = new DocumentContentExtract().flow()
+    def DocumentMetaDataExtract() = new DocumentMetadataExtract().flow()
   }
 
   object filters extends filters {
-    def isXml(implicit builder: GraphDSL.Builder[NotUsed]) = mimesIn(supportedMimes.xml)
+    def isXml = mimesIn(supportedMimes.xml)
 
-    def isTxt(implicit builder: GraphDSL.Builder[NotUsed]) = mimesIn(supportedMimes.txt)
+    def isTxt = mimesIn(supportedMimes.txt)
 
-    def isPdf(implicit builder: GraphDSL.Builder[NotUsed]) = mimesIn(supportedMimes.pdf)
+    def isPdf = mimesIn(supportedMimes.pdf)
 
-    def isHtml(implicit builder: GraphDSL.Builder[NotUsed]) = mimesIn(supportedMimes.html)
+    def isHtml = mimesIn(supportedMimes.html)
 
-    def isMsOffice(implicit builder: GraphDSL.Builder[NotUsed]) = mimesIn(supportedMimes.msOffice)
+    def isMsOffice = mimesIn(supportedMimes.msOffice)
 
-    def isOpenOffice(implicit builder: GraphDSL.Builder[NotUsed]) = mimesIn(supportedMimes.openOffice)
+    def isOpenOffice = mimesIn(supportedMimes.openOffice)
 
   }
 
   object foreaches extends foreaches {
 
-    def htmlContent()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def htmlContent() =
       extractCreator(contentExtract, new HtmlParser())
 
-    def txtContent()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def txtContent() =
       extractCreator(contentExtract, new TXTParser())
 
-    def xmlContent()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def xmlContent() =
       extractCreator(contentExtract, new XMLParser())
 
-    def pdfContent()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def pdfContent() =
       extractCreator(contentExtract, new PDFParser())
 
-    def msOfficeContent()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def msOfficeContent() =
       extractCreator(contentExtract, new OfficeParser())
 
-    def openOffice()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def openOffice() =
       extractCreator(contentExtract, new OpenDocumentParser())
 
-    def htmlMeta()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def htmlMeta() =
       extractCreator(metaExtract, new HtmlParser())
 
-    def txtMeta()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def txtMeta() =
       extractCreator(metaExtract, new TXTParser())
 
-    def xmlMeta()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def xmlMeta() =
       extractCreator(metaExtract, new XMLParser())
 
-    def pdfMetat()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def pdfMetat() =
       extractCreator(metaExtract, new PDFParser())
 
-    def msOfficeMeta()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def msOfficeMeta() =
       extractCreator(metaExtract, new OfficeParser())
 
-    def openMeta()(implicit builder: GraphDSL.Builder[NotUsed]) =
+    def openMeta() =
       extractCreator(metaExtract, new OpenDocumentParser())
 
 
@@ -87,13 +87,17 @@ package object document {
     private def metaExtract(parser: Parser, inputStream: InputStream, props: FileProperties) = {
       val handler = new WriteOutContentHandler(-1)
       val metadata = new Metadata()
-      parser.parse(inputStream, handler, metadata, new ParseContext())
-      metadata.names().foreach((k) => {
-        props.addProperty(k, metadata.get(k))
-      })
+//      try {
+        parser.parse(inputStream, handler, metadata, new ParseContext())
+        metadata.names().foreach((k) => {
+          props.addProperty(k, metadata.get(k))
+        })
+//      } catch {
+//        case _ : Throwable => None
+//      }
     }
 
-    private def extractCreator(extrFun: (Parser, InputStream, FileProperties) => Unit, parser: Parser)(implicit builder: GraphDSL.Builder[NotUsed]) =
+    private def extractCreator(extrFun: (Parser, InputStream, FileProperties) => Unit, parser: Parser) =
       ForEach((pair: (FlowElements)) => {
         val (file, prop) = pair
         extrFun(parser, file.createStream(), prop)

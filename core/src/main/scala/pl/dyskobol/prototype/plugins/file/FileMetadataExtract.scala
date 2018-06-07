@@ -12,8 +12,8 @@ class FileMetadataExtract(full: Boolean = true, excludedMimes:Seq[String]= Nil) 
   override def name: String = "file metadata extractor"
   override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
     GraphDSL.create() { implicit builder =>
-      val guard       = filters.mimesNotIn(excludedMimes)
-      val extractor   = foreaches.fileMeta(full)
+      val guard       = builder add filters.mimesNotIn(excludedMimes)
+      val extractor   = builder add  foreaches.fileMeta(full)
 
       guard ~> extractor
       FlowShape(guard.in, extractor.out)

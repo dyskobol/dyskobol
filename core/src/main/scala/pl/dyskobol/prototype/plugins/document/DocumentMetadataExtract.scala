@@ -13,20 +13,20 @@ class DocumentMetadataExtract extends plugin {
 
   override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
     GraphDSL.create() { implicit builder =>
-      val broadcast           = stages.Broadcast(6)
-      val xmlExtractor        = foreaches.xmlMeta()
-      val pdfExtractor        = foreaches.pdfMetat()
-      val htmlExtractor       = foreaches.htmlMeta()
-      val msExtractor         = foreaches.msOfficeMeta()
-      val openOfficeExtractor = foreaches.openMeta()
-      val txtExtractor        = foreaches.txtMeta()
-      val xmlFilter           = filters.isXml
-      val pdfFilter           = filters.isPdf
-      val htmlFilter          = filters.isHtml
-      val msFilter            = filters.isMsOffice
-      val openOfficeFilter    = filters.isOpenOffice
-      val txtExtractorFilter  = filters.isTxt
-      val merge               = stages.Merge(6)
+      val broadcast           = builder add stages.Broadcast(6)
+      val xmlExtractor        = builder add foreaches.xmlMeta()
+      val pdfExtractor        = builder add foreaches.pdfMetat()
+      val htmlExtractor       = builder add foreaches.htmlMeta()
+      val msExtractor         = builder add foreaches.msOfficeMeta()
+      val openOfficeExtractor = builder add foreaches.openMeta()
+      val txtExtractor        = builder add foreaches.txtMeta()
+      val xmlFilter           = builder add filters.isXml
+      val pdfFilter           = builder add filters.isPdf
+      val htmlFilter          = builder add filters.isHtml
+      val msFilter            = builder add filters.isMsOffice
+      val openOfficeFilter    = builder add filters.isOpenOffice
+      val txtExtractorFilter  = builder add filters.isTxt
+      val merge               = builder add stages.Merge(6)
 
 
       broadcast ~> xmlFilter ~> xmlExtractor ~> merge
