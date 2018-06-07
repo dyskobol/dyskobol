@@ -2,8 +2,7 @@ package pl.dyskobol.prototype.stages
 
 import akka.stream.stage.{GraphStage, GraphStageLogic, InHandler, OutHandler}
 import akka.stream.{Attributes, FlowShape, Inlet, Outlet}
-import pl.dyskobol.model.{File, FileProperties}
-import pl.dyskobol.prototype.plugin.Plugin.FlowElements
+import pl.dyskobol.model.{File, FileProperties, FlowElements}
 
 class Persister[A](val databaseUrl:String) extends GraphStage[FlowShape[FlowElements, FlowElements]] {
 
