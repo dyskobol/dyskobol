@@ -71,7 +71,7 @@ public class File {
         id = 0;
     }
 
-    public FileStream createStream() {
+    public InputStream createStream() {
         return new FileStream(filesystem, this);
     }
 
@@ -79,12 +79,18 @@ public class File {
         if( this.mime != null ) {
             return mime;
         }
-        FileStream stream = createStream();
+        InputStream stream = createStream();
         String mime;
         try{
             mime = tika.detect(stream, name);
         }catch(Exception e){
-            mime = "text/plain";
+            e.printStackTrace();
+            mime = "application/octet-stream";
+        }
+
+        // Tika seems to have a problem with .zip files
+        if( name.endsWith(".zip") ) {
+            mime = "application/zip";
         }
 
         stream.close();

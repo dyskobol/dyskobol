@@ -22,7 +22,7 @@ package object plugins {
       Filter((p: FlowElements) => mimeTypes contains p._1.mime)
 
     def mimesNotIn(mimeTypes: Seq[String]) =
-      Filter((p: FlowElements) => mimeTypes contains p._1.mime)
+      Filter((p: FlowElements) => ! (mimeTypes contains p._1.mime) )
   }
 
   object filters {

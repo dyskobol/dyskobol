@@ -10,7 +10,7 @@ import pl.dyskobol.prototype.stages.ForEach
 package object file {
 
   object flows {
-      def FileMetadataExtract(full:Boolean=true) = new FileMetadataExtract(full).flow().async
+      def FileMetadataExtract(full:Boolean=true) = new FileMetadataExtract(full).flow()
   }
 
   object filters extends filters

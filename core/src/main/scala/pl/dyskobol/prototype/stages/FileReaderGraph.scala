@@ -1,11 +1,12 @@
 package pl.dyskobol.prototype.stages
 
+import akka.stream.scaladsl.{Flow, Source}
 import akka.stream.{Attributes, Graph, Outlet, SourceShape}
 import akka.stream.stage.{GraphStage, GraphStageLogic, OutHandler}
 import pl.dyskobol.model.{File, FilePointer, FileProperties, FlowElements}
 import simple.Library
 
-class FileReaderGraph(val path: String) extends GraphStage[SourceShape[FlowElements]] {
+class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Iterator.empty) extends GraphStage[SourceShape[FlowElements]] {
   val out: Outlet[FlowElements] = Outlet("Files")
   override val shape: SourceShape[FlowElements] = SourceShape(out)
 
@@ -16,12 +17,25 @@ class FileReaderGraph(val path: String) extends GraphStage[SourceShape[FlowEleme
       private val root: FilePointer = Library.getFileInode(filesystem, ".")
 
       private var files: List[File] = Nil
+      private var generatedFiles: Iterator[File] = Iterator.empty
       private var directoriesStack: List[FilePointer] = root :: Nil
+
 
       setHandler(out, new OutHandler {
         override def onPull(): Unit = {
           val file = getNext()
-          if( file.isDefined ) push(out, (file.get, new FileProperties))
+          if( file.isDefined ) {
+
+            // Add new files (for example unwrapped files)
+            try {
+              generatedFiles = generatedFiles ++ generator(file.get)
+            } catch {
+              // Ignore
+              case _: Throwable => ()
+            }
+
+            push(out, (file.get, new FileProperties))
+          }
           else {
             complete(out)
           }
@@ -29,6 +43,9 @@ class FileReaderGraph(val path: String) extends GraphStage[SourceShape[FlowEleme
       })
 
       def getNext(): Option[File] = {
+        if( generatedFiles.hasNext ) {
+          return Some(generatedFiles.next())
+        }
         if( files.nonEmpty ) {
           val toReturn = files.head
           files = files.tail

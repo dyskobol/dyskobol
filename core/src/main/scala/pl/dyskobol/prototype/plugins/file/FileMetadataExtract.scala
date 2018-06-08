@@ -8,16 +8,7 @@ import pl.dyskobol.prototype.plugins.plugin
 import akka.stream.scaladsl.GraphDSL.Implicits._
 
 
-class FileMetadataExtract(full: Boolean = true, excludedMimes:Seq[String]= Nil) extends plugin {
+class FileMetadataExtract(full: Boolean = true) extends plugin {
   override def name: String = "file metadata extractor"
-  override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
-    GraphDSL.create() { implicit builder =>
-      val guard       = builder add filters.mimesNotIn(excludedMimes)
-      val extractor   = builder add  foreaches.fileMeta(full)
-
-      guard ~> extractor
-      FlowShape(guard.in, extractor.out)
-    }.named(name)
-
-  }
+  override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = foreaches.fileMeta(full).named(name)
 }

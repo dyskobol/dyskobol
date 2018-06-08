@@ -17,9 +17,13 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
 
   override def createLogic(attr: Attributes): GraphStageLogic =
     new GraphStageLogic(shape) {
+      var pulled = false
+
       def decider = attr.get[SupervisionStrategy].map(_.decider).getOrElse(Supervision.resumingDecider)
       setHandler(in, new InHandler {
         override def onPush(): Unit = {
+          pulled = false
+
           val (file , fileProp) = grab(in)
 
           try{
@@ -28,7 +32,10 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
             case e: Throwable =>
               decider(e) match {
                 case Stop => failStage(e)
-                case _ => pull(in)
+                case _ => {
+                  pulled = true
+                  pull(in)
+                }
             }
 
           }
@@ -37,7 +44,10 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
       })
       setHandler(out, new OutHandler {
         override def onPull(): Unit = {
-          pull(in)
+          if( !pulled ) {
+            pull(in)
+            pulled = true
+          }
         }
       })
     }

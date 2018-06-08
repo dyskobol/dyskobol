@@ -248,6 +248,14 @@ Java_simple_Library_00024_readNat(JNIEnv * env, jclass obj, jlong file, jlong of
     TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
 
     long bytesLeft = file_->meta->size - offset;
+    if( bytesLeft < 0 ) {
+        bytesLeft = 0;
+    }
+//    fprintf(stdout, "Bytes left %i\n", bytesLeft);
+//    fprintf(stdout, "Offset %i\n", offset);
+//    fprintf(stdout, "Size %i\n", file_->meta->size);
+//    fflush(stdout);
+
     count = bytesLeft < count ? bytesLeft : count;
 
     jbyteArray data = (*env)->NewByteArray(env, count);

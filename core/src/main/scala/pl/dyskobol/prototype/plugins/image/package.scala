@@ -19,8 +19,8 @@ import pl.dyskobol.prototype.stages.ForEach
 package object image {
 
   object flows {
-    def ImageMetaExtract(mimeTypes: Seq[String] = Seq(), thumbnailSizeWH: (Int, Int) = (25, 25))(implicit builder: GraphDSL.Builder[NotUsed]) =
-      builder.add(new ImageMetaExtract(mimeTypes, thumbnailSizeWH).flow())
+    def ImageMetaExtract(mimeTypes: Seq[String] = Seq(), extractThumbnails: Boolean = false, thumbnailSizeWH: (Int, Int) = (25, 25)) =
+      new ImageMetaExtract(mimeTypes, extractThumbnails, thumbnailSizeWH).flow()
   }
 
   object filters extends filters {
