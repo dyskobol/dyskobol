@@ -28,7 +28,11 @@ lazy val core = (project in file("core")).
       "org.bytedeco.javacpp-presets" % "opencv" % "3.0.0-1.1",
       "org.bytedeco.javacpp-presets" % "opencv" % "3.0.0-1.1",
       "org.apache.commons" % "commons-imaging" % "1.0-R1401825" from "https://repo.adobe.com/nexus/content/repositories/public/org/apache/commons/commons-imaging/1.0-R1401825/commons-imaging-1.0-R1401825.jar",
-      "org.apache.pdfbox" % "jbig2-imageio" % "3.0.0"
+      "org.apache.pdfbox" % "jbig2-imageio" % "3.0.0",
+      "org.postgresql" % "postgresql" % "9.3-1100-jdbc4",
+      "com.typesafe.slick" %% "slick" % "3.2.0",
+      "org.slf4j" % "slf4j-nop" % "1.6.4",
+      "com.typesafe.akka" %% "akka-persistence" % "2.5.4"
     )
   ).
 
