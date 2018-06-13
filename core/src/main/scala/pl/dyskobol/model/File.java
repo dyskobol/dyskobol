@@ -29,7 +29,7 @@ public class File {
 
     private static Tika tika = new Tika();
     private String mime;
-    public long id;
+    public int id;
 
     public static final int REGULAR_FILE = 5;
     public static final int DIRECTORY = 3;

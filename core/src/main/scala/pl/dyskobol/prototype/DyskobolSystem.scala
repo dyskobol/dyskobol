@@ -12,7 +12,8 @@ import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
 import pl.dyskobol.model.{File, FileProperties, FlowElements}
-import pl.dyskobol.prototype.persist.Tables.{ByteValues, DateValues, MimeTypes, NumberValues, StringValues}
+import pl.dyskobol.prototype.persist.DB
+import pl.dyskobol.prototype.persist.Tables.{ByteValues, DateValues, FileInfo, NumberValues, StringValues}
 
 import scala.collection.mutable
 import scala.concurrent.Await
@@ -31,6 +32,8 @@ object Main extends App {
   implicit val materializer = ActorMaterializer(
     ActorMaterializerSettings(system).withSupervisionStrategy(decider))
   implicit val executionContext = ExecutionContexts.global()
+
+  val db = new DB("dyskobol_example", "dyskobol", "dyskobol")
 
   // Since we merge flows that may produce the same files we need to make sure we don't print one twice
   // This is not an issue in final project - we'll use DB there
@@ -57,54 +60,17 @@ object Main extends App {
     ClosedShape
   }).run()(materializer).onComplete(_ => {
 
-    val mimetypes = TableQuery[MimeTypes]
-    val stringValues = TableQuery[StringValues]
-    val byteValues = TableQuery[ByteValues]
-    val numberValues = TableQuery[NumberValues]
-    val dateValues = TableQuery[DateValues]
-
-    val schema = stringValues.schema ++ numberValues.schema ++ dateValues.schema ++ byteValues.schema ++ mimetypes.schema
-
-    val db = Database.forURL("jdbc:postgresql://localhost/postgres?user=postgres&password=postgres")
-    Await.result(db.run(schema.create), Duration.Inf)
-
-    var i = 0
-    for( (_, (file, props)) <- processed ) {
-      println("-----------------------------------------------------")
-      if( file.path contains "@" ) {
-        println("                                                                              FROM ZIP")
-      }
-      println(f"${file.path}/${file.name}, ${file.mime}")
-      println(props)
-
-      Await.result(db.run(
-        mimetypes += (i, f"${file.mime}", f"${file.path}/${file.name}")), Duration.apply(15, "seconds"))
-
-      for( (name, value) <- props.getAll() ) {
-        value match {
-          case v: String => {
-            if(name != "name" && name != "mtype") // those are in "MIMETYPES" relation
-              Await.result(db.run(DBIO.seq(
-                stringValues += (i, name, value.asInstanceOf[String]))), Duration.apply(15, "seconds"))
-          }
-          case v: Array[Byte] => {
-            Await.result(db.run(DBIO.seq(
-              byteValues += (i, name, value.asInstanceOf[Blob]))), Duration.apply(15, "seconds"))
-          }
-          case v: java.util.Date => {
-            Await.result(db.run(dateValues += (i, name, value.asInstanceOf[java.sql.Date])), Duration.apply(15, "seconds"))
-          }
-          case v: BigDecimal => {
-            Await.result(db.run(numberValues += (i, name, value.asInstanceOf[BigDecimal])), Duration.apply(15, "seconds"))
-          }
-        }
-      }
-
-      i = i+1
-
-    }
-    db.close()
-    system.terminate()
+    db.saveFiles(processed.values.map(_._1).toList).onComplete(f => if( f.isSuccess ) {
+      db.saveProps {
+        processed.values.map(fileAndProps => {
+          val (file, props) = fileAndProps
+          (file.id, props)
+        })
+      }.onComplete(_ => {
+        db.close()
+        system.terminate()
+      })
+    })
   })
 
 }

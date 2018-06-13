@@ -6,11 +6,9 @@ import java.sql.{Blob, Date}
 
 object Tables {
 
-  case class MimeType(id: Int, mime: String, name: String)
-
-  class MimeTypes(tag: Tag)
-    extends Table[(Int, String, String)](tag, "MIMETYPES") {
-    def id = column[Int]("ID", O.PrimaryKey/*, O.AutoInc*/)
+  class FileInfo(tag: Tag)
+    extends Table[(Int, String, String)](tag, "FILES") {
+    def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
 
     def mimetype = column[String]("MIMETYPE")
 
