@@ -12,6 +12,8 @@ class FileProperties {
   lazy val dateValues: mutable.Map[String, Date] = mutable.Map()
   lazy val byteValues:  mutable.Map[String, Array[Byte]] = mutable.Map()
 
+  def getAll() = stringValues.iterator ++ numberValues.iterator ++ dateValues.iterator ++ byteValues.iterator;
+
 
   def addProperty(name: String, value: String): Unit = {
     stringValues += (name -> value)
