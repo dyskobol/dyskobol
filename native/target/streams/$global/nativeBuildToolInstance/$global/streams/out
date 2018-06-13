@@ -1,0 +1,30 @@
+[0m[[0m[0minfo[0m] [0m[0m-- JNI include directories: /usr/lib/jvm/default-java/include;/usr/lib/jvm/default-java/include/linux;/usr/lib/jvm/default-java/include[0m
+[0m[[0m[0minfo[0m] [0m[0m-- Configuring done[0m
+[0m[[0m[0minfo[0m] [0m[0m-- Generating done[0m
+[0m[[0m[0minfo[0m] [0m[0m-- Build files have been written to: /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build[0m
+[0m[[0m[0minfo[0m] [0m[0m/usr/bin/cmake -H/home/pawel/Documents/Dyskobol/dyskobol/native/src -B/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build --check-build-system CMakeFiles/Makefile.cmake 0[0m
+[0m[[0m[0minfo[0m] [0m[0m/usr/bin/cmake -E cmake_progress_start /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/progress.marks[0m
+[0m[[0m[0minfo[0m] [0m[0mmake -f CMakeFiles/Makefile2 all[0m
+[0m[[0m[0minfo[0m] [0m[0mmake[1]: Entering directory '/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build'[0m
+[0m[[0m[0minfo[0m] [0m[0mmake -f CMakeFiles/demo0.dir/build.make CMakeFiles/demo0.dir/depend[0m
+[0m[[0m[0minfo[0m] [0m[0mmake[2]: Entering directory '/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build'[0m
+[0m[[0m[0minfo[0m] [0m[0mcd /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/pawel/Documents/Dyskobol/dyskobol/native/src /home/pawel/Documents/Dyskobol/dyskobol/native/src /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/demo0.dir/DependInfo.cmake --color=[0m
+[0m[[0m[0minfo[0m] [0m[0mDependee "/home/pawel/Documents/Dyskobol/dyskobol/native/src/library.c" is newer than depender "CMakeFiles/demo0.dir/library.c.o".[0m
+[0m[[0m[0minfo[0m] [0m[0mClearing dependencies in "/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/demo0.dir/depend.make".[0m
+[0m[[0m[0minfo[0m] [0m[0mScanning dependencies of target demo0[0m
+[0m[[0m[0minfo[0m] [0m[0mmake[2]: Leaving directory '/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build'[0m
+[0m[[0m[0minfo[0m] [0m[0mmake -f CMakeFiles/demo0.dir/build.make CMakeFiles/demo0.dir/build[0m
+[0m[[0m[0minfo[0m] [0m[0mmake[2]: Entering directory '/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build'[0m
+[0m[[0m[0minfo[0m] [0m[0m[ 50%] Building C object CMakeFiles/demo0.dir/library.c.o[0m
+[0m[[0m[0minfo[0m] [0m[0m/usr/bin/cc  -Ddemo0_EXPORTS -I/home/pawel/Documents/Dyskobol/dyskobol/native/src/. -I/home/pawel/Documents/Dyskobol/dyskobol/native/src/include -I/usr/lib/jvm/default-java/include -I/usr/lib/jvm/default-java/include/linux -I/usr/local/include/tsk -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux  -O3 -DNDEBUG -fPIC   -o CMakeFiles/demo0.dir/library.c.o   -c /home/pawel/Documents/Dyskobol/dyskobol/native/src/library.c[0m
+[0m[[0m[0minfo[0m] [0m[0m[100%] Linking C shared library libdemo0.so[0m
+[0m[[0m[0minfo[0m] [0m[0m/usr/bin/cmake -E cmake_link_script CMakeFiles/demo0.dir/link.txt --verbose=1[0m
+[0m[[0m[0minfo[0m] [0m[0m/usr/bin/cc  -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libdemo0.so -o libdemo0.so CMakeFiles/demo0.dir/library.c.o -ltsk [0m
+[0m[[0m[0minfo[0m] [0m[0mmake[2]: Leaving directory '/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build'[0m
+[0m[[0m[0minfo[0m] [0m[0m[100%] Built target demo0[0m
+[0m[[0m[0minfo[0m] [0m[0mmake[1]: Leaving directory '/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build'[0m
+[0m[[0m[0minfo[0m] [0m[0m/usr/bin/cmake -E cmake_progress_start /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles 0[0m
+[0m[[0m[0minfo[0m] [0m[0m[100%] Built target demo0[0m
+[0m[[0m[0minfo[0m] [0m[0mInstall the project...[0m
+[0m[[0m[0minfo[0m] [0m[0m-- Install configuration: "Release"[0m
+[0m[[0m[0minfo[0m] [0m[0m-- Installing: /home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/bin/./libdemo0.so[0m

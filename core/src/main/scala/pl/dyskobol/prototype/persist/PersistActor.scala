@@ -2,7 +2,7 @@ package pl.dyskobol.prototype.persist
 
 import slick.driver.PostgresDriver.api._
 import akka.actor.Actor
-import pl.dyskobol.prototype.persist.Main.{db, mimetypes}
+import pl.dyskobol.prototype.persist.Tables.MimeTypes
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
@@ -12,7 +12,7 @@ import ExecutionContext.Implicits.global
 class PersistActor extends Actor{
 
   val db = Database.forURL("jdbc:postgresql://localhost/postgres?user=postgres&password=postgres")
-
+  val mimetypes = TableQuery[MimeTypes]
   override def receive: Receive = {
     case BasicFileInfo(name, property, propertyValue) => {
       if( property == "mimetype"){

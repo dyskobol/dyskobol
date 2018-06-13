@@ -1,14 +1,7 @@
 package pl.dyskobol.prototype.persist
 
-import pl.dyskobol.prototype.persist.Tables.{MimeType, MimeTypes}
 import slick.driver.PostgresDriver.api._
 import slick.lifted.Tag
-
-import scala.concurrent.Await
-import scala.concurrent.duration.Duration
-
-import scala.concurrent._
-import ExecutionContext.Implicits.global
 
 object Tables {
 
@@ -25,21 +18,12 @@ object Tables {
     def * = (id, mimetype, name) //<> (MimeType.tupled, MimeType.unapply)
   }
 
+  class Properties(tag: Tag)
+    extends Table[(Int, String, String)](tag, "PROPERTIES") {
+    def id = column[Int]("ID")
+    def property = column[String]("PROPERTY")
+    def propertyValue = column[String]("PROPERTY_VALUE")
+    def * = (id, property, propertyValue)
+  }
 
 }
-
- object Main extends App{
-   val mimetypes = TableQuery[MimeTypes]
-
-   val db = Database.forURL("jdbc:postgresql://localhost/postgres?user=postgres&password=postgres")
-
-   try {
-     Await.result(db.run(DBIO.seq(
-
-       mimetypes += (1, "mimetype", "name"),
-       mimetypes += (2, "mimetype", "name"),
-
-       // print the users (select * from USERS)
-       mimetypes.result.map(println))), Duration.Inf)
-   } finally db.close
- }

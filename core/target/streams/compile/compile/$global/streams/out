@@ -1,0 +1,8 @@
+[0m[[0m[33mwarn[0m] [0m[0m/home/pawel/Documents/Dyskobol/dyskobol/core/src/main/scala/pl/dyskobol/prototype/plugins/unzip/package.scala:34:18: This catches all Throwables. If this is really intended, use `case e : Throwable` to clear this warning.[0m
+[0m[[0m[33mwarn[0m] [0m[0m            case e => e.printStackTrace()[0m
+[0m[[0m[33mwarn[0m] [0m[0m                 ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere was one deprecation warning[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere was one deprecation warning (since 2.11.0)[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 13 deprecation warnings (since 3.2)[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 15 deprecation warnings in total; re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m

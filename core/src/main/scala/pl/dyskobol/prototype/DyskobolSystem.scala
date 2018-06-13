@@ -2,6 +2,7 @@ package pl.dyskobol.prototype
 
 import java.util.concurrent.CountDownLatch
 
+import slick.driver.PostgresDriver.api._
 import akka.NotUsed
 import akka.actor.{ActorSystem, Props}
 import akka.dispatch.ExecutionContexts
@@ -10,9 +11,15 @@ import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
 import pl.dyskobol.model.{File, FileProperties, FlowElements}
+import pl.dyskobol.prototype.persist.Main.mimetypes
 import pl.dyskobol.prototype.plugins.filters
+import pl.dyskobol.prototype.persist.Main.{db, mimetypes}
+import pl.dyskobol.prototype.persist.Tables.{MimeTypes, Properties}
 
 import scala.collection.mutable
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+import scala.util.Random
 
 
 
@@ -52,6 +59,13 @@ object Main extends App {
 
     ClosedShape
   }).run()(materializer).onComplete(_ => {
+    val mimetypes = TableQuery[MimeTypes]
+    val properties = TableQuery[Properties]
+    val schema = properties.schema ++ mimetypes.schema
+
+    val db = Database.forURL("jdbc:postgresql://localhost/postgres?user=postgres&password=postgres")
+    db.run(schema.create)
+
     for( (_, (file, props)) <- processed ) {
       println("-----------------------------------------------------")
       if( file.path contains "@" ) {
@@ -59,6 +73,39 @@ object Main extends App {
       }
       println(f"${file.path}/${file.name}, ${file.mime}")
       println(props)
+
+      var i = Math.abs(Random.nextInt)
+      try{
+        Await.result(db.run(
+          mimetypes += (i, f"${file.mime}", f"${file.path}/${file.name}")), Duration.apply(15, "seconds"))
+      } //finally db.close
+
+
+      for((propertyName, stringValue) <- props.numberValues ){
+        try{
+            Await.result(db.run(DBIO.seq(
+              properties += (i,f"${propertyName}",f"${stringValue.toString}"))),Duration.apply(15, "seconds"))
+        }
+      }
+      for((propertyName, stringValue) <- props.stringValues ){
+        try{
+          Await.result(db.run(DBIO.seq(
+            properties += (i,f"${propertyName}",f"${stringValue.toString}"))),Duration.apply(15, "seconds"))
+        }
+      }
+      for((propertyName, stringValue) <- props.dateValues ){
+        try{
+          Await.result(db.run(DBIO.seq(
+            properties += (i,f"${propertyName}",f"${stringValue.toString}"))),Duration.apply(15, "seconds"))
+        }
+      }
+      for((propertyName, stringValue) <- props.byteValues ){
+        try{
+          Await.result(db.run(DBIO.seq(
+            properties += (i,f"${propertyName}",f"${stringValue.toString}"))),Duration.apply(15, "seconds"))
+        } finally db.close
+      }
+
     }
     system.terminate()
   })

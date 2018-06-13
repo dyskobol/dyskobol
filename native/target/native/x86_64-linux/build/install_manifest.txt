@@ -1,0 +1,1 @@
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/bin/./libdemo0.so

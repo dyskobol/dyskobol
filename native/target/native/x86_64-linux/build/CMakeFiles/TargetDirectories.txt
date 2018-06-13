@@ -1,0 +1,7 @@
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/install.dir
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/list_install_components.dir
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/rebuild_cache.dir
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/demo0.dir
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/install/strip.dir
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/install/local.dir
+/home/pawel/Documents/Dyskobol/dyskobol/native/target/native/x86_64-linux/build/CMakeFiles/edit_cache.dir

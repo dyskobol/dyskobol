@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="dyskobol"
+		module="dyskobol$sources"
+		revision="0.0.1-SNAPSHOT"
+		conf="runtime-internal"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20180609190657"/>
+	<dependencies>
+		<module organisation="org.apache.pdfbox" name="jbig2-imageio">
+			<revision name="3.0.0" status="release" pubdate="20180221220345" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="111">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4293" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/jbig2-imageio/ivy-3.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/pdfbox/jbig2-imageio/3.0.0/jbig2-imageio-3.0.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.0" rev-constraint-default="3.0.0" rev-constraint-dynamic="3.0.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jbig2-imageio" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="139428" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/jbig2-imageio/srcs/jbig2-imageio-3.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/pdfbox/jbig2-imageio/3.0.0/jbig2-imageio-3.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.xerial" name="sqlite-jdbc">
+			<revision name="3.7.2" status="release" pubdate="20100827112018" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="101">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3514" time="0" location="/home/pawel/.ivy2/cache/org.xerial/sqlite-jdbc/ivy-3.7.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.7.2" rev-constraint-default="3.7.2" rev-constraint-dynamic="3.7.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sqlite-jdbc" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3122361" time="0" location="/home/pawel/.ivy2/cache/org.xerial/sqlite-jdbc/srcs/sqlite-jdbc-3.7.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="cognitivej" name="cognitivej">
+			<revision name="0.6.2" status="release" pubdate="20160521111300" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="86">
+				<metadata-artifact status="no" details="" size="3462" time="0" location="/home/pawel/.ivy2/cache/cognitivej/cognitivej/ivy-0.6.2.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/cognitivej/cognitivej/0.6.2/cognitivej-0.6.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.6.2" rev-constraint-default="0.6.2" rev-constraint-dynamic="0.6.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cognitivej" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1184597" time="0" location="/home/pawel/.ivy2/cache/cognitivej/cognitivej/srcs/cognitivej-0.6.2-sources.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/cognitivej/cognitivej/0.6.2/cognitivej-0.6.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.intellij" name="annotations">
+			<revision name="12.0" status="release" pubdate="20130224194859" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.jetbrains.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="93">
+				<license name="Apache License 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2621" time="0" location="/home/pawel/.ivy2/cache/com.intellij/annotations/ivy-12.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/intellij/annotations/12.0/annotations-12.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="12.0" rev-constraint-default="12.0" rev-constraint-dynamic="12.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="annotations" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="14650" time="0" location="/home/pawel/.ivy2/cache/com.intellij/annotations/srcs/annotations-12.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/intellij/annotations/12.0/annotations-12.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.mashape.unirest" name="unirest-java">
+			<revision name="1.4.9" status="release" pubdate="20160401005948" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://unirest.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="97">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="4247" time="0" location="/home/pawel/.ivy2/cache/com.mashape.unirest/unirest-java/ivy-1.4.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.4.9" rev-constraint-default="1.4.9" rev-constraint-dynamic="1.4.9" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="unirest-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="36077" time="0" location="/home/pawel/.ivy2/cache/com.mashape.unirest/unirest-java/srcs/unirest-java-1.4.9-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpasyncclient">
+			<revision name="4.1.1" status="release" pubdate="20151101190127" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-asyncclient" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="110">
+				<license name="Apache License, Version 2.0" url="LICENSE.txt"/>
+				<metadata-artifact status="no" details="" size="9765" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpasyncclient/ivy-4.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpasyncclient/4.1.1/httpasyncclient-4.1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.1.1" rev-constraint-default="4.1.1" rev-constraint-dynamic="4.1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="httpasyncclient" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="139301" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpasyncclient/srcs/httpasyncclient-4.1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpasyncclient/4.1.1/httpasyncclient-4.1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="slf4j-nop">
+			<revision name="1.6.4" status="release" pubdate="20111031234556" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="79">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="4291" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/slf4j-nop/ivy-1.6.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/1.6.4/slf4j-nop-1.6.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.6.4" rev-constraint-default="1.6.4" rev-constraint-dynamic="1.6.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slf4j-nop" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4394" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/slf4j-nop/srcs/slf4j-nop-1.6.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/1.6.4/slf4j-nop-1.6.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.slick" name="slick_2.12">
+			<revision name="3.2.0" status="release" pubdate="20170224135407" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://slick.typesafe.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="64">
+				<license name="Two-clause BSD-style license" url="http://github.com/slick/slick/blob/master/LICENSE.txt"/>
+				<metadata-artifact status="no" details="" size="3130" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.slick/slick_2.12/ivy-3.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/slick/slick_2.12/3.2.0/slick_2.12-3.2.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.2.0" rev-constraint-default="3.2.0" rev-constraint-dynamic="3.2.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slick_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="320284" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.slick/slick_2.12/srcs/slick_2.12-3.2.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/slick/slick_2.12/3.2.0/slick_2.12-3.2.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-stream_2.12">
+			<revision name="2.5.11" status="release" pubdate="20180228131633" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.11" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="42">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3539" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-stream_2.12/ivy-2.5.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.5.11/akka-stream_2.12-2.5.11.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.5.11" rev-constraint-default="2.5.11" rev-constraint-dynamic="2.5.11" callerrev="0.0.1-SNAPSHOT" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.11"/>
+				<artifacts>
+					<artifact name="akka-stream_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="523481" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-stream_2.12/srcs/akka-stream_2.12-2.5.11-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.5.11/akka-stream_2.12-2.5.11-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe" name="ssl-config-core_2.12">
+			<revision name="0.2.2" status="release" pubdate="20170308153931" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/ssl-config" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="51">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2857" time="0" location="/home/pawel/.ivy2/cache/com.typesafe/ssl-config-core_2.12/ivy-0.2.2.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/com/typesafe/ssl-config-core_2.12/0.2.2/ssl-config-core_2.12-0.2.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.2.2" rev-constraint-default="0.2.2" rev-constraint-dynamic="0.2.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="ssl-config-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="49384" time="0" location="/home/pawel/.ivy2/cache/com.typesafe/ssl-config-core_2.12/srcs/ssl-config-core_2.12-0.2.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.2/ssl-config-core_2.12-0.2.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-parser-combinators_2.12">
+			<revision name="1.0.4" status="release" pubdate="20161029011045" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="82">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="2785" time="0" location="/home/pawel/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/ivy-1.0.4.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.4/scala-parser-combinators_2.12-1.0.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-parser-combinators_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="42274" time="0" location="/home/pawel/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/srcs/scala-parser-combinators_2.12-1.0.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.4/scala-parser-combinators_2.12-1.0.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.reactivestreams" name="reactive-streams">
+			<revision name="1.0.2" status="release" pubdate="20171218210638" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.reactive-streams.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="43">
+				<license name="CC0" url="http://creativecommons.org/publicdomain/zero/1.0/"/>
+				<metadata-artifact status="no" details="" size="2523" time="0" location="/home/pawel/.ivy2/cache/org.reactivestreams/reactive-streams/ivy-1.0.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.0.2" rev-constraint-default="1.0.2" rev-constraint-dynamic="1.0.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="reactive-streams" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3997" time="0" location="/home/pawel/.ivy2/cache/org.reactivestreams/reactive-streams/srcs/reactive-streams-1.0.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-protobuf_2.12">
+			<revision name="2.5.11" status="release" pubdate="20180228131322" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.11" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="58">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2810" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-protobuf_2.12/ivy-2.5.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-protobuf_2.12/2.5.11/akka-protobuf_2.12-2.5.11.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.5.11" rev-constraint-default="2.5.11" rev-constraint-dynamic="2.5.11" callerrev="0.0.1-SNAPSHOT" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.11"/>
+				<artifacts>
+					<artifact name="akka-protobuf_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="275262" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-protobuf_2.12/srcs/akka-protobuf_2.12-2.5.11-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-protobuf_2.12/2.5.11/akka-protobuf_2.12-2.5.11-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-actor_2.12">
+			<revision name="2.5.11" status="release" pubdate="20180228131244" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.11" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="87">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3102" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/ivy-2.5.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.5.11/akka-actor_2.12-2.5.11.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.5.11" rev-constraint-default="2.5.11" rev-constraint-dynamic="2.5.11" callerrev="0.0.1-SNAPSHOT" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.11"/>
+				<artifacts>
+					<artifact name="akka-actor_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="525185" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/srcs/akka-actor_2.12-2.5.11-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.5.11/akka-actor_2.12-2.5.11-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-java8-compat_2.12">
+			<revision name="0.8.0" status="release" pubdate="20161030001227" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="117">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="3036" time="0" location="/home/pawel/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.12/ivy-0.8.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8.0" rev-constraint-default="0.8.0" rev-constraint-dynamic="0.8.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-java8-compat_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="63853" time="0" location="/home/pawel/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.12/srcs/scala-java8-compat_2.12-0.8.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tika" name="tika-parsers">
+			<revision name="1.17" status="release" pubdate="20171209003856" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://tika.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="41">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="20062" time="0" location="/home/pawel/.ivy2/cache/org.apache.tika/tika-parsers/ivy-1.17.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tika/tika-parsers/1.17/tika-parsers-1.17.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.17" rev-constraint-default="1.17" rev-constraint-dynamic="1.17" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="tika-parsers" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="720758" time="0" location="/home/pawel/.ivy2/cache/org.apache.tika/tika-parsers/srcs/tika-parsers-1.17-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tika/tika-parsers/1.17/tika-parsers-1.17-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.fasterxml.jackson.core" name="jackson-core">
+			<revision name="2.9.2" status="release" pubdate="20171014052611" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/FasterXML/jackson-core" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="53">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="21933" time="0" location="/home/pawel/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/ivy-2.9.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.2/jackson-core-2.9.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.9.2" rev-constraint-default="2.9.2" rev-constraint-dynamic="2.9.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackson-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="332214" time="0" location="/home/pawel/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.9.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.2/jackson-core-2.9.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.sis.storage" name="sis-netcdf">
+			<revision name="0.6" status="release" pubdate="20150912005317" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="103">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9670" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.storage/sis-netcdf/ivy-0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/sis/storage/sis-netcdf/0.6/sis-netcdf-0.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.6" rev-constraint-default="0.6" rev-constraint-dynamic="0.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sis-netcdf" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="73039" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.storage/sis-netcdf/srcs/sis-netcdf-0.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/sis/storage/sis-netcdf/0.6/sis-netcdf-0.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.sis.storage" name="sis-storage">
+			<revision name="0.6" status="release" pubdate="20150912005249" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="83">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9497" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.storage/sis-storage/ivy-0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/sis/storage/sis-storage/0.6/sis-storage-0.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.6" rev-constraint-default="0.6" rev-constraint-dynamic="0.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sis-storage" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="89711" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.storage/sis-storage/srcs/sis-storage-0.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/sis/storage/sis-storage/0.6/sis-storage-0.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.sis.core" name="sis-referencing">
+			<revision name="0.6" status="release" pubdate="20150912005118" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="113">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9634" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.core/sis-referencing/ivy-0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/sis/core/sis-referencing/0.6/sis-referencing-0.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.6" rev-constraint-default="0.6" rev-constraint-dynamic="0.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sis-referencing" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1133010" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.core/sis-referencing/srcs/sis-referencing-0.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/sis/core/sis-referencing/0.6/sis-referencing-0.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="edu.ucar" name="grib">
+			<revision name="4.5.5" status="release" pubdate="20150310235234" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.unidata.ucar.edu/software/netcdf-java/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="52">
+				<license name="(MIT-style) netCDF C library license" url="http://www.unidata.ucar.edu/software/netcdf/copyright.html"/>
+				<metadata-artifact status="no" details="" size="21392" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/grib/ivy-4.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/edu/ucar/grib/4.5.5/grib-4.5.5.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.5" rev-constraint-default="4.5.5" rev-constraint-dynamic="4.5.5" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="grib" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4735981" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/grib/srcs/grib-4.5.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/edu/ucar/grib/4.5.5/grib-4.5.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.jsoup" name="jsoup">
+			<revision name="1.7.2" status="release" pubdate="20130128013049" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jsoup.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="62">
+				<license name="The MIT License" url="http://jsoup.com/license"/>
+				<metadata-artifact status="no" details="" size="3006" time="0" location="/home/pawel/.ivy2/cache/org.jsoup/jsoup/ivy-1.7.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jsoup/jsoup/1.7.2/jsoup-1.7.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.7.2" rev-constraint-default="1.7.2" rev-constraint-dynamic="1.7.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jsoup" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="118801" time="0" location="/home/pawel/.ivy2/cache/org.jsoup/jsoup/srcs/jsoup-1.7.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/jsoup/jsoup/1.7.2/jsoup-1.7.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="edu.ucar" name="netcdf4">
+			<revision name="4.5.5" status="release" pubdate="20150310235803" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="100">
+				<license name="(MIT-style) netCDF C library license" url="http://www.unidata.ucar.edu/software/netcdf/copyright.html"/>
+				<metadata-artifact status="no" details="" size="20393" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/netcdf4/ivy-4.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/edu/ucar/netcdf4/4.5.5/netcdf4-4.5.5.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.5" rev-constraint-default="4.5.5" rev-constraint-dynamic="4.5.5" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="netcdf4" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="56870" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/netcdf4/srcs/netcdf4-4.5.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/edu/ucar/netcdf4/4.5.5/netcdf4-4.5.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.java.dev.jna" name="jna">
+			<revision name="4.1.0" status="release" pubdate="20140306165605" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/twall/jna" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="69">
+				<license name="LGPL, version 2.1" url="http://www.gnu.org/licenses/licenses.html"/>
+				<license name="ASL, version 2" url="http://www.apache.org/licenses/"/>
+				<metadata-artifact status="no" details="" size="2534" time="0" location="/home/pawel/.ivy2/cache/net.java.dev.jna/jna/ivy-4.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/java/dev/jna/jna/4.1.0/jna-4.1.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.1.0" rev-constraint-default="4.1.0" rev-constraint-dynamic="4.1.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jna" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="135355" time="0" location="/home/pawel/.ivy2/cache/net.java.dev.jna/jna/srcs/jna-4.1.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/java/dev/jna/jna/4.1.0/jna-4.1.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="edu.ucar" name="cdm">
+			<revision name="4.5.5" status="release" pubdate="20150310235417" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.unidata.ucar.edu/software/netcdf-java/documentation.htm" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="116">
+				<license name="(MIT-style) netCDF C library license" url="http://www.unidata.ucar.edu/software/netcdf/copyright.html"/>
+				<metadata-artifact status="no" details="" size="22333" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/cdm/ivy-4.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/edu/ucar/cdm/4.5.5/cdm-4.5.5.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.5" rev-constraint-default="4.5.5" rev-constraint-dynamic="4.5.5" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cdm" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3217224" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/cdm/srcs/cdm-4.5.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/edu/ucar/cdm/4.5.5/cdm-4.5.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.itadaki" name="bzip2">
+			<revision name="0.9.1" status="release" pubdate="20150422185235" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://code.google.com/p/jbzip2/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="115">
+				<license name="MIT License (MIT)" url="http://opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="2880" time="0" location="/home/pawel/.ivy2/cache/org.itadaki/bzip2/ivy-0.9.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/itadaki/bzip2/0.9.1/bzip2-0.9.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.9.1" rev-constraint-default="0.9.1" rev-constraint-dynamic="0.9.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bzip2" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="45824" time="0" location="/home/pawel/.ivy2/cache/org.itadaki/bzip2/srcs/bzip2-0.9.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/itadaki/bzip2/0.9.1/bzip2-0.9.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.google.guava" name="guava">
+			<revision name="17.0" status="release" pubdate="20140422224746" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="68">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="5617" time="0" location="/home/pawel/.ivy2/cache/com.google.guava/guava/ivy-17.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/guava/guava/17.0/guava-17.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="17.0" rev-constraint-default="17.0" rev-constraint-dynamic="17.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="guava" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1272791" time="0" location="/home/pawel/.ivy2/cache/com.google.guava/guava/srcs/guava-17.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/google/guava/guava/17.0/guava-17.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.sf.ehcache" name="ehcache-core">
+			<revision name="2.6.2" status="release" pubdate="20121108171954" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://ehcache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="57">
+				<license name="The Apache Software License, Version 2.0" url="src/assemble/EHCACHE-CORE-LICENSE.txt"/>
+				<metadata-artifact status="no" details="" size="13659" time="0" location="/home/pawel/.ivy2/cache/net.sf.ehcache/ehcache-core/ivy-2.6.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/sf/ehcache/ehcache-core/2.6.2/ehcache-core-2.6.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.6.2" rev-constraint-default="2.6.2" rev-constraint-dynamic="2.6.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="ehcache-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1000675" time="0" location="/home/pawel/.ivy2/cache/net.sf.ehcache/ehcache-core/srcs/ehcache-core-2.6.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/sf/ehcache/ehcache-core/2.6.2/ehcache-core-2.6.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="edu.ucar" name="udunits">
+			<revision name="4.5.5" status="release" pubdate="20150421190624" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.unidata.ucar.edu/software/udunits//" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
+				<license name="(MIT-style) netCDF C library license" url="http://www.unidata.ucar.edu/software/netcdf/copyright.html"/>
+				<metadata-artifact status="no" details="" size="20659" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/udunits/ivy-4.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/edu/ucar/udunits/4.5.5/udunits-4.5.5.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.5" rev-constraint-default="4.5.5" rev-constraint-dynamic="4.5.5" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="udunits" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="177903" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/udunits/srcs/udunits-4.5.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/edu/ucar/udunits/4.5.5/udunits-4.5.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="joda-time" name="joda-time">
+			<revision name="2.2" status="release" pubdate="20130308152346" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://joda-time.sourceforge.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="108">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3547" time="0" location="/home/pawel/.ivy2/cache/joda-time/joda-time/ivy-2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.2" rev-constraint-default="2.2" rev-constraint-dynamic="2.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="joda-time" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="711916" time="0" location="/home/pawel/.ivy2/cache/joda-time/joda-time/srcs/joda-time-2.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="jcl-over-slf4j">
+			<revision name="1.7.24" status="release" pubdate="20170224120601" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="85">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="5273" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/jcl-over-slf4j/ivy-1.7.24.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.24/jcl-over-slf4j-1.7.24.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.7.24" rev-constraint-default="1.7.24" rev-constraint-dynamic="1.7.24" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jcl-over-slf4j" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="23239" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/jcl-over-slf4j/srcs/jcl-over-slf4j-1.7.24-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.24/jcl-over-slf4j-1.7.24-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.google.code.gson" name="gson">
+			<revision name="2.8.1" status="release" pubdate="20170531033900" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="91">
+				<license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3598" time="0" location="/home/pawel/.ivy2/cache/com.google.code.gson/gson/ivy-2.8.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.1/gson-2.8.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8.1" rev-constraint-default="2.8.1" rev-constraint-dynamic="2.8.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="gson" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="147468" time="0" location="/home/pawel/.ivy2/cache/com.google.code.gson/gson/srcs/gson-2.8.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.1/gson-2.8.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.tdunning" name="json">
+			<revision name="1.8" status="release" pubdate="20170120190920" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/tdunning/open-json" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="61">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3033" time="0" location="/home/pawel/.ivy2/cache/com.tdunning/json/ivy-1.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/tdunning/json/1.8/json-1.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.8" rev-constraint-default="1.8" rev-constraint-dynamic="1.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="json" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="27859" time="0" location="/home/pawel/.ivy2/cache/com.tdunning/json/srcs/json-1.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/tdunning/json/1.8/json-1.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.googlecode.json-simple" name="json-simple">
+			<revision name="1.1.1" status="release" pubdate="20120321061134" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/json-simple/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="45">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2986" time="0" location="/home/pawel/.ivy2/cache/com.googlecode.json-simple/json-simple/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="json-simple" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="17445" time="0" location="/home/pawel/.ivy2/cache/com.googlecode.json-simple/json-simple/srcs/json-simple-1.1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.opennlp" name="opennlp-tools">
+			<revision name="1.8.3" status="release" pubdate="20171024111341" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="46">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="6918" time="0" location="/home/pawel/.ivy2/cache/org.apache.opennlp/opennlp-tools/ivy-1.8.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/opennlp/opennlp-tools/1.8.3/opennlp-tools-1.8.3.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.8.3" rev-constraint-default="1.8.3" rev-constraint-dynamic="1.8.3" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="opennlp-tools" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="997727" time="0" location="/home/pawel/.ivy2/cache/org.apache.opennlp/opennlp-tools/srcs/opennlp-tools-1.8.3-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/opennlp/opennlp-tools/1.8.3/opennlp-tools-1.8.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.cxf" name="cxf-rt-rs-client">
+			<revision name="3.0.16" status="release" pubdate="20171123130955" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://cxf.apache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="98">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="65849" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-rt-rs-client/ivy-3.0.16.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-rt-rs-client/3.0.16/cxf-rt-rs-client-3.0.16.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.16" rev-constraint-default="3.0.16" rev-constraint-dynamic="3.0.16" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cxf-rt-rs-client" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="96354" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-rt-rs-client/srcs/cxf-rt-rs-client-3.0.16-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-rt-rs-client/3.0.16/cxf-rt-rs-client-3.0.16-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.codelibs" name="jhighlight">
+			<revision name="1.0.2" status="release" pubdate="20150325144828" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/codelibs/jhighlight" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
+				<license name="CDDL, v1.0" url="http://www.opensource.org/licenses/cddl1.php"/>
+				<license name="LGPL, v2.1 or later" url="http://www.opensource.org/licenses/lgpl-license.php"/>
+				<metadata-artifact status="no" details="" size="3733" time="0" location="/home/pawel/.ivy2/cache/org.codelibs/jhighlight/ivy-1.0.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/codelibs/jhighlight/1.0.2/jhighlight-1.0.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.0.2" rev-constraint-default="1.0.2" rev-constraint-dynamic="1.0.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jhighlight" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="211360" time="0" location="/home/pawel/.ivy2/cache/org.codelibs/jhighlight/srcs/jhighlight-1.0.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/codelibs/jhighlight/1.0.2/jhighlight-1.0.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.googlecode.juniversalchardet" name="juniversalchardet">
+			<revision name="1.0.3" status="release" pubdate="20110919193824" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://juniversalchardet.googlecode.com/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="75">
+				<license name="Mozilla Public License 1.1 (MPL 1.1)" url="http://www.mozilla.org/MPL/MPL-1.1.html"/>
+				<metadata-artifact status="no" details="" size="2716" time="0" location="/home/pawel/.ivy2/cache/com.googlecode.juniversalchardet/juniversalchardet/ivy-1.0.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.0.3" rev-constraint-default="1.0.3" rev-constraint-dynamic="1.0.3" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="juniversalchardet" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="220482" time="0" location="/home/pawel/.ivy2/cache/com.googlecode.juniversalchardet/juniversalchardet/srcs/juniversalchardet-1.0.3-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.l3s.boilerpipe" name="boilerpipe">
+			<revision name="1.1.0" status="release" pubdate="20101103214113" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/boilerpipe/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="73">
+				<license name="Apache License 2.0"/>
+				<metadata-artifact status="no" details="" size="3331" time="0" location="/home/pawel/.ivy2/cache/de.l3s.boilerpipe/boilerpipe/ivy-1.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.1.0" rev-constraint-default="1.1.0" rev-constraint-dynamic="1.1.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="boilerpipe" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="86578" time="0" location="/home/pawel/.ivy2/cache/de.l3s.boilerpipe/boilerpipe/srcs/boilerpipe-1.1.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.googlecode.mp4parser" name="isoparser">
+			<revision name="1.1.18" status="release" pubdate="20160216060958" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/mp4parser/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="106">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4071" time="0" location="/home/pawel/.ivy2/cache/com.googlecode.mp4parser/isoparser/ivy-1.1.18.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/googlecode/mp4parser/isoparser/1.1.18/isoparser-1.1.18.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.1.18" rev-constraint-default="1.1.18" rev-constraint-dynamic="1.1.18" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="isoparser" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="683491" time="0" location="/home/pawel/.ivy2/cache/com.googlecode.mp4parser/isoparser/srcs/isoparser-1.1.18-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/googlecode/mp4parser/isoparser/1.1.18/isoparser-1.1.18-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ccil.cowan.tagsoup" name="tagsoup">
+			<revision name="1.2.1" status="release" pubdate="20110822190503" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://home.ccil.org/~cowan/XML/tagsoup/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="104">
+				<license name="Apache License 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3051" time="0" location="/home/pawel/.ivy2/cache/org.ccil.cowan.tagsoup/tagsoup/ivy-1.2.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="tagsoup" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="68697" time="0" location="/home/pawel/.ivy2/cache/org.ccil.cowan.tagsoup/tagsoup/srcs/tagsoup-1.2.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.poi" name="poi-scratchpad">
+			<revision name="3.17" status="release" pubdate="20170908232600" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://poi.apache.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="95">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2705" time="0" location="/home/pawel/.ivy2/cache/org.apache.poi/poi-scratchpad/ivy-3.17.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/poi/poi-scratchpad/3.17/poi-scratchpad-3.17.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.17" rev-constraint-default="3.17" rev-constraint-dynamic="3.17" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="poi-scratchpad" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1088209" time="0" location="/home/pawel/.ivy2/cache/org.apache.poi/poi-scratchpad/srcs/poi-scratchpad-3.17-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/poi/poi-scratchpad/3.17/poi-scratchpad-3.17-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.pdfbox" name="jempbox">
+			<revision name="1.8.13" status="release" pubdate="20161205203239" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="63">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4379" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/jempbox/ivy-1.8.13.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/pdfbox/jempbox/1.8.13/jempbox-1.8.13.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.8.13" rev-constraint-default="1.8.13" rev-constraint-dynamic="1.8.13" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jempbox" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="56482" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/jempbox/srcs/jempbox-1.8.13-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/pdfbox/jempbox/1.8.13/jempbox-1.8.13-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.pdfbox" name="pdfbox-tools">
+			<revision name="2.0.8" status="release" pubdate="20171030193635" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="60">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="7244" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/pdfbox-tools/ivy-2.0.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/pdfbox/pdfbox-tools/2.0.8/pdfbox-tools-2.0.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.0.8" rev-constraint-default="2.0.8" rev-constraint-dynamic="2.0.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="pdfbox-tools" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="56691" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/pdfbox-tools/srcs/pdfbox-tools-2.0.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/pdfbox/pdfbox-tools/2.0.8/pdfbox-tools-2.0.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.james" name="apache-mime4j-dom">
+			<revision name="0.8.1" status="release" pubdate="20170609045142" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="81">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="7864" time="0" location="/home/pawel/.ivy2/cache/org.apache.james/apache-mime4j-dom/ivy-0.8.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/james/apache-mime4j-dom/0.8.1/apache-mime4j-dom-0.8.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8.1" rev-constraint-default="0.8.1" rev-constraint-dynamic="0.8.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="apache-mime4j-dom" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="300587" time="0" location="/home/pawel/.ivy2/cache/org.apache.james/apache-mime4j-dom/srcs/apache-mime4j-dom-0.8.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/james/apache-mime4j-dom/0.8.1/apache-mime4j-dom-0.8.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.james" name="apache-mime4j-core">
+			<revision name="0.8.1" status="release" pubdate="20170609045103" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="66">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="7197" time="0" location="/home/pawel/.ivy2/cache/org.apache.james/apache-mime4j-core/ivy-0.8.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/james/apache-mime4j-core/0.8.1/apache-mime4j-core-0.8.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8.1" rev-constraint-default="0.8.1" rev-constraint-dynamic="0.8.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="apache-mime4j-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="105996" time="0" location="/home/pawel/.ivy2/cache/org.apache.james/apache-mime4j-core/srcs/apache-mime4j-core-0.8.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/james/apache-mime4j-core/0.8.1/apache-mime4j-core-0.8.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.healthmarketscience.jackcess" name="jackcess-encrypt">
+			<revision name="2.1.2" status="release" pubdate="20170204170240" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jackcessencrypt.sf.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="99">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4686" time="0" location="/home/pawel/.ivy2/cache/com.healthmarketscience.jackcess/jackcess-encrypt/ivy-2.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/healthmarketscience/jackcess/jackcess-encrypt/2.1.2/jackcess-encrypt-2.1.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.1.2" rev-constraint-default="2.1.2" rev-constraint-dynamic="2.1.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackcess-encrypt" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="60795" time="0" location="/home/pawel/.ivy2/cache/com.healthmarketscience.jackcess/jackcess-encrypt/srcs/jackcess-encrypt-2.1.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/healthmarketscience/jackcess/jackcess-encrypt/2.1.2/jackcess-encrypt-2.1.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.healthmarketscience.jackcess" name="jackcess">
+			<revision name="2.1.8" status="release" pubdate="20170626023855" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jackcess.sf.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="72">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4379" time="0" location="/home/pawel/.ivy2/cache/com.healthmarketscience.jackcess/jackcess/ivy-2.1.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/healthmarketscience/jackcess/jackcess/2.1.8/jackcess-2.1.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.1.8" rev-constraint-default="2.1.8" rev-constraint-dynamic="2.1.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackcess" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="624421" time="0" location="/home/pawel/.ivy2/cache/com.healthmarketscience.jackcess/jackcess/srcs/jackcess-2.1.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/healthmarketscience/jackcess/jackcess/2.1.8/jackcess-2.1.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.gagravarr" name="vorbis-java-tika">
+			<revision name="0.8" status="release" pubdate="20160217192446" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/Gagravarr/VorbisJava" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="54">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4253" time="0" location="/home/pawel/.ivy2/cache/org.gagravarr/vorbis-java-tika/ivy-0.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/gagravarr/vorbis-java-tika/0.8/vorbis-java-tika-0.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8" rev-constraint-default="0.8" rev-constraint-dynamic="0.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="vorbis-java-tika" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="19259" time="0" location="/home/pawel/.ivy2/cache/org.gagravarr/vorbis-java-tika/srcs/vorbis-java-tika-0.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/gagravarr/vorbis-java-tika/0.8/vorbis-java-tika-0.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.gagravarr" name="vorbis-java-core">
+			<revision name="0.8" status="release" pubdate="20160217192310" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/Gagravarr/VorbisJava" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="55">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3728" time="0" location="/home/pawel/.ivy2/cache/org.gagravarr/vorbis-java-core/ivy-0.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/gagravarr/vorbis-java-core/0.8/vorbis-java-core-0.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8" rev-constraint-default="0.8" rev-constraint-dynamic="0.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="vorbis-java-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="107623" time="0" location="/home/pawel/.ivy2/cache/org.gagravarr/vorbis-java-core/srcs/vorbis-java-core-0.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/gagravarr/vorbis-java-core/0.8/vorbis-java-core-0.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.tika" name="tika-core">
+			<revision name="1.17" status="release" pubdate="20171209003418" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://tika.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="96">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="6801" time="0" location="/home/pawel/.ivy2/cache/org.apache.tika/tika-core/ivy-1.17.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/tika/tika-core/1.17/tika-core-1.17.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.17" rev-constraint-default="1.17" rev-constraint-dynamic="1.17" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="tika-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="624883" time="0" location="/home/pawel/.ivy2/cache/org.apache.tika/tika-core/srcs/tika-core-1.17-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/tika/tika-core/1.17/tika-core-1.17-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ow2.asm" name="asm">
+			<revision name="5.0.4" status="release" pubdate="20150515170455" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="40">
+				<license name="BSD" url="http://asm.objectweb.org/license.html"/>
+				<metadata-artifact status="no" details="" size="3953" time="0" location="/home/pawel/.ivy2/cache/org.ow2.asm/asm/ivy-5.0.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="5.0.4" rev-constraint-default="5.0.4" rev-constraint-dynamic="5.0.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="asm" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1039794" time="0" location="/home/pawel/.ivy2/cache/org.ow2.asm/asm/srcs/asm-5.0.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="jul-to-slf4j">
+			<revision name="1.7.24" status="release" pubdate="20170224120615" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="39">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="5260" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/jul-to-slf4j/ivy-1.7.24.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.24/jul-to-slf4j-1.7.24.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.7.24" rev-constraint-default="1.7.24" rev-constraint-dynamic="1.7.24" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jul-to-slf4j" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4872" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/jul-to-slf4j/srcs/jul-to-slf4j-1.7.24-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.24/jul-to-slf4j-1.7.24-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="slf4j-api">
+			<revision name="1.7.24" status="release" pubdate="20170224120508" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="109">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="5199" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.24.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.24/slf4j-api-1.7.24.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.7.24" rev-constraint-default="1.7.24" rev-constraint-dynamic="1.7.24" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slf4j-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="55538" time="0" location="/home/pawel/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.24-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.24/slf4j-api-1.7.24-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.google.protobuf" name="protobuf-java">
+			<revision name="2.5.0" status="release" pubdate="20130308011811" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/protobuf" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="37">
+				<license name="New BSD license" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="3139" time="0" location="/home/pawel/.ivy2/cache/com.google.protobuf/protobuf-java/ivy-2.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.5.0" rev-constraint-default="2.5.0" rev-constraint-dynamic="2.5.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="protobuf-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="276990" time="0" location="/home/pawel/.ivy2/cache/com.google.protobuf/protobuf-java/srcs/protobuf-java-2.5.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco" name="javacv">
+			<revision name="1.1" status="release" pubdate="20151025152551" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://bytedeco.org/javacv/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="35">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="6282" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco/javacv/ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacv/1.1/javacv-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="javacv" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="212874" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco/javacv/srcs/javacv-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacv/1.1/javacv-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="flandmark">
+			<revision name="1.07-1.1" status="release" pubdate="20151025150934" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="92">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="4069" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/flandmark/ivy-1.07-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/flandmark/1.07-1.1/flandmark-1.07-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.07-1.1" rev-constraint-default="1.07-1.1" rev-constraint-dynamic="1.07-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="flandmark" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="5082" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/flandmark/srcs/flandmark-1.07-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/flandmark/1.07-1.1/flandmark-1.07-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="videoinput">
+			<revision name="0.200-1.1" status="release" pubdate="20151025151130" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="112">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3816" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/videoinput/ivy-0.200-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/videoinput/0.200-1.1/videoinput-0.200-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.200-1.1" rev-constraint-default="0.200-1.1" rev-constraint-dynamic="0.200-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="videoinput" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="7882" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/videoinput/srcs/videoinput-0.200-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/videoinput/0.200-1.1/videoinput-0.200-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="libfreenect">
+			<revision name="0.5.3-1.1" status="release" pubdate="20151025151016" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="102">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3917" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/libfreenect/ivy-0.5.3-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/libfreenect/0.5.3-1.1/libfreenect-0.5.3-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.5.3-1.1" rev-constraint-default="0.5.3-1.1" rev-constraint-dynamic="0.5.3-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="libfreenect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="13883" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/libfreenect/srcs/libfreenect-0.5.3-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/libfreenect/0.5.3-1.1/libfreenect-0.5.3-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="libdc1394">
+			<revision name="2.2.3-1.1" status="release" pubdate="20151025150700" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="56">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3913" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/libdc1394/ivy-2.2.3-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/libdc1394/2.2.3-1.1/libdc1394-2.2.3-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.2.3-1.1" rev-constraint-default="2.2.3-1.1" rev-constraint-dynamic="2.2.3-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="libdc1394" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="24659" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/libdc1394/srcs/libdc1394-2.2.3-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/libdc1394/2.2.3-1.1/libdc1394-2.2.3-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="flycapture">
+			<revision name="2.8.3.1-1.1" status="release" pubdate="20151025151018" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="105">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3820" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/flycapture/ivy-2.8.3.1-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/flycapture/2.8.3.1-1.1/flycapture-2.8.3.1-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8.3.1-1.1" rev-constraint-default="2.8.3.1-1.1" rev-constraint-dynamic="2.8.3.1-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="flycapture" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="92989" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/flycapture/srcs/flycapture-2.8.3.1-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/flycapture/2.8.3.1-1.1/flycapture-2.8.3.1-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe" name="config">
+			<revision name="1.3.2" status="release" pubdate="20171006160218" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/config" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), master(compile), runtime, compile(*), master" position="34">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2875" time="0" location="/home/pawel/.ivy2/cache/com.typesafe/config/ivy-1.3.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/config/1.3.2/config-1.3.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.3.2" rev-constraint-default="1.3.2" rev-constraint-dynamic="1.3.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="172766" time="0" location="/home/pawel/.ivy2/cache/com.typesafe/config/srcs/config-1.3.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/config/1.3.2/config-1.3.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-compress">
+			<revision name="1.14" status="release" pubdate="20170511211625" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-compress/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="33">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="12896" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-compress/ivy-1.14.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.14" rev-constraint-default="1.14" rev-constraint-dynamic="1.14" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-compress" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="510556" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-compress/srcs/commons-compress-1.14-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.tukaani" name="xz">
+			<revision name="1.6" status="release" pubdate="20161127123851" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://tukaani.org/xz/java.html" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="118">
+				<license name="Public Domain"/>
+				<metadata-artifact status="no" details="" size="2403" time="0" location="/home/pawel/.ivy2/cache/org.tukaani/xz/ivy-1.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/tukaani/xz/1.6/xz-1.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.6" rev-constraint-default="1.6" rev-constraint-dynamic="1.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="xz" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="123449" time="0" location="/home/pawel/.ivy2/cache/org.tukaani/xz/srcs/xz-1.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/tukaani/xz/1.6/xz-1.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.sis.core" name="sis-metadata">
+			<revision name="0.6" status="release" pubdate="20150912004950" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="32">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9240" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.core/sis-metadata/ivy-0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/sis/core/sis-metadata/0.6/sis-metadata-0.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.6" rev-constraint-default="0.6" rev-constraint-dynamic="0.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sis-metadata" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="898076" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.core/sis-metadata/srcs/sis-metadata-0.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/sis/core/sis-metadata/0.6/sis-metadata-0.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.sis.core" name="sis-utility">
+			<revision name="0.6" status="release" pubdate="20150912004836" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="59">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9207" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.core/sis-utility/ivy-0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/sis/core/sis-utility/0.6/sis-utility-0.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.6" rev-constraint-default="0.6" rev-constraint-dynamic="0.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sis-utility" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1004656" time="0" location="/home/pawel/.ivy2/cache/org.apache.sis.core/sis-utility/srcs/sis-utility-0.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/sis/core/sis-utility/0.6/sis-utility-0.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.opengis" name="geoapi">
+			<revision name="3.0.0" status="release" pubdate="20110602044658" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="94">
+				<license name="OGC copyright" url="https://geoapi.svn.sourceforge.net/svnroot/geoapi/branches/3.0.x/LICENSE.txt"/>
+				<metadata-artifact status="no" details="" size="4058" time="0" location="/home/pawel/.ivy2/cache/org.opengis/geoapi/ivy-3.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/opengis/geoapi/3.0.0/geoapi-3.0.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.0" rev-constraint-default="3.0.0" rev-constraint-dynamic="3.0.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="geoapi" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="575279" time="0" location="/home/pawel/.ivy2/cache/org.opengis/geoapi/srcs/geoapi-3.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/opengis/geoapi/3.0.0/geoapi-3.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpmime">
+			<revision name="4.5.4" status="release" pubdate="20171127104255" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="31">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="10448" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpmime/ivy-4.5.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.4/httpmime-4.5.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.4" rev-constraint-default="4.5.4" rev-constraint-dynamic="4.5.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="httpmime" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="41777" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpmime/srcs/httpmime-4.5.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.4/httpmime-4.5.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpclient">
+			<revision name="4.5.4" status="release" pubdate="20171127104224" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="71">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="10932" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpclient/ivy-4.5.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.4" rev-constraint-default="4.5.4" rev-constraint-dynamic="4.5.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="httpclient" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="738871" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpclient/srcs/httpclient-4.5.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpcore">
+			<revision name="4.4.7" status="release" pubdate="20170910122213" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="49">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9365" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpcore/ivy-4.4.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.4.7" rev-constraint-default="4.4.7" rev-constraint-dynamic="4.4.7" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="httpcore" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="406925" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpcore/srcs/httpcore-4.4.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.mchange" name="c3p0">
+			<revision name="0.9.2.1" status="release" pubdate="20130320114701" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/swaldman/c3p0" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="30">
+				<license name="GNU Lesser General Public License, Version 2.1" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
+				<license name="Eclipse Public License, Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="no" details="" size="2824" time="0" location="/home/pawel/.ivy2/cache/com.mchange/c3p0/ivy-0.9.2.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/mchange/c3p0/0.9.2.1/c3p0-0.9.2.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.9.2.1" rev-constraint-default="0.9.2.1" rev-constraint-dynamic="0.9.2.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="c3p0" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="320986" time="0" location="/home/pawel/.ivy2/cache/com.mchange/c3p0/srcs/c3p0-0.9.2.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/mchange/c3p0/0.9.2.1/c3p0-0.9.2.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.mchange" name="mchange-commons-java">
+			<revision name="0.2.3.4" status="release" pubdate="20130320114518" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/swaldman/mchange-commons-java" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="36">
+				<license name="GNU Lesser General Public License, Version 2.1" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
+				<license name="Eclipse Public License, Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="no" details="" size="2678" time="0" location="/home/pawel/.ivy2/cache/com.mchange/mchange-commons-java/ivy-0.2.3.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/mchange/mchange-commons-java/0.2.3.4/mchange-commons-java-0.2.3.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.2.3.4" rev-constraint-default="0.2.3.4" rev-constraint-dynamic="0.2.3.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="mchange-commons-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="628580" time="0" location="/home/pawel/.ivy2/cache/com.mchange/mchange-commons-java/srcs/mchange-commons-java-0.2.3.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/mchange/mchange-commons-java/0.2.3.4/mchange-commons-java-0.2.3.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.quartz-scheduler" name="quartz">
+			<revision name="2.2.0" status="release" pubdate="20130629230643" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="29">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4784" time="0" location="/home/pawel/.ivy2/cache/org.quartz-scheduler/quartz/ivy-2.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.2.0/quartz-2.2.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="quartz" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="547493" time="0" location="/home/pawel/.ivy2/cache/org.quartz-scheduler/quartz/srcs/quartz-2.2.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.2.0/quartz-2.2.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="c3p0" name="c3p0">
+			<revision name="0.9.1.1" status="release" pubdate="20070420202229" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://c3p0.sourceforge.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="70">
+				<license name="GNU LESSER GENERAL PUBLIC LICENSE" url="http://www.gnu.org/licenses/lgpl.txt"/>
+				<metadata-artifact status="no" details="" size="2699" time="0" location="/home/pawel/.ivy2/cache/c3p0/c3p0/ivy-0.9.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.9.1.1" rev-constraint-default="0.9.1.1" rev-constraint-dynamic="0.9.1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="c3p0" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="459319" time="0" location="/home/pawel/.ivy2/cache/c3p0/c3p0/srcs/c3p0-0.9.1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.rometools" name="rome">
+			<revision name="1.5.1" status="release" pubdate="20150630224259" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://rometools.github.io/rome/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="26">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="6563" time="0" location="/home/pawel/.ivy2/cache/com.rometools/rome/ivy-1.5.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/rometools/rome/1.5.1/rome-1.5.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.5.1" rev-constraint-default="1.5.1" rev-constraint-dynamic="1.5.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="rome" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="215726" time="0" location="/home/pawel/.ivy2/cache/com.rometools/rome/srcs/rome-1.5.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/rometools/rome/1.5.1/rome-1.5.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.rometools" name="rome-utils">
+			<revision name="1.5.1" status="release" pubdate="20150630214845" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://rometools.github.io/rome-utils/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="50">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="5498" time="0" location="/home/pawel/.ivy2/cache/com.rometools/rome-utils/ivy-1.5.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/rometools/rome-utils/1.5.1/rome-utils-1.5.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.5.1" rev-constraint-default="1.5.1" rev-constraint-dynamic="1.5.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="rome-utils" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4353" time="0" location="/home/pawel/.ivy2/cache/com.rometools/rome-utils/srcs/rome-utils-1.5.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/rometools/rome-utils/1.5.1/rome-utils-1.5.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="ffmpeg">
+			<revision name="2.8.1-1.1" status="release" pubdate="20151025151109" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="25">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3811" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/ffmpeg/ivy-2.8.1-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/ffmpeg/2.8.1-1.1/ffmpeg-2.8.1-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8.1-1.1" rev-constraint-default="2.8.1-1.1" rev-constraint-dynamic="2.8.1-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="ffmpeg" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="211792" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/ffmpeg/srcs/ffmpeg-2.8.1-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/ffmpeg/2.8.1-1.1/ffmpeg-2.8.1-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="edu.usc.ir" name="sentiment-analysis-parser">
+			<revision name="0.1" status="release" pubdate="20160608203118" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/USCDataScience/SentimentAnalysisParser" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="24">
+				<license name="The Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4434" time="0" location="/home/pawel/.ivy2/cache/edu.usc.ir/sentiment-analysis-parser/ivy-0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/edu/usc/ir/sentiment-analysis-parser/0.1/sentiment-analysis-parser-0.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.1" rev-constraint-default="0.1" rev-constraint-dynamic="0.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sentiment-analysis-parser" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="22538" time="0" location="/home/pawel/.ivy2/cache/edu.usc.ir/sentiment-analysis-parser/srcs/sentiment-analysis-parser-0.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/edu/usc/ir/sentiment-analysis-parser/0.1/sentiment-analysis-parser-0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-csv">
+			<revision name="1.0" status="release" pubdate="20140810134615" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-csv/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="23">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="10793" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-csv/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-csv/1.0/commons-csv-1.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-csv" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="36241" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-csv/srcs/commons-csv-1.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-csv/1.0/commons-csv-1.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-lang" name="commons-lang">
+			<revision name="2.6" status="release" pubdate="20110116232147" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/lang/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="22">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="6637" time="0" location="/home/pawel/.ivy2/cache/commons-lang/commons-lang/ivy-2.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.6" rev-constraint-default="2.6" rev-constraint-dynamic="2.6" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-lang" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="372982" time="0" location="/home/pawel/.ivy2/cache/commons-lang/commons-lang/srcs/commons-lang-2.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.drewnoakes" name="metadata-extractor">
+			<revision name="2.10.1" status="release" pubdate="20170216000049" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://drewnoakes.com/code/exif/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3633" time="0" location="/home/pawel/.ivy2/cache/com.drewnoakes/metadata-extractor/ivy-2.10.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/drewnoakes/metadata-extractor/2.10.1/metadata-extractor-2.10.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="metadata-extractor" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="452626" time="0" location="/home/pawel/.ivy2/cache/com.drewnoakes/metadata-extractor/srcs/metadata-extractor-2.10.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/drewnoakes/metadata-extractor/2.10.1/metadata-extractor-2.10.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-lang3">
+			<revision name="3.4" status="release" pubdate="20150403143112" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-lang/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="20">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11673" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-lang3/ivy-3.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.4" rev-constraint-default="3.4" rev-constraint-dynamic="3.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-lang3" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="487156" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-lang3/srcs/commons-lang3-3.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.poi" name="poi-ooxml">
+			<revision name="3.17" status="release" pubdate="20170908232503" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://poi.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="19">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2990" time="0" location="/home/pawel/.ivy2/cache/org.apache.poi/poi-ooxml/ivy-3.17.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.17" rev-constraint-default="3.17" rev-constraint-dynamic="3.17" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="poi-ooxml" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1047127" time="0" location="/home/pawel/.ivy2/cache/org.apache.poi/poi-ooxml/srcs/poi-ooxml-3.17-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.virtuald" name="curvesapi">
+			<revision name="1.04" status="release" pubdate="20160526062706" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/virtuald/curvesapi" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="80">
+				<license name="BSD License" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="2940" time="0" location="/home/pawel/.ivy2/cache/com.github.virtuald/curvesapi/ivy-1.04.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.04" rev-constraint-default="1.04" rev-constraint-dynamic="1.04" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="curvesapi" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="201324" time="0" location="/home/pawel/.ivy2/cache/com.github.virtuald/curvesapi/srcs/curvesapi-1.04-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/virtuald/curvesapi/1.04/curvesapi-1.04-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.poi" name="poi">
+			<revision name="3.17" status="release" pubdate="20170908232359" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://poi.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="90">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3334" time="0" location="/home/pawel/.ivy2/cache/org.apache.poi/poi/ivy-3.17.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/poi/poi/3.17/poi-3.17.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.17" rev-constraint-default="3.17" rev-constraint-dynamic="3.17" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="poi" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2374854" time="0" location="/home/pawel/.ivy2/cache/org.apache.poi/poi/srcs/poi-3.17-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/poi/poi/3.17/poi-3.17-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-collections4">
+			<revision name="4.1" status="release" pubdate="20151125225515" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-collections/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="38">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11481" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-collections4/ivy-4.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-collections4" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="701388" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-collections4/srcs/commons-collections4-4.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="artoolkitplus">
+			<revision name="2.3.1-1.1" status="release" pubdate="20151025151107" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="18">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3921" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/artoolkitplus/ivy-2.3.1-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/artoolkitplus/2.3.1-1.1/artoolkitplus-2.3.1-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.3.1-1.1" rev-constraint-default="2.3.1-1.1" rev-constraint-dynamic="2.3.1-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="artoolkitplus" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="15530" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/artoolkitplus/srcs/artoolkitplus-2.3.1-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/artoolkitplus/2.3.1-1.1/artoolkitplus-2.3.1-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.12.4" status="release" pubdate="20171011090456" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.4/" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="17">
+				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2471" time="0" location="/home/pawel/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.4.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/scala-lang/scala-library/2.12.4/scala-library-2.12.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="0.0.1-SNAPSHOT" extra-info.apiURL="http://www.scala-lang.org/api/2.12.4/"/>
+				<artifacts>
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="991177" time="0" location="/home/pawel/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.4/scala-library-2.12.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpcore-nio">
+			<revision name="4.4.4" status="release" pubdate="20151026181927" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="7781" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpcore-nio/ivy-4.4.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore-nio/4.4.4/httpcore-nio-4.4.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.4.4" rev-constraint-default="4.4.4" rev-constraint-dynamic="4.4.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="httpcore-nio" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="358578" time="0" location="/home/pawel/.ivy2/cache/org.apache.httpcomponents/httpcore-nio/srcs/httpcore-nio-4.4.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore-nio/4.4.4/httpcore-nio-4.4.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-persistence_2.12">
+			<revision name="2.5.4" status="release" pubdate="20170810152215" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="15">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="4007" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-persistence_2.12/ivy-2.5.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-persistence_2.12/2.5.4/akka-persistence_2.12-2.5.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.5.4" rev-constraint-default="2.5.4" rev-constraint-dynamic="2.5.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-persistence_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="111566" time="0" location="/home/pawel/.ivy2/cache/com.typesafe.akka/akka-persistence_2.12/srcs/akka-persistence_2.12-2.5.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-persistence_2.12/2.5.4/akka-persistence_2.12-2.5.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-codec" name="commons-codec">
+			<revision name="1.10" status="release" pubdate="20141106151535" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-codec/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="78">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="10608" time="0" location="/home/pawel/.ivy2/cache/commons-codec/commons-codec/ivy-1.10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.10" rev-constraint-default="1.10" rev-constraint-dynamic="1.10" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-codec" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="301032" time="0" location="/home/pawel/.ivy2/cache/commons-codec/commons-codec/srcs/commons-codec-1.10-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-io" name="commons-io">
+			<revision name="2.5" status="release" pubdate="20160422165236" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="67">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11588" time="0" location="/home/pawel/.ivy2/cache/commons-io/commons-io/ivy-2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-io" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="275699" time="0" location="/home/pawel/.ivy2/cache/commons-io/commons-io/srcs/commons-io-2.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-io/commons-io/2.5/commons-io-2.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.json" name="json">
+			<revision name="20160212" status="release" pubdate="20160214021631" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/douglascrockford/JSON-java" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
+				<license name="The JSON License" url="http://json.org/license.html"/>
+				<metadata-artifact status="no" details="" size="4161" time="0" location="/home/pawel/.ivy2/cache/org.json/json/ivy-20160212.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="20160212" rev-constraint-default="20160212" rev-constraint-dynamic="20160212" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="json" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="50738" time="0" location="/home/pawel/.ivy2/cache/org.json/json/srcs/json-20160212-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco.javacpp-presets" name="opencv">
+			<revision name="3.0.0-1.1" status="release" pubdate="20151025151110" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="13">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3907" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/opencv/ivy-3.0.0-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/opencv/3.0.0-1.1/opencv-3.0.0-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.0-1.1" rev-constraint-default="3.0.0-1.1" rev-constraint-dynamic="3.0.0-1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="opencv" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="483503" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco.javacpp-presets/opencv/srcs/opencv-3.0.0-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/opencv/3.0.0-1.1/opencv-3.0.0-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bytedeco" name="javacpp">
+			<revision name="1.1" status="release" pubdate="20151025134648" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://bytedeco.org/javacpp/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="107">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="GNU General Public License (GPL) version 2, or any later version" url="http://www.gnu.org/licenses/"/>
+				<license name="GPLv2 with Classpath exception" url="http://www.gnu.org/software/classpath/license.html"/>
+				<metadata-artifact status="no" details="" size="3788" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco/javacpp/ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bytedeco/javacpp/1.1/javacpp-1.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="javacpp" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="200117" time="0" location="/home/pawel/.ivy2/cache/org.bytedeco/javacpp/srcs/javacpp-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bytedeco/javacpp/1.1/javacpp-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="edu.ucar" name="httpservices">
+			<revision name="4.5.5" status="release" pubdate="20150310235117" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.unidata.ucar.edu/software/netcdf-java/documentation.htm" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="12">
+				<license name="(MIT-style) netCDF C library license" url="http://www.unidata.ucar.edu/software/netcdf/copyright.html"/>
+				<metadata-artifact status="no" details="" size="20826" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/httpservices/ivy-4.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/edu/ucar/httpservices/4.5.5/httpservices-4.5.5.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.5.5" rev-constraint-default="4.5.5" rev-constraint-dynamic="4.5.5" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="httpservices" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="52337" time="0" location="/home/pawel/.ivy2/cache/edu.ucar/httpservices/srcs/httpservices-4.5.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/edu/ucar/httpservices/4.5.5/httpservices-4.5.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.pff" name="java-libpst">
+			<revision name="0.8.1" status="release" pubdate="20140622173103" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://code.google.com/p/java-libpst/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3249" time="0" location="/home/pawel/.ivy2/cache/com.pff/java-libpst/ivy-0.8.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/pff/java-libpst/0.8.1/java-libpst-0.8.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8.1" rev-constraint-default="0.8.1" rev-constraint-dynamic="0.8.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="java-libpst" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="82255" time="0" location="/home/pawel/.ivy2/cache/com.pff/java-libpst/srcs/java-libpst-0.8.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/pff/java-libpst/0.8.1/java-libpst-0.8.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-exec">
+			<revision name="1.3" status="release" pubdate="20141103012715" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-exec/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="10376" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-exec/ivy-1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.3" rev-constraint-default="1.3" rev-constraint-dynamic="1.3" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-exec" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="61886" time="0" location="/home/pawel/.ivy2/cache/org.apache.commons/commons-exec/srcs/commons-exec-1.3-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.adobe.xmp" name="xmpcore">
+			<revision name="5.1.3" status="release" pubdate="20160902165941" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.adobe.com/devnet/xmp.html" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<license name="The BSD License" url="http://www.adobe.com/devnet/xmp/library/eula-xmp-library-java.html"/>
+				<metadata-artifact status="no" details="" size="2566" time="0" location="/home/pawel/.ivy2/cache/com.adobe.xmp/xmpcore/ivy-5.1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/adobe/xmp/xmpcore/5.1.3/xmpcore-5.1.3.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="5.1.3" rev-constraint-default="5.1.3" rev-constraint-dynamic="5.1.3" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="xmpcore" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="148564" time="0" location="/home/pawel/.ivy2/cache/com.adobe.xmp/xmpcore/srcs/xmpcore-5.1.3-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/adobe/xmp/xmpcore/5.1.3/xmpcore-5.1.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.junrar" name="junrar">
+			<revision name="0.7" status="release" pubdate="20120905032302" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/junrar/junrar" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="UnRar License" url="https://raw.github.com/junrar/junrar/master/license.txt"/>
+				<metadata-artifact status="no" details="" size="3717" time="0" location="/home/pawel/.ivy2/cache/com.github.junrar/junrar/ivy-0.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/junrar/junrar/0.7/junrar-0.7.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="0.7" rev-constraint-default="0.7" rev-constraint-dynamic="0.7" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="junrar" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="122588" time="0" location="/home/pawel/.ivy2/cache/com.github.junrar/junrar/srcs/junrar-0.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/junrar/junrar/0.7/junrar-0.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.jcip" name="jcip-annotations">
+			<revision name="1.0" status="release" pubdate="20080814084805" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jcip.net/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+				<metadata-artifact status="no" details="" size="2341" time="0" location="/home/pawel/.ivy2/cache/net.jcip/jcip-annotations/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jcip-annotations" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="5002" time="0" location="/home/pawel/.ivy2/cache/net.jcip/jcip-annotations/srcs/jcip-annotations-1.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.postgresql" name="postgresql">
+			<revision name="9.3-1100-jdbc4" status="release" pubdate="20131101144347" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jdbc.postgresql.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="5">
+				<license name="BSD License" url="http://jdbc.postgresql.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2480" time="0" location="/home/pawel/.ivy2/cache/org.postgresql/postgresql/ivy-9.3-1100-jdbc4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1100-jdbc4/postgresql-9.3-1100-jdbc4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="9.3-1100-jdbc4" rev-constraint-default="9.3-1100-jdbc4" rev-constraint-dynamic="9.3-1100-jdbc4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="postgresql" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="369645" time="0" location="/home/pawel/.ivy2/cache/org.postgresql/postgresql/srcs/postgresql-9.3-1100-jdbc4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1100-jdbc4/postgresql-9.3-1100-jdbc4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.cxf" name="cxf-rt-frontend-jaxrs">
+			<revision name="3.0.16" status="release" pubdate="20171123130018" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://cxf.apache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="66953" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-rt-frontend-jaxrs/ivy-3.0.16.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-rt-frontend-jaxrs/3.0.16/cxf-rt-frontend-jaxrs-3.0.16.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.16" rev-constraint-default="3.0.16" rev-constraint-dynamic="3.0.16" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cxf-rt-frontend-jaxrs" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="386324" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-rt-frontend-jaxrs/srcs/cxf-rt-frontend-jaxrs-3.0.16-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-rt-frontend-jaxrs/3.0.16/cxf-rt-frontend-jaxrs-3.0.16-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.cxf" name="cxf-rt-transports-http">
+			<revision name="3.0.16" status="release" pubdate="20171123125408" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://cxf.apache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="74">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="65010" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-rt-transports-http/ivy-3.0.16.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-rt-transports-http/3.0.16/cxf-rt-transports-http-3.0.16.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.16" rev-constraint-default="3.0.16" rev-constraint-dynamic="3.0.16" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cxf-rt-transports-http" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="215106" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-rt-transports-http/srcs/cxf-rt-transports-http-3.0.16-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-rt-transports-http/3.0.16/cxf-rt-transports-http-3.0.16-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.annotation" name="javax.annotation-api">
+			<revision name="1.2" status="release" pubdate="20130426193829" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jcp.org/en/jsr/detail?id=250" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="77">
+				<license name="CDDL + GPLv2 with classpath exception" url="https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html"/>
+				<metadata-artifact status="no" details="" size="4135" time="0" location="/home/pawel/.ivy2/cache/javax.annotation/javax.annotation-api/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="javax.annotation-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="42311" time="0" location="/home/pawel/.ivy2/cache/javax.annotation/javax.annotation-api/srcs/javax.annotation-api-1.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.ws.rs" name="javax.ws.rs-api">
+			<revision name="2.0.1" status="release" pubdate="20140807140813" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jax-rs-spec.java.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="47">
+				<license name="CDDL 1.1" url="http://glassfish.java.net/public/CDDL+GPL_1_1.html"/>
+				<license name="GPL2 w/ CPE" url="http://glassfish.java.net/public/CDDL+GPL_1_1.html"/>
+				<metadata-artifact status="no" details="" size="4023" time="0" location="/home/pawel/.ivy2/cache/javax.ws.rs/javax.ws.rs-api/ivy-2.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.0.1" rev-constraint-default="2.0.1" rev-constraint-dynamic="2.0.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="javax.ws.rs-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="265372" time="0" location="/home/pawel/.ivy2/cache/javax.ws.rs/javax.ws.rs-api/srcs/javax.ws.rs-api-2.0.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.cxf" name="cxf-core">
+			<revision name="3.0.16" status="release" pubdate="20171123122953" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://cxf.apache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="65">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="71345" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-core/ivy-3.0.16.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-core/3.0.16/cxf-core-3.0.16.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.16" rev-constraint-default="3.0.16" rev-constraint-dynamic="3.0.16" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cxf-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1029045" time="0" location="/home/pawel/.ivy2/cache/org.apache.cxf/cxf-core/srcs/cxf-core-3.0.16-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/cxf/cxf-core/3.0.16/cxf-core-3.0.16-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.ws.xmlschema" name="xmlschema-core">
+			<revision name="2.2.2" status="release" pubdate="20170505200210" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="84">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="5455" time="0" location="/home/pawel/.ivy2/cache/org.apache.ws.xmlschema/xmlschema-core/ivy-2.2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/ws/xmlschema/xmlschema-core/2.2.2/xmlschema-core-2.2.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.2.2" rev-constraint-default="2.2.2" rev-constraint-dynamic="2.2.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="xmlschema-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="164802" time="0" location="/home/pawel/.ivy2/cache/org.apache.ws.xmlschema/xmlschema-core/srcs/xmlschema-core-2.2.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/ws/xmlschema/xmlschema-core/2.2.2/xmlschema-core-2.2.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.codehaus.woodstox" name="woodstox-core-asl">
+			<revision name="4.4.1" status="release" pubdate="20140912034817" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://woodstox.codehaus.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="28">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2917" time="0" location="/home/pawel/.ivy2/cache/org.codehaus.woodstox/woodstox-core-asl/ivy-4.4.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="4.4.1" rev-constraint-default="4.4.1" rev-constraint-dynamic="4.4.1" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="woodstox-core-asl" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="523612" time="0" location="/home/pawel/.ivy2/cache/org.codehaus.woodstox/woodstox-core-asl/srcs/woodstox-core-asl-4.4.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.codehaus.woodstox" name="stax2-api">
+			<revision name="3.1.4" status="release" pubdate="20140228072027" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://wiki.fasterxml.com/WoodstoxStax2" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="27">
+				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="3477" time="0" location="/home/pawel/.ivy2/cache/org.codehaus.woodstox/stax2-api/ivy-3.1.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="3.1.4" rev-constraint-default="3.1.4" rev-constraint-dynamic="3.1.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="stax2-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="182824" time="0" location="/home/pawel/.ivy2/cache/org.codehaus.woodstox/stax2-api/srcs/stax2-api-3.1.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.tallison" name="jmatio">
+			<revision name="1.2" status="release" pubdate="20160811201738" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/tballison/jmatio" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+				<license name="BSD" url="http://www.linfo.org/bsdlicense.html"/>
+				<metadata-artifact status="no" details="" size="3121" time="0" location="/home/pawel/.ivy2/cache/org.tallison/jmatio/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/tallison/jmatio/1.2/jmatio-1.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jmatio" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="53437" time="0" location="/home/pawel/.ivy2/cache/org.tallison/jmatio/srcs/jmatio-1.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/tallison/jmatio/1.2/jmatio-1.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.jdom" name="jdom2">
+			<revision name="2.0.4" status="release" pubdate="20121109024616" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.jdom.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+				<license name="Similar to Apache License but with the acknowledgment clause removed" url="https://raw.github.com/hunterhacker/jdom/master/LICENSE.txt"/>
+				<metadata-artifact status="no" details="" size="3016" time="0" location="/home/pawel/.ivy2/cache/org.jdom/jdom2/ivy-2.0.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jdom/jdom2/2.0.4/jdom2-2.0.4.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.0.4" rev-constraint-default="2.0.4" rev-constraint-dynamic="2.0.4" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jdom2" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="839283" time="0" location="/home/pawel/.ivy2/cache/org.jdom/jdom2/srcs/jdom2-2.0.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/jdom/jdom2/2.0.4/jdom2-2.0.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.beust" name="jcommander">
+			<revision name="1.35" status="release" pubdate="20140222183010" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://beust.com/jcommander" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="1">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3298" time="0" location="/home/pawel/.ivy2/cache/com.beust/jcommander/ivy-1.35.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/beust/jcommander/1.35/jcommander-1.35.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.35" rev-constraint-default="1.35" rev-constraint-dynamic="1.35" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jcommander" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="51390" time="0" location="/home/pawel/.ivy2/cache/com.beust/jcommander/srcs/jcommander-1.35-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/beust/jcommander/1.35/jcommander-1.35-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.pdfbox" name="pdfbox">
+			<revision name="2.0.8" status="release" pubdate="20171030193251" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="0">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="7946" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/pdfbox/ivy-2.0.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/pdfbox/pdfbox/2.0.8/pdfbox-2.0.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.0.8" rev-constraint-default="2.0.8" rev-constraint-dynamic="2.0.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="pdfbox" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2356315" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/pdfbox/srcs/pdfbox-2.0.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/pdfbox/pdfbox/2.0.8/pdfbox-2.0.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bouncycastle" name="bcmail-jdk15on">
+			<revision name="1.54" status="release" pubdate="20151230034547" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.bouncycastle.org/java.html" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="48">
+				<license name="Bouncy Castle Licence" url="http://www.bouncycastle.org/licence.html"/>
+				<metadata-artifact status="no" details="" size="3122" time="0" location="/home/pawel/.ivy2/cache/org.bouncycastle/bcmail-jdk15on/ivy-1.54.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.54" rev-constraint-default="1.54" rev-constraint-dynamic="1.54" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bcmail-jdk15on" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="73912" time="0" location="/home/pawel/.ivy2/cache/org.bouncycastle/bcmail-jdk15on/srcs/bcmail-jdk15on-1.54-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bouncycastle" name="bcpkix-jdk15on">
+			<revision name="1.54" status="release" pubdate="20151230034003" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.bouncycastle.org/java.html" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="76">
+				<license name="Bouncy Castle Licence" url="http://www.bouncycastle.org/licence.html"/>
+				<metadata-artifact status="no" details="" size="2927" time="0" location="/home/pawel/.ivy2/cache/org.bouncycastle/bcpkix-jdk15on/ivy-1.54.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.54" rev-constraint-default="1.54" rev-constraint-dynamic="1.54" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bcpkix-jdk15on" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="443676" time="0" location="/home/pawel/.ivy2/cache/org.bouncycastle/bcpkix-jdk15on/srcs/bcpkix-jdk15on-1.54-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.bouncycastle" name="bcprov-jdk15on">
+			<revision name="1.54" status="release" pubdate="20151230033411" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.bouncycastle.org/java.html" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="114">
+				<license name="Bouncy Castle Licence" url="http://www.bouncycastle.org/licence.html"/>
+				<metadata-artifact status="no" details="" size="2676" time="0" location="/home/pawel/.ivy2/cache/org.bouncycastle/bcprov-jdk15on/ivy-1.54.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.54" rev-constraint-default="1.54" rev-constraint-dynamic="1.54" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bcprov-jdk15on" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3068916" time="0" location="/home/pawel/.ivy2/cache/org.bouncycastle/bcprov-jdk15on/srcs/bcprov-jdk15on-1.54-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.pdfbox" name="fontbox">
+			<revision name="2.0.8" status="release" pubdate="20171030192750" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://pdfbox.apache.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="6772" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/fontbox/ivy-2.0.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/pdfbox/fontbox/2.0.8/fontbox-2.0.8.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="2.0.8" rev-constraint-default="2.0.8" rev-constraint-dynamic="2.0.8" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="fontbox" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1434655" time="0" location="/home/pawel/.ivy2/cache/org.apache.pdfbox/fontbox/srcs/fontbox-2.0.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/pdfbox/fontbox/2.0.8/fontbox-2.0.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-logging" name="commons-logging">
+			<revision name="1.2" status="release" pubdate="20140705201228" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-logging/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="44">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11623" time="0" location="/home/pawel/.ivy2/cache/commons-logging/commons-logging/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom"/>
+				<caller organisation="dyskobol" name="dyskobol$sources" conf="compile, runtime-internal, runtime, optional" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="0.0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-logging" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="73295" time="0" location="/home/pawel/.ivy2/cache/commons-logging/commons-logging/srcs/commons-logging-1.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>
