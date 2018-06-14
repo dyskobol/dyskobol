@@ -30,13 +30,12 @@ class DB(val dbName: String, val username: String, val password: String) {
   if( !tablesCreated) Await.result(db.run(schema.create), Duration.Inf)
 
   def saveFiles(files: Iterable[File]) = {
-    val rows = files.map(file => (0, file.name, file.mime())).toList
+    val rows = files.map(file => (0, file.mime(), file.name)).toList
 
     val run = db.run { filesWithId ++= rows }
     run.map(r => {
       r.zip(files).foreach(idAndFile => {
         val (fileId, file) = idAndFile
-        if( fileId == 0 ) { println("ZEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOES")}
         file.id = fileId
         file
       })
@@ -63,7 +62,6 @@ class DB(val dbName: String, val username: String, val password: String) {
 
   def close() = db.close()
 
-  private def fileRow(name: String, mimetype: String) = filesWithId += (0, name, mimetype)
   private def row(fileId: Int, name: String, value: String) = stringValues += (fileId, name, value)
   private def row(fileId: Int, name: String, value: Array[Byte]) = byteValues += (fileId, name, value.asInstanceOf)
   private def row(fileId: Int, name: String, value: java.util.Date) = dateValues += (fileId, name, value.asInstanceOf)

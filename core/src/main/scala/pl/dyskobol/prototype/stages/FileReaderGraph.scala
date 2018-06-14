@@ -34,6 +34,7 @@ class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Itera
               case _: Throwable => ()
             }
 
+            println(file.get.path)
             push(out, (file.get, new FileProperties))
           }
           else {
