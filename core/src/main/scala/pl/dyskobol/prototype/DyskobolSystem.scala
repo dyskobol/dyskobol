@@ -10,6 +10,7 @@ import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
 import pl.dyskobol.model.{File, FileProperties, FlowElements}
+import pl.dyskobol.prototype.persistance.DB
 import pl.dyskobol.prototype.plugins.filters
 
 import scala.collection.mutable
@@ -18,6 +19,8 @@ import scala.collection.mutable
 
 object Main extends App {
   implicit val system = ActorSystem("dyskobol")
+  implicit val db = new DB("dyskobol_example", "dyskobol", "dyskobol")
+
   val decider: Supervision.Decider = {
     case e => {
       e.printStackTrace()
@@ -43,24 +46,42 @@ object Main extends App {
     val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
     val docMeta     = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
     val merge       = builder add  stages.Merge(3)
+    val persist         = builder add plugins.db.flows.SaveFile(100)
 
 
-    source ~> broadcast ~> imageProcessing  ~> merge ~> sink
-              broadcast ~> docMeta          ~> merge
-              broadcast ~> fileMeta         ~> merge
+    source ~> persist ~> broadcast ~> imageProcessing  ~> merge ~> sink
+                         broadcast ~> docMeta          ~> merge
+                         broadcast ~> fileMeta         ~> merge
 
 
     ClosedShape
   }).run()(materializer).onComplete(_ => {
     for( (_, (file, props)) <- processed ) {
-      println("-----------------------------------------------------")
+//      println("-----------------------------------------------------")
       if( file.path contains "@" ) {
         println("                                                                              FROM ZIP")
       }
-      println(f"${file.path}/${file.name}, ${file.mime}")
-      println(props)
+//      println(f"${file.path}/${file.name}, ${file.mime}")
+//      println(props)
     }
-    system.terminate()
+
+    db.saveFiles(processed.values.map(_._1).toList).onComplete(f =>
+      if( f.isSuccess ) {
+        println("SUCCESS")
+            db.saveProps {
+                processed.values.map(fileAndProps => {
+                    val (file, props) = fileAndProps
+                  println(props)
+                    (file.id, props)
+                })
+              }.onComplete(_ => {
+                db.close()
+                system.terminate()
+              })
+          } else {
+        println("TEST");
+      }
+    )
   })
 
 }

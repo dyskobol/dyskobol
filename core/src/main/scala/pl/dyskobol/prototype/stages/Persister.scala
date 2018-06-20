@@ -13,45 +13,45 @@ class Persister[A](val databaseUrl:String) extends GraphStage[FlowShape[FlowElem
   var nextId:Long =0
   override def createLogic(attr: Attributes): GraphStageLogic =
 
-  new GraphStageLogic(shape) {
+    new GraphStageLogic(shape) {
 
 
-    override def preStart(): Unit = {
-      Thread.sleep(1000)
-      //simulating connection initialzaiton
-      nextId = (Math.random() * 1000).toLong
-    }
-
-    setHandler(in, new InHandler {
-
-      def merge(fileProp: FileProperties): Unit = {
-        //simulation merge
-        Thread.sleep(100)
+      override def preStart(): Unit = {
+        Thread.sleep(1000)
+        //simulating connection initialzaiton
+        nextId = (Math.random() * 1000).toLong
       }
 
-      def persist(fileProp: FileProperties): Unit = {
-        //simulation persist
-        Thread.sleep(100)
-        fileProp._fileId = Some(nextId)
-        nextId += 1
-        fileProp.clear()
-      }
+      setHandler(in, new InHandler {
 
-      override def onPush(): Unit = {
-        val (file, fileProp) = grab(in)
-        fileProp._fileId match {
-          case Some(_) => merge(fileProp)
-          case None => persist(fileProp)
+        def merge(fileProp: FileProperties): Unit = {
+          //simulation merge
+          Thread.sleep(100)
         }
 
-        push(out, (file, fileProp))
-      }
-    })
+        def persist(fileProp: FileProperties): Unit = {
+          //simulation persist
+          Thread.sleep(100)
+          fileProp._fileId = Some(nextId)
+          nextId += 1
+          fileProp.clear()
+        }
 
-    setHandler(out, new OutHandler {
-      override def onPull(): Unit = {
-        pull(in)
-      }
-    })
-  }
+        override def onPush(): Unit = {
+          val (file, fileProp) = grab(in)
+          fileProp._fileId match {
+            case Some(_) => merge(fileProp)
+            case None => persist(fileProp)
+          }
+
+          push(out, (file, fileProp))
+        }
+      })
+
+      setHandler(out, new OutHandler {
+        override def onPull(): Unit = {
+          pull(in)
+        }
+      })
+    }
 }

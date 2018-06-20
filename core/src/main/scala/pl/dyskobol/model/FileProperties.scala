@@ -12,6 +12,8 @@ class FileProperties {
   lazy val dateValues: mutable.Map[String, Date] = mutable.Map()
   lazy val byteValues:  mutable.Map[String, Array[Byte]] = mutable.Map()
 
+  def getAll() = stringValues.iterator ++ numberValues.iterator ++ dateValues.iterator ++ byteValues.iterator;
+
 
   def addProperty(name: String, value: String): Unit = {
     stringValues += (name -> value)
@@ -32,9 +34,9 @@ class FileProperties {
   override def toString: String = {
     val mapper = (kv: (Object,Object)) => f"${kv._1.toString} ${kv._2.toString}"
     f"Props:\n" +
-    (stringValues.toList.map( mapper ) ++
-    numberValues.toList.map( mapper ) ++
-    dateValues.toList.map( mapper ) mkString "\n")
+      (stringValues.toList.map( mapper ) ++
+        numberValues.toList.map( mapper ) ++
+        dateValues.toList.map( mapper ) mkString "\n")
   }
 
   def clear(): Unit = {
