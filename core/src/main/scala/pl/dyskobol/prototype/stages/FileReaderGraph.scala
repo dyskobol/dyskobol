@@ -1,12 +1,17 @@
 package pl.dyskobol.prototype.stages
 
+import java.util.TimerTask
+
 import akka.stream.scaladsl.{Flow, Source}
 import akka.stream.{Attributes, Graph, Outlet, SourceShape}
 import akka.stream.stage.{GraphStage, GraphStageLogic, OutHandler}
 import pl.dyskobol.model.{File, FilePointer, FileProperties, FlowElements}
+import pl.dyskobol.prototype.plugins.file
 import simple.Library
 
-class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Iterator.empty) extends GraphStage[SourceShape[FlowElements]] {
+import scala.concurrent.Future
+
+class FileReaderGraph(val path: String, val timeout: Long = 1000)(implicit val bufferedGenerated: Option[GeneratedFilesBuffer] = None) extends GraphStage[SourceShape[FlowElements]] {
   val out: Outlet[FlowElements] = Outlet("Files")
   override val shape: SourceShape[FlowElements] = SourceShape(out)
 
@@ -25,29 +30,29 @@ class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Itera
 
       setHandler(out, new OutHandler {
         override def onPull(): Unit = {
-          val file = getNext()
+          val file = nextFile()
           if( file.isDefined ) {
-
-            // Add new files (for example unwrapped files)
-            try {
-              generatedFiles = generatedFiles ++ generator(file.get)
-            } catch {
-              // Ignore
-              case _: Throwable => ()
-            }
-
             push(out, (file.get, new FileProperties))
           }
           else {
-            complete(out)
+            waitForNewFiles()
           }
         }
       })
 
-      def getNext(): Option[File] = {
+      def nextFile(): Option[File] = {
+        // Generated outside
         if( generatedFiles.hasNext ) {
           return Some(generatedFiles.next())
+        } else
+        if( bufferedGenerated.isDefined) {
+          generatedFiles = bufferedGenerated.get.empty()
+          if( generatedFiles.hasNext ) {
+            return Some(generatedFiles.next())
+          }
         }
+
+        // Generated from sleuthkit
         if( files.nonEmpty ) {
           val toReturn = files.head
           files = files.tail
@@ -79,6 +84,31 @@ class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Itera
         val directoriesToProcess = normalFiles.filter(_.`type` == File.DIRECTORY).map( f => (s"${path}/${f.name}", f.addr) )
         directoriesStack = directoriesToProcess ++ directoriesStack
         normalFiles
+      }
+
+      def waitForNewFiles(): Unit = {
+        // No additional dynamic files
+        if( bufferedGenerated.isEmpty ) {
+          complete(out)
+        }
+
+        // Additional generated files
+        // If no file is generated in given time we can terminate the processing
+        var shouldComplete = true
+        new java.util.Timer().schedule(new TimerTask {
+          override def run(): Unit = {
+            if(shouldComplete) {
+              complete(out)
+            }
+          }
+        }, timeout)
+
+        // Make sure the system is not terminated if a file comes
+        bufferedGenerated.get.setFillCallback(() => {
+          shouldComplete = false
+          push(out, (nextFile().get, new FileProperties))
+          bufferedGenerated.get.setFillCallback(None)
+        })
       }
     }
 }

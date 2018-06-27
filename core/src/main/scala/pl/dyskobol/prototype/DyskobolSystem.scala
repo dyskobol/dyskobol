@@ -12,6 +12,7 @@ import akka.stream.scaladsl.GraphDSL.Implicits._
 import pl.dyskobol.model.{File, FileProperties, FlowElements}
 import pl.dyskobol.prototype.persistance.DB
 import pl.dyskobol.prototype.plugins.filters
+import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
 
 import scala.collection.mutable
 
@@ -40,18 +41,21 @@ object Main extends App {
   })
 
   RunnableGraph.fromGraph(GraphDSL.create(sink) { implicit builder => sink =>
-    val source      = builder add  stages.FileSource("./core/res/test.iso", plugins.unzip.filesGenerators.unzip)
-    val broadcast   = builder add stages.Broadcast(3)
+    implicit val generatedFiles: GeneratedFilesBuffer = new GeneratedFilesBuffer()
+    val source      = builder add  stages.FileSource("./core/res/test.iso")
+    val broadcast   = builder add stages.Broadcast(4)
     val fileMeta    = builder add plugins.file.flows.FileMetadataExtract(full = false)
     val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
     val docMeta     = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
     val merge       = builder add  stages.Merge(3)
-    val persist         = builder add plugins.db.flows.SaveFile(100)
+    val unzip       = builder add plugins.unzip.filesGenerators.unzip
+    val persist         = builder add plugins.db.flows.SaveFile()
 
 
     source ~> persist ~> broadcast ~> imageProcessing  ~> merge ~> sink
                          broadcast ~> docMeta          ~> merge
                          broadcast ~> fileMeta         ~> merge
+                         broadcast ~> unzip
 
 
     ClosedShape
