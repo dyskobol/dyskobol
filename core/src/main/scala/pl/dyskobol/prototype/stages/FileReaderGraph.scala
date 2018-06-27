@@ -18,7 +18,9 @@ class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Itera
 
       private var files: List[File] = Nil
       private var generatedFiles: Iterator[File] = Iterator.empty
-      private var directoriesStack: List[FilePointer] = root :: Nil
+
+      // We need to keep track of path and file pointers
+      private var directoriesStack: List[Tuple2[String, FilePointer]] = ("", root) :: Nil
 
 
       setHandler(out, new OutHandler {
@@ -70,11 +72,12 @@ class FileReaderGraph(val path: String)(generator: FilesGenerator = (_) => Itera
       }
 
       def readNewFiles(): List[File] = {
-        val files = Library.getDirFilesByInodeNat(filesystem, directoriesStack.head).toList
+        val (path, filePointer) = directoriesStack.head
+        val files = Library.getDirFilesByInodeNat(filesystem, filePointer).toList
         directoriesStack = directoriesStack.tail
-        val normalFiles = files filter (f => f.name != ".." && f.name != ".")
-        val directoriesPointers = normalFiles.filter(_.`type` == File.DIRECTORY).map(_.addr)
-        directoriesStack = directoriesPointers ++ directoriesStack
+        val normalFiles = files withFilter (f => f.name != ".." && f.name != ".") map (f => {f.path = path; f} )
+        val directoriesToProcess = normalFiles.filter(_.`type` == File.DIRECTORY).map( f => (s"${path}/${f.name}", f.addr) )
+        directoriesStack = directoriesToProcess ++ directoriesStack
         normalFiles
       }
     }

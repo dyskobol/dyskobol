@@ -59,9 +59,8 @@ typedef struct FilesList {
 TSK_WALK_RET_ENUM create_list(TSK_FS_FILE *file, const char *a_path, void *a_ptr) {
 //    printf("FILE: ");
 //    printf(file->name->name);
-//    printf("\nPATH: ");
-//    printf(a_path);
-//    printf("\n");
+//    fprintf(stdout, "PATH: %s\n", a_path);
+//    fflush(stdout);
     FilesList* list = (FilesList*) a_ptr;
     JNIEnv* env = list->env;
     jstring name = (*env)->NewStringUTF(env, file->name->name);
@@ -172,7 +171,7 @@ Java_simple_Library_00024_getDirFilesByInodeNat(JNIEnv * env, jclass obj, jlong 
     list.env = env;
     list.files = malloc(sizeof(jobject)*list.size);
 
-    tsk_fs_dir_walk(filesystem, inode, TSK_FS_DIR_WALK_FLAG_ALLOC + TSK_FS_DIR_WALK_FLAG_NOORPHAN, create_list, &list);
+    tsk_fs_dir_walk(filesystem, inode, TSK_FS_DIR_WALK_FLAG_ALLOC | TSK_FS_DIR_WALK_FLAG_NOORPHAN, create_list, &list);
 
 
     // Create array

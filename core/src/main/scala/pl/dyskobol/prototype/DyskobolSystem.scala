@@ -61,7 +61,7 @@ object Main extends App {
       if( file.path contains "@" ) {
         println("                                                                              FROM ZIP")
       }
-//      println(f"${file.path}/${file.name}, ${file.mime}")
+      println(f"${file.path}/${file.name}, ${file.mime}")
 //      println(props)
     }
 
@@ -71,7 +71,7 @@ object Main extends App {
             db.saveProps {
                 processed.values.map(fileAndProps => {
                     val (file, props) = fileAndProps
-                  println(props)
+//                  println(props)
                     (file.id, props)
                 })
               }.onComplete(_ => {

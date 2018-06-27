@@ -10,7 +10,7 @@ import scala.concurrent.Promise;
 
 public class File {
     final public String name;
-    final public String path;
+    public String path;
     final public int type;
     final public long addr;
     final public int permissions;
