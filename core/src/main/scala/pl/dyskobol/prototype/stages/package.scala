@@ -14,7 +14,4 @@ package object stages {
   def Merge(ins: Int) = akka.stream.scaladsl.Merge[FlowElements](ins)
   def Sink() = akka.stream.scaladsl.Sink.ignore
   type FilesGenerator = File => Iterator[File]
-
-  val FileTypeResolver: Flow[FlowElements, FlowElements, NotUsed] = Flow[FlowElements].map(f=> {f._1.mime(); f})
-
 }

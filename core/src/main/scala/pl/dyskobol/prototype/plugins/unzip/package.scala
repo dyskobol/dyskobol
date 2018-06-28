@@ -40,7 +40,7 @@ package object unzip {
           try {
             nextEntry = zis.getNextEntry
           } catch {
-            case e => e.printStackTrace()
+            case e: Throwable => e.printStackTrace()
           }
           new File(entry.getName, path, fileType, 0, 0, entry.getSize, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0) {
