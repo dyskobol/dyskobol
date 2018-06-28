@@ -1,17 +1,16 @@
 package pl.dyskobol.prototype
 
-import java.util.concurrent.CountDownLatch
 
-import akka.NotUsed
-import akka.actor.{ActorSystem, Props}
+
+
+import akka.actor.ActorSystem
 import akka.dispatch.ExecutionContexts
-import akka.io.Udp.SO.Broadcast
-import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
+
+import akka.stream.scaladsl.{GraphDSL, RunnableGraph, Sink}
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
-import pl.dyskobol.model.{File, FileProperties, FlowElements}
+import pl.dyskobol.model.FlowElements
 import pl.dyskobol.prototype.persistance.DB
-import pl.dyskobol.prototype.plugins.filters
 import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
 
 import scala.collection.mutable

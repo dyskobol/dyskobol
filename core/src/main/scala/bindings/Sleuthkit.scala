@@ -7,7 +7,6 @@ import pl.dyskobol.model.File
 @nativeLoader("bindings_tsk")
 object Sleuthkit {
 
-
   @native def openImgNat(path: String): Long
 
   @native def openFsNat(image: Long): Long

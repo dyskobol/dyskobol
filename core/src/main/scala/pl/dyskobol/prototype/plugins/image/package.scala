@@ -38,7 +38,7 @@ package object image {
             val (file, prop) = pair
             val bytes = Array.ofDim[Byte](file.size.toInt)
             file.createStream().read(bytes)
-            Option(Imaging.getMetadata(bytes)) foreach (_.getItems.forEach((item) => {
+            Option(Imaging.getMetadata(bytes)) foreach (_.getItems.forEach(item => {
               prop.addProperty(item.asInstanceOf[Item].getKeyword, item.asInstanceOf[Item].getText)
             }))
           })
@@ -51,8 +51,8 @@ package object image {
             file.createStream().read(bytes)
             Option(Imaging.getMetadata(bytes)) foreach (_.asInstanceOf[ImageMetadata].getItems
               .stream
-              .filter((item) => seq.contains(item.asInstanceOf[Item].getKeyword))
-              .forEach((item) => {
+              .filter(item => seq.contains(item.asInstanceOf[Item].getKeyword))
+              .forEach(item => {
                 prop.addProperty(item.asInstanceOf[Item].getKeyword, item.asInstanceOf[Item].getText)
               }))
           })

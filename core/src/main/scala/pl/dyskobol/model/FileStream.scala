@@ -7,12 +7,12 @@ import bindings.Sleuthkit
 class FileStream(val filesystem: Long, val file: File) extends InputStream {
   var opened = false
   private var fileHandle: Long = 0
-  private var fileOffset: Long = 0;
-  private var mark: Long = 0;
+  private var fileOffset: Long = 0
+  private var mark: Long = 0
   openFile()
 
   private def openFile(): Unit = {
-    if( opened ) return;
+    if( opened ) return
     fileHandle = Sleuthkit.openFileNat(filesystem, file.addr)
     opened = true
   }
