@@ -1,27 +1,14 @@
 #include <stdio.h>
-#include "simple_Library__.h"
+#include "bindings_Sleuthkit__.h"
+
 
 /*
- * Class:     simple_Library__
- * Method:    say
- * Signature: (Ljava/lang/String;)I
- */
-JNIEXPORT jint JNICALL Java_simple_Library_00024_say
-(JNIEnv *env, jobject clazz, jstring message) {
-	const char* msg = (*env)->GetStringUTFChars(env, message, 0);
-	fprintf(stdout, "Printing from native lisadasdbrary: %s\n", msg);
-	fflush(stdout);
-	(*env)->ReleaseStringUTFChars(env, message, msg);
-	return 42;
-}
-
-/*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    openImg
  * Signature: (Ljava/lang/String;)J
  */
 JNIEXPORT jlong JNICALL
-Java_simple_Library_00024_openImgNat(JNIEnv * env, jobject obj, jstring path) {
+Java_bindings_Sleuthkit_00024_openImgNat(JNIEnv * env, jobject obj, jstring path) {
     const char *image_path = (*env)->GetStringUTFChars(env, path, 0);;
     const char* const images[] = {image_path};
     const int images_count = 1;
@@ -32,12 +19,12 @@ Java_simple_Library_00024_openImgNat(JNIEnv * env, jobject obj, jstring path) {
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    openFsNat
  * Signature: (J)J
  */
 JNIEXPORT jlong JNICALL
-Java_simple_Library_00024_openFsNat(JNIEnv * env, jclass obj, jlong image) {
+Java_bindings_Sleuthkit_00024_openFsNat(JNIEnv * env, jclass obj, jlong image) {
 
     TSK_OFF_T offset = 0; // I guess
     TSK_FS_INFO* filesystem_info = tsk_fs_open_img( (TSK_IMG_INFO*) image, 0, TSK_FS_TYPE_DETECT);
@@ -100,12 +87,12 @@ TSK_WALK_RET_ENUM create_list(TSK_FS_FILE *file, const char *a_path, void *a_ptr
     list->used++;
 }
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    getDirFilesNat
  * Signature: (JLjava/lang/String;)[Lpl/dyskobol/model/File;
  */
 JNIEXPORT jobjectArray JNICALL
-Java_simple_Library_00024_getDirFilesNat(JNIEnv * env, jclass obj, jlong fileSystem, jstring path) {
+Java_bindings_Sleuthkit_00024_getDirFilesNat(JNIEnv * env, jclass obj, jlong fileSystem, jstring path) {
 	const char* path_ = (*env)->GetStringUTFChars(env, path, 0);
 
 
@@ -151,12 +138,12 @@ Java_simple_Library_00024_getDirFilesNat(JNIEnv * env, jclass obj, jlong fileSys
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    getDirFilesByInodeNat
  * Signature: (JJ)[Lpl/dyskobol/model/File;
  */
 JNIEXPORT jobjectArray JNICALL
-Java_simple_Library_00024_getDirFilesByInodeNat(JNIEnv * env, jclass obj, jlong fileSystem, jlong addr) {
+Java_bindings_Sleuthkit_00024_getDirFilesByInodeNat(JNIEnv * env, jclass obj, jlong fileSystem, jlong addr) {
     TSK_FS_INFO* filesystem = (TSK_FS_INFO*) fileSystem;
     TSK_INUM_T inode = (TSK_INUM_T) addr;
     FilesList list;
@@ -197,12 +184,12 @@ Java_simple_Library_00024_getDirFilesByInodeNat(JNIEnv * env, jclass obj, jlong 
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    getFileInode
  * Signature: (JLjava/lang/String;)J
  */
 JNIEXPORT jlong JNICALL
-Java_simple_Library_00024_getFileInode(JNIEnv * env, jclass obj, jlong fileSystem, jstring path) {
+Java_bindings_Sleuthkit_00024_getFileInode(JNIEnv * env, jclass obj, jlong fileSystem, jstring path) {
     const char* path_ = (*env)->GetStringUTFChars(env, path, 0);
 
     TSK_FS_INFO* filesystem = (TSK_FS_INFO*) fileSystem;
@@ -213,12 +200,12 @@ Java_simple_Library_00024_getFileInode(JNIEnv * env, jclass obj, jlong fileSyste
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    openFileNat
  * Signature: (JJ)J
  */
 JNIEXPORT jlong JNICALL
-Java_simple_Library_00024_openFileNat(JNIEnv * env, jclass obj, jlong fileSystem, jlong inode) {
+Java_bindings_Sleuthkit_00024_openFileNat(JNIEnv * env, jclass obj, jlong fileSystem, jlong inode) {
     TSK_FS_INFO* filesystem = (TSK_FS_INFO*) fileSystem;
     TSK_INUM_T address = (TSK_INUM_T) inode;
     TSK_FS_FILE* file = tsk_fs_file_open_meta(filesystem, NULL, address);
@@ -226,24 +213,24 @@ Java_simple_Library_00024_openFileNat(JNIEnv * env, jclass obj, jlong fileSystem
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    closeFileNat
  * Signature: (J)V
  */
 JNIEXPORT void JNICALL
-Java_simple_Library_00024_closeFileNat(JNIEnv * env, jclass obj, jlong file) {
+Java_bindings_Sleuthkit_00024_closeFileNat(JNIEnv * env, jclass obj, jlong file) {
     TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
     tsk_fs_file_close(file_);
     return;
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    readNat
  * Signature: (JJJ)[B
  */
 JNIEXPORT jbyteArray JNICALL
-Java_simple_Library_00024_readNat(JNIEnv * env, jclass obj, jlong file, jlong offset, jlong count) {
+Java_bindings_Sleuthkit_00024_readNat(JNIEnv * env, jclass obj, jlong file, jlong offset, jlong count) {
     TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
 
     long bytesLeft = file_->meta->size - offset;
@@ -272,12 +259,12 @@ Java_simple_Library_00024_readNat(JNIEnv * env, jclass obj, jlong file, jlong of
 }
 
 /*
- * Class:     simple_Library__
+ * Class:     bindings_Sleuthkit__
  * Method:    readToBufferNat
  * Signature: (JJJ[BJ)J
  */
 JNIEXPORT jlong JNICALL
-Java_simple_Library_00024_readToBufferNat(JNIEnv * env, jclass obj, jlong file, jlong fileOffset, jlong count, jbyteArray buffer, jlong bufferOffset) {
+Java_bindings_Sleuthkit_00024_readToBufferNat(JNIEnv * env, jclass obj, jlong file, jlong fileOffset, jlong count, jbyteArray buffer, jlong bufferOffset) {
     TSK_FS_FILE* file_ = (TSK_FS_FILE*) file;
 
     long bytesLeft = file_->meta->size - fileOffset;

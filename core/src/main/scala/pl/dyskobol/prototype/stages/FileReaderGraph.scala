@@ -7,7 +7,7 @@ import akka.stream.{Attributes, Graph, Outlet, SourceShape}
 import akka.stream.stage.{GraphStage, GraphStageLogic, OutHandler}
 import pl.dyskobol.model.{File, FilePointer, FileProperties, FlowElements}
 import pl.dyskobol.prototype.plugins.file
-import simple.Library
+import bindings.Sleuthkit
 
 import scala.concurrent.Future
 
@@ -18,8 +18,8 @@ class FileReaderGraph(val path: String, val timeout: Long = 1000)(implicit val b
   override def createLogic(inheritedAttributes: Attributes): GraphStageLogic =
     new GraphStageLogic(shape) {
 
-      private val filesystem : Long = Library.openFsNat(Library.openImgNat(path))
-      private val root: FilePointer = Library.getFileInode(filesystem, ".")
+      private val filesystem : Long = Sleuthkit.openFsNat(Sleuthkit.openImgNat(path))
+      private val root: FilePointer = Sleuthkit.getFileInode(filesystem, ".")
 
       private var files: List[File] = Nil
       private var generatedFiles: Iterator[File] = Iterator.empty
@@ -78,7 +78,7 @@ class FileReaderGraph(val path: String, val timeout: Long = 1000)(implicit val b
 
       def readNewFiles(): List[File] = {
         val (path, filePointer) = directoriesStack.head
-        val files = Library.getDirFilesByInodeNat(filesystem, filePointer).toList
+        val files = Sleuthkit.getDirFilesByInodeNat(filesystem, filePointer).toList
         directoriesStack = directoriesStack.tail
         val normalFiles = files withFilter (f => f.name != ".." && f.name != ".") map (f => {f.path = path; f} )
         val directoriesToProcess = normalFiles.filter(_.`type` == File.DIRECTORY).map( f => (s"${path}/${f.name}", f.addr) )

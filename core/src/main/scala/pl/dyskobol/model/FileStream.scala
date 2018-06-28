@@ -2,7 +2,7 @@ package pl.dyskobol.model
 
 import java.io.InputStream
 
-import simple.Library
+import bindings.Sleuthkit
 
 class FileStream(val filesystem: Long, val file: File) extends InputStream {
   var opened = false
@@ -13,20 +13,20 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
 
   private def openFile(): Unit = {
     if( opened ) return;
-    fileHandle = Library.openFileNat(filesystem, file.addr)
+    fileHandle = Sleuthkit.openFileNat(filesystem, file.addr)
     opened = true
   }
 
   override def close(): Unit = {
     if( !opened ) return
 
-    Library.closeFileNat(fileHandle)
+    Sleuthkit.closeFileNat(fileHandle)
     fileHandle = 0
     opened = false
   }
 
   override def read(): Int = {
-    val bytes = Library.readNat(fileHandle, fileOffset, 1)
+    val bytes = Sleuthkit.readNat(fileHandle, fileOffset, 1)
     if (bytes.length > 0) {
       fileOffset += 1
       bytes(0)
@@ -45,7 +45,7 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
   override def markSupported(): Boolean = true
 
   override def read(bytes: Array[Byte], bufferOffset: Int, len: Int): Int = {
-    val read = Library.readToBufferNat(fileHandle, fileOffset, len, bytes, bufferOffset).toInt
+    val read = Sleuthkit.readToBufferNat(fileHandle, fileOffset, len, bytes, bufferOffset).toInt
     if( read > 0 ) fileOffset += read
     read
   }
