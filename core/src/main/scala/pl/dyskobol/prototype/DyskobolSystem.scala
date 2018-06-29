@@ -24,9 +24,9 @@ import scala.concurrent.duration.Duration
 
 object Main extends App {
   implicit val system = ActorSystem("dyskobol")
-  implicit val dbs = Map("relational" -> new DB("postgres", "postgres", "postgres"))
-  implicit val actionRespository = pl.dyskobol.persistance.basicRepository
-  implicit val commandHandler = new CommandHandler()
+  //implicit val dbs = Map("relational" -> new DB("postgres", "postgres", "postgres"))
+  //implicit val actionRespository = pl.dyskobol.persistance.basicRepository
+  //implicit val commandHandler = new CommandHandler()
 
   val decider: Supervision.Decider = {
     case e => {
@@ -53,10 +53,10 @@ object Main extends App {
     val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
     val docMeta     = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
     val merge       = builder add  stages.Merge(3)
-    val persist         = builder add plugins.db.flows.SaveFile(100)
+    //val persist         = builder add plugins.db.flows.SaveFile(100)
 
 
-    source ~> persist ~> broadcast ~> imageProcessing  ~> merge ~> sink
+    source ~> broadcast ~> imageProcessing  ~> merge ~> sink
     broadcast ~> docMeta          ~> merge
     broadcast ~> fileMeta         ~> merge
 
@@ -72,7 +72,7 @@ object Main extends App {
       //      println(props)
     }
 
-    commandHandler.persist(processed)
+    //commandHandler.persist(processed)
     system.terminate()
   })
 
