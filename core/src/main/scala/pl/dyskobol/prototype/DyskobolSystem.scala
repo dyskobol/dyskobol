@@ -43,6 +43,7 @@ object Main extends App {
   val processed = mutable.Map[String, FlowElements]()
   val sink = Sink.foreach[FlowElements](f => {
     val (file, props) = f
+    println(file.name)
     processed(file.path + file.name) = f
   })
 
@@ -64,12 +65,12 @@ object Main extends App {
     ClosedShape
   }).run()(materializer).onComplete(_ => {
     for( (_, (file, props)) <- processed ) {
-      //      println("-----------------------------------------------------")
+            println("-----------------------------------------------------")
       if( file.path contains "@" ) {
         println("                                                                              FROM ZIP")
       }
-      //      println(f"${file.path}/${file.name}, ${file.mime}")
-      //      println(props)
+            println(f"${file.path}/${file.name}, ${file.mime}")
+            println(props)
     }
 
     //commandHandler.persist(processed)
