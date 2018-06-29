@@ -3,7 +3,7 @@ package pl.dyskobol.prototype.persistance
 import pl.dyskobol.model.{File, FileProperties}
 import pl.dyskobol.prototype.persistance.Tables._
 import slick.driver.PostgresDriver
-import slick.jdbc.meta.MTable
+import slick.jdbc.meta.{MQName, MTable}
 import slick.lifted.TableQuery
 import slick.driver.PostgresDriver.api._
 
@@ -25,9 +25,21 @@ class DB(val dbName: String, val username: String, val password: String) {
 
   val db = Database.forURL(f"jdbc:postgresql://localhost/${dbName}?user=${username}&password=${password}")
 
-  var tablesCreated = false
+  val tableNames = List("STRING_PROPERTIES", "NUMBER_PROPERTIES", "DATE_PROPERTIES", "BYTE_PROPERTIES", "FILES")
 
-  if( !tablesCreated) Await.result(db.run(schema.create), Duration.Inf)
+  val tablesInDatabase = Await.result(db.run(MTable.getTables), Duration.Inf).toList
+
+  for(i <- tableNames){
+    var table = false
+    for(MTable(MQName(_,_,j),_,_,_,_,_) <- tablesInDatabase){
+      if(i == j){
+        table = true
+      }
+    }
+    if(!table)
+      Await.result(db.run(tables(tableNames.indexOf(i)).create), Duration.Inf)
+  }
+
 
   def saveFiles(files: Iterable[File]) = {
     val rows = files.map(file => (0, file.name, file.mime)).toList
