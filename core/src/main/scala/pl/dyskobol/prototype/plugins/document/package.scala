@@ -87,14 +87,11 @@ package object document {
     private def metaExtract(parser: Parser, inputStream: InputStream, props: FileProperties) = {
       val handler = new WriteOutContentHandler(-1)
       val metadata = new Metadata()
-//      try {
+      
         parser.parse(inputStream, handler, metadata, new ParseContext())
-        metadata.names().foreach((k) => {
+        metadata.names().foreach(k => {
           props.addProperty(k, metadata.get(k))
         })
-//      } catch {
-//        case _ : Throwable => None
-//      }
     }
 
     private def extractCreator(extrFun: (Parser, InputStream, FileProperties) => Unit, parser: Parser) =

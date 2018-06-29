@@ -2,7 +2,7 @@ package pl.dyskobol.prototype.stages
 
 import akka.stream.ActorAttributes.SupervisionStrategy
 import akka.stream.Supervision.{Restart, Resume, Stop}
-import akka.stream.stage.{GraphStage, GraphStageLogic, InHandler, OutHandler}
+import akka.stream.stage._
 import akka.stream._
 import pl.dyskobol.model.FlowElements
 
@@ -16,7 +16,7 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
 
 
   override def createLogic(attr: Attributes): GraphStageLogic =
-    new GraphStageLogic(shape) {
+    new GraphStageLogic(shape) with StageLogging {
       var pulled = false
 
       def decider = attr.get[SupervisionStrategy].map(_.decider).getOrElse(Supervision.resumingDecider)
@@ -30,6 +30,7 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
             f(file, fileProp)
           } catch {
             case e: Throwable =>
+              log.error(e.getMessage)
               decider(e) match {
                 case Stop => failStage(e)
                 case _ => {

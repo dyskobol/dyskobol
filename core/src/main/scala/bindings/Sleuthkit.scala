@@ -1,13 +1,11 @@
-package simple
+package bindings
 
 import ch.jodersky.jni.nativeLoader
 import pl.dyskobol.model.File
 
 
-@nativeLoader("demo0")
-object Library {
-
-  @native def say(message: String): Int
+@nativeLoader("bindings_tsk")
+object Sleuthkit {
 
   @native def openImgNat(path: String): Long
 

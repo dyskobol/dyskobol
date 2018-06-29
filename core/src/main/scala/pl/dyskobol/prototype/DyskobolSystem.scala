@@ -1,17 +1,17 @@
 package pl.dyskobol.prototype
 
-import java.util.concurrent.CountDownLatch
 
-import akka.NotUsed
-import akka.actor.{ActorSystem, Props}
+
+
+import akka.actor.ActorSystem
 import akka.dispatch.ExecutionContexts
-import akka.io.Udp.SO.Broadcast
-import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
+
+import akka.stream.scaladsl.{GraphDSL, RunnableGraph, Sink}
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
-import pl.dyskobol.model.{File, FileProperties, FlowElements}
+import pl.dyskobol.model.FlowElements
 import pl.dyskobol.prototype.persistance.DB
-import pl.dyskobol.prototype.plugins.filters
+import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
 
 import scala.collection.mutable
 
@@ -40,18 +40,22 @@ object Main extends App {
   })
 
   RunnableGraph.fromGraph(GraphDSL.create(sink) { implicit builder => sink =>
-    val source      = builder add  stages.FileSource("./core/res/test.iso", plugins.unzip.filesGenerators.unzip)
-    val broadcast   = builder add stages.Broadcast(3)
-    val fileMeta    = builder add plugins.file.flows.FileMetadataExtract(full = false)
+    implicit val generatedFiles: GeneratedFilesBuffer = new GeneratedFilesBuffer()
+    val source          = builder add  stages.FileSource("./core/res/test.iso")
+    val broadcast       = builder add stages.Broadcast(4)
+    val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
     val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
-    val docMeta     = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
-    val merge       = builder add  stages.Merge(3)
-    val persist         = builder add plugins.db.flows.SaveFile(100)
+    val docMeta         = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
+    val merge           = builder add  stages.Merge(3)
+    val unzip           = builder add plugins.unzip.filesGenerators.unzip
+    val persist         = builder add plugins.db.flows.SaveFile()
+    val mimeResolver    = builder add plugins.filetype.flows.resolver
 
 
-    source ~> persist ~> broadcast ~> imageProcessing  ~> merge ~> sink
-                         broadcast ~> docMeta          ~> merge
-                         broadcast ~> fileMeta         ~> merge
+    source ~> mimeResolver ~> persist ~> broadcast ~> imageProcessing  ~> merge ~> sink
+                                         broadcast ~> docMeta          ~> merge
+                                         broadcast ~> fileMeta         ~> merge
+                                         broadcast ~> unzip
 
 
     ClosedShape
@@ -61,7 +65,7 @@ object Main extends App {
       if( file.path contains "@" ) {
         println("                                                                              FROM ZIP")
       }
-//      println(f"${file.path}/${file.name}, ${file.mime}")
+      println(f"${file.path}/${file.name}, ${file.mime}")
 //      println(props)
     }
 
@@ -71,7 +75,7 @@ object Main extends App {
             db.saveProps {
                 processed.values.map(fileAndProps => {
                     val (file, props) = fileAndProps
-                  println(props)
+//                  println(props)
                     (file.id, props)
                 })
               }.onComplete(_ => {

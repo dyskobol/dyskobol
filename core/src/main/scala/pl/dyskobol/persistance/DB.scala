@@ -30,13 +30,12 @@ class DB(val dbName: String, val username: String, val password: String) {
   if( !tablesCreated) Await.result(db.run(schema.create), Duration.Inf)
 
   def saveFiles(files: Iterable[File]) = {
-    val rows = files.map(file => (0, file.name, file.mime())).toList
+    val rows = files.map(file => (0, file.name, file.mime)).toList
 
     val run = db.run { filesWithId ++= rows }
     run.map(r => {
       r.zip(files).foreach(idAndFile => {
         val (fileId, file) = idAndFile
-        if( fileId == 0 ) { println("ZEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOES")}
         file.id = fileId
         file
       })

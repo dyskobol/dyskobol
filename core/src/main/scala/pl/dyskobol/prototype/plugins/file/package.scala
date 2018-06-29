@@ -35,7 +35,7 @@ package object file {
           prop.addProperty("size", file.size)
           prop.addProperty("path", file.path)
           prop.addProperty("name", file.name)
-          prop.addProperty("mtype", file.mime())
+          prop.addProperty("mtype", file.mime)
 
         })
       }

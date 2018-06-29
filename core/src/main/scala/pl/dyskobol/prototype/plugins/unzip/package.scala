@@ -2,17 +2,26 @@ package pl.dyskobol.prototype.plugins
 
 import java.util.zip.ZipInputStream
 
-import pl.dyskobol.model.{File, FileStream}
+import pl.dyskobol.model.{File, FileStream, FlowElements}
 import pl.dyskobol.prototype.plugins.document.{DocumentContentExtract, DocumentMetadataExtract}
-import pl.dyskobol.prototype.stages.FilesGenerator
+import pl.dyskobol.prototype.stages.{FilesGenerator, GeneratedFilesBuffer}
 import org.apache.commons.io.IOUtils
 import java.io.{FileInputStream, FileOutputStream, InputStream}
+
+import akka.stream.scaladsl.Sink
+import akka.stream.scaladsl.Flow
 
 
 
 package object unzip {
   object filesGenerators {
-    val unzip: FilesGenerator = (file: File) => if( file.mime != "application/zip") Iterator.empty else {
+
+    def unzip(implicit buffer: GeneratedFilesBuffer) = Sink.foreach[FlowElements](fe => {
+      val (file, _) = fe
+      buffer.fill( unzipFunction(file) )
+    })
+
+    private val unzipFunction: FilesGenerator = (file: File) => if( file.mime != "application/zip") Iterator.empty else {
       val zis = new ZipInputStream(file.createStream())
       new Iterator[File] {
         var nextEntry = zis.getNextEntry()
@@ -31,7 +40,7 @@ package object unzip {
           try {
             nextEntry = zis.getNextEntry
           } catch {
-            case e => e.printStackTrace()
+            case e: Throwable => e.printStackTrace()
           }
           new File(entry.getName, path, fileType, 0, 0, entry.getSize, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0) {
