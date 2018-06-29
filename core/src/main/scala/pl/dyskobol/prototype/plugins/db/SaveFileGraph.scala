@@ -3,12 +3,13 @@ package pl.dyskobol.prototype.plugins.db
 import akka.stream.stage.{GraphStage, GraphStageLogic, InHandler, OutHandler}
 import akka.stream.{Attributes, FlowShape, Inlet, Outlet}
 import pl.dyskobol.model.FlowElements
+import pl.dyskobol.persistance.CommandHandler
 import pl.dyskobol.prototype.persistance.DB
 
-import scala.concurrent.Await
+import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.Duration
 
-class SaveFileGraph(val bufferSize: Int = 100)(implicit db: DB) extends GraphStage[FlowShape[FlowElements, FlowElements]] {
+class SaveFileGraph(val bufferSize: Int = 100)(implicit commandHandler: CommandHandler) extends GraphStage[FlowShape[FlowElements, FlowElements]] {
 
   val in = Inlet[FlowElements]("Save.in")
   val out = Outlet[FlowElements]("Save.out")
@@ -21,7 +22,7 @@ class SaveFileGraph(val bufferSize: Int = 100)(implicit db: DB) extends GraphSta
 
     def bufferFull = buffered.size >= bufferSize
 
-    def persist() = db.saveFiles(persisted.map(_._1))
+    def persist(): Future[Any] = commandHandler.persist(persisted.map(_._1))
 
     var downstreamWaiting = false
 

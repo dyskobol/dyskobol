@@ -25,7 +25,7 @@ class DB(val dbName: String, val username: String, val password: String) {
 
   val db = Database.forURL(f"jdbc:postgresql://localhost/${dbName}?user=${username}&password=${password}")
 
-  var tablesCreated = true
+  var tablesCreated = false
 
   if( !tablesCreated) Await.result(db.run(schema.create), Duration.Inf)
 
