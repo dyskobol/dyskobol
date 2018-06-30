@@ -185,7 +185,7 @@ where
   Name of database.
 
 <image path>
-    Path to disk image which, should be processed.
+    Path to disk image which should be processed.
 
 
 Example configuration:
