@@ -113,6 +113,20 @@ LIBRARIES
 
 __ http://sleuthkit.org/
 
+DATABASES
+---------
+
+So far we have tested Dyskobol with PostgreSQL. Due to persisting some blob entries it is necessary to create extension for large objects, by executing
+
+
+.. code-block:: bash
+
+    CREATE EXTENSION lo;
+
+in psql terminal.
+
+
+
 
 INSTALLING DYSKOBOL
 ===================

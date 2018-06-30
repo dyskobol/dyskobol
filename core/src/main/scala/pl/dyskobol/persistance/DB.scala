@@ -80,4 +80,4 @@ class DB(val hostName: String, val dbName: String, val username: String, val pas
   private def row(fileId: Int, name: String, value: java.util.Date) = dateValues += (fileId, name, value.asInstanceOf)
   private def row(fileId: Int, name: String, value: BigDecimal) = numberValues += (fileId, name, value)
 
-}k
+}
