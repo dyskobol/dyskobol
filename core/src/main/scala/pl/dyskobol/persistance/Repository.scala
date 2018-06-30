@@ -8,16 +8,18 @@ import scala.collection.mutable
 import scala.concurrent.Future
 
 class Repository {
-  var persistingCallbacks: Map[Class[_], action] = Map()
+  var persistingCallbacks: List[ (Any=>Boolean, action) ] = Nil
 
   def persist(data : Any, dbs: dbMap): Future[Any] = {
-    println(persistingCallbacks)
-    println(data, data.getClass)
-    persistingCallbacks.get(data.getClass).get(data, dbs)
+    val actions = persistingCallbacks.filter(_._1(data)).take(1)
+    if( actions.isEmpty ) {
+      throw ActionNotFound(data)
+    }
+    actions.head._2.apply(data, dbs)
   }
 
 
-  def addCallback(key: Class[_], callback: action): Unit ={
-    persistingCallbacks = persistingCallbacks + (key -> callback)
+  def addCallback(predicate: Any=>Boolean, callback: action): Unit ={
+    persistingCallbacks = (predicate, callback) +: persistingCallbacks
   }
 }

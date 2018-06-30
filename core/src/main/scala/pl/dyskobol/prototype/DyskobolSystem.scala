@@ -2,77 +2,57 @@ package pl.dyskobol.prototype
 
 import java.util.concurrent.CountDownLatch
 
-import akka.NotUsed
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.dispatch.ExecutionContexts
-import akka.io.Udp.SO.Broadcast
 import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
-import pl.dyskobol.model.{File, FileProperties, FlowElements}
 import pl.dyskobol.persistance.{CommandHandler, Persist}
 import pl.dyskobol.prototype.persistance.DB
-import pl.dyskobol.prototype.plugins.filters
-import slick.jdbc.meta.MTable
-import slick.lifted.TableQuery
-import slick.driver.PostgresDriver.api._
-
-import scala.collection.mutable
-import scala.concurrent.Await
-import scala.concurrent.duration.Duration
+import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
 
 
 object Main extends App {
   implicit val system = ActorSystem("dyskobol")
-  implicit val dbs = Map("relational" -> new DB("postgres", "postgres", "postgres"))
+
+  // TODO: Add config file
+  implicit val dbs = Map("relational" -> new DB("dyskobol_example", "dyskobol", "dyskobol"))
   implicit val actionRespository = pl.dyskobol.persistance.basicRepository
   implicit val commandHandler = new CommandHandler()
 
   val decider: Supervision.Decider = {
-    case e => {
-      e.printStackTrace()
-      Supervision.Resume
-    }
+    case _: Throwable => Supervision.Resume
   }
+
   implicit val materializer = ActorMaterializer(
     ActorMaterializerSettings(system).withSupervisionStrategy(decider))
   implicit val executionContext = ExecutionContexts.global()
 
-  // Since we merge flows that may produce the same files we need to make sure we don't print one twice
-  // This is not an issue in final project - we'll use DB there
-  val processed = mutable.Map[String, FlowElements]()
-  val sink = Sink.foreach[FlowElements](f => {
-    val (file, props) = f
-    processed(file.path + file.name) = f
-  })
 
+  val sink = Sink.ignore
   RunnableGraph.fromGraph(GraphDSL.create(sink) { implicit builder => sink =>
-    val source      = builder add  stages.FileSource("./core/res/test.iso")
-    val broadcast   = builder add stages.Broadcast(3)
-    val fileMeta    = builder add plugins.file.flows.FileMetadataExtract(full = false)
+    implicit val bufferedGenerated = new GeneratedFilesBuffer
+    val source          = builder add  stages.FileSource("./core/res/test.iso")
+    val broadcast       = builder add stages.Broadcast(4)
+    val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
     val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
-    val docMeta     = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
-    val merge       = builder add  stages.Merge(3)
-    val persist         = builder add plugins.db.flows.SaveFile(100)
+    val docMeta         = builder add  plugins.document.flows.DocumentMetaDataExtract().withAttributes(ActorAttributes.supervisionStrategy(decider))
+    val merge           = builder add  stages.Merge(3)
+    val persistFiles    = builder add plugins.db.flows.PersistFiles()
+    val persistProps    = builder add plugins.db.flows.PersistProps()
+    val mimeResolver    = builder add plugins.filetype.flows.resolver
+    val unzip           = builder add plugins.unzip.filesGenerators.unzip
 
 
-    source ~> persist ~> broadcast ~> imageProcessing  ~> merge ~> sink
-    broadcast ~> docMeta          ~> merge
-    broadcast ~> fileMeta         ~> merge
+    source ~> mimeResolver ~> persistFiles ~>  broadcast ~> imageProcessing  ~> merge ~> persistProps ~> sink
+                                               broadcast ~> docMeta          ~> merge
+                                               broadcast ~> fileMeta         ~> merge
+                                      unzip <~ broadcast
 
 
     ClosedShape
   }).run()(materializer).onComplete(_ => {
-    for( (_, (file, props)) <- processed ) {
-      //      println("-----------------------------------------------------")
-      if( file.path contains "@" ) {
-        println("                                                                              FROM ZIP")
-      }
-      //      println(f"${file.path}/${file.name}, ${file.mime}")
-      //      println(props)
-    }
-
-    commandHandler.persist(processed)
+    println("COMPLETED")
     system.terminate()
   })
 

@@ -90,6 +90,7 @@ class FileReaderGraph(val path: String, val timeout: Long = 1000)(implicit val b
         // No additional dynamic files
         if( bufferedGenerated.isEmpty ) {
           complete(out)
+          return
         }
 
         // Additional generated files
