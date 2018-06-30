@@ -3,6 +3,7 @@ package pl.dyskobol.prototype
 import java.util.concurrent.CountDownLatch
 
 import akka.actor.{Actor, ActorSystem, Props}
+import com.typesafe.config.ConfigFactory
 import akka.dispatch.ExecutionContexts
 import akka.stream.scaladsl.{Flow, GraphDSL, RunnableGraph, Sink}
 import akka.stream._
@@ -14,9 +15,13 @@ import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
 
 object Main extends App {
   implicit val system = ActorSystem("dyskobol")
-
+  val conf = ConfigFactory.parseFile(new java.io.File(args.apply(0)))
   // TODO: Add config file
-  implicit val dbs = Map("relational" -> new DB("dyskobol_example", "dyskobol", "dyskobol"))
+  implicit val dbs = Map("relational" -> new DB(
+    conf.getObjectList("dyskobol.dbs.postgres").get(0).get("host").render(),
+    conf.getObjectList("dyskobol.dbs.postgres").get(0).get("dbName").render(),
+    conf.getObjectList("dyskobol.dbs.postgres").get(0).get("username").render(),
+    conf.getObjectList("dyskobol.dbs.postgres").get(0).get("password").render()))
   implicit val actionRespository = pl.dyskobol.persistance.basicRepository
   implicit val commandHandler = new CommandHandler()
 
@@ -32,7 +37,7 @@ object Main extends App {
   val sink = Sink.ignore
   RunnableGraph.fromGraph(GraphDSL.create(sink) { implicit builder => sink =>
     implicit val bufferedGenerated = new GeneratedFilesBuffer
-    val source          = builder add  stages.FileSource("./core/res/test.iso")
+    val source          = builder add  stages.FileSource(conf.getObject("dyskobol").get("imagePath").render())
     val broadcast       = builder add stages.Broadcast(4)
     val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
     val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)

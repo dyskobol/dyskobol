@@ -11,7 +11,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.Duration
 
-class DB(val dbName: String, val username: String, val password: String) {
+class DB(val hostName: String, val dbName: String, val username: String, val password: String) {
   val files = TableQuery[FileInfo]
   def filesWithId =
     (files returning files.map(_.id)).into((_, id) => id)
@@ -23,7 +23,7 @@ class DB(val dbName: String, val username: String, val password: String) {
   val tables = List( stringValues.schema, numberValues.schema, dateValues.schema, byteValues.schema, files.schema)
   val schema = stringValues.schema ++ numberValues.schema ++ dateValues.schema ++ byteValues.schema ++ files.schema
 
-  val db = Database.forURL(f"jdbc:postgresql://localhost/${dbName}?user=${username}&password=${password}")
+  val db = Database.forURL(f"jdbc:postgresql://${hostName}/${dbName}?user=${username}&password=${password}")
 
   val tableNames = List("STRING_PROPERTIES", "NUMBER_PROPERTIES", "DATE_PROPERTIES", "BYTE_PROPERTIES", "FILES")
 
