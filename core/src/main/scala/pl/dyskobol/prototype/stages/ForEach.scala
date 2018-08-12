@@ -25,9 +25,11 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
           pulled = false
 
           val (file , fileProp) = grab(in)
-
+          val clonnedFileProp = fileProp.deepClone()
+          
           try{
-            f(file, fileProp)
+
+            f(file, clonnedFileProp)
           } catch {
             case e: Throwable =>
               log.error(e.getMessage)
@@ -40,7 +42,7 @@ class ForEach[A](f: (FlowElements) => Unit) extends GraphStage[FlowShape[FlowEle
             }
 
           }
-          push(out, (file , fileProp))
+          push(out, (file , clonnedFileProp))
         }
       })
       setHandler(out, new OutHandler {

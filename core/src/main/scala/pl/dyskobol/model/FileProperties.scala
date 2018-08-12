@@ -4,13 +4,13 @@ import java.util.Date
 
 import scala.collection.mutable
 
-class FileProperties {
+class FileProperties(
+  val stringValues: mutable.Map[String, String] = mutable.Map(),
+  val numberValues: mutable.Map[String, BigDecimal] = mutable.Map(),
+  val dateValues: mutable.Map[String, Date] = mutable.Map(),
+  val byteValues:  mutable.Map[String, Array[Byte]] = mutable.Map(),
+  var _fileId: Option[Long] = None ) {
 
-  var _fileId: Option[Long] = None
-  lazy val stringValues: mutable.Map[String, String] = mutable.Map()
-  lazy val numberValues: mutable.Map[String, BigDecimal] = mutable.Map()
-  lazy val dateValues: mutable.Map[String, Date] = mutable.Map()
-  lazy val byteValues:  mutable.Map[String, Array[Byte]] = mutable.Map()
 
   def getAll() = stringValues.iterator ++ numberValues.iterator ++ dateValues.iterator ++ byteValues.iterator
 
@@ -43,5 +43,14 @@ class FileProperties {
     stringValues.clear()
     numberValues.clear()
     dateValues.clear()
+  }
+
+  def deepClone(): FileProperties ={
+    new FileProperties(
+      mutable.Map() ++ this.stringValues,
+      mutable.Map() ++ this.numberValues,
+      mutable.Map() ++ this.dateValues,
+      mutable.Map() ++ this.byteValues,
+      this._fileId)
   }
 }

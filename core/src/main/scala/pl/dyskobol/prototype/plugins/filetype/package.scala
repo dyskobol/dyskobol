@@ -13,7 +13,7 @@ package object filetype {
       val tika = new Tika()
 
       Flow[FlowElements].map(fe => {
-        val (file, props) = fe
+        val (file, _) = fe
 
         var mime = tika.detect(file.name)
 
