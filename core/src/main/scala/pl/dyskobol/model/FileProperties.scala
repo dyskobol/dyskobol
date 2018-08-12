@@ -5,10 +5,10 @@ import java.util.Date
 import scala.collection.mutable
 
 class FileProperties(
-  val stringValues: mutable.Map[String, String] = mutable.Map(),
-  val numberValues: mutable.Map[String, BigDecimal] = mutable.Map(),
-  val dateValues: mutable.Map[String, Date] = mutable.Map(),
-  val byteValues:  mutable.Map[String, Array[Byte]] = mutable.Map(),
+  val stringValues: mutable.MutableList[(String, String)] = mutable.MutableList(),
+  val numberValues: mutable.MutableList[(String, BigDecimal)] = mutable.MutableList(),
+  val dateValues: mutable.MutableList[(String, Date)] = mutable.MutableList(),
+  val byteValues: mutable.MutableList[(String, Array[Byte])] = mutable.MutableList(),
   var _fileId: Option[Long] = None ) {
 
 
@@ -16,27 +16,27 @@ class FileProperties(
 
 
   def addProperty(name: String, value: String): Unit = {
-    stringValues += (name -> value)
+    stringValues += ((name, value))
   }
 
   def addProperty(name: String, value: BigDecimal): Unit = {
-    numberValues += (name -> value)
+    numberValues += ((name, value))
   }
 
   def addProperty(name: String, value: Date): Unit = {
-    dateValues += (name -> value)
+    dateValues += ((name, value))
   }
 
   def addProperty(name: String, value: Array[Byte]): Unit = {
-    byteValues += (name -> value)
+    byteValues += ((name, value))
   }
 
   override def toString: String = {
     val mapper = (kv: (Object,Object)) => f"${kv._1.toString} ${kv._2.toString}"
     f"Props:\n" +
-      (stringValues.toList.map( mapper ) ++
-        numberValues.toList.map( mapper ) ++
-        dateValues.toList.map( mapper ) mkString "\n")
+      (stringValues.map( mapper ) ++
+        numberValues.map( mapper ) ++
+        dateValues.map( mapper ) mkString "\n")
   }
 
   def clear(): Unit = {
@@ -47,10 +47,10 @@ class FileProperties(
 
   def deepClone(): FileProperties ={
     new FileProperties(
-      mutable.Map() ++ this.stringValues,
-      mutable.Map() ++ this.numberValues,
-      mutable.Map() ++ this.dateValues,
-      mutable.Map() ++ this.byteValues,
+     this.stringValues,
+     this.numberValues,
+     this.dateValues,
+     this.byteValues,
       this._fileId)
   }
 }
