@@ -85,6 +85,8 @@ TSK_WALK_RET_ENUM create_list(TSK_FS_FILE *file, const char *a_path, void *a_ptr
 
     list->files[list->used] = obj;
     list->used++;
+
+    return TSK_WALK_CONT;
 }
 /*
  * Class:     bindings_Sleuthkit__
