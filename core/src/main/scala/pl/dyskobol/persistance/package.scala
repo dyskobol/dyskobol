@@ -32,7 +32,6 @@ package object persistance {
             val db = dbs.get("relational").asInstanceOf[Option[DB]]
 
             if( db.isEmpty ) throw DatabaseNotExistingException("relational")
-
             db.get.saveFiles(files)
 
       }
@@ -49,7 +48,6 @@ package object persistance {
         val db = dbs.get("relational").asInstanceOf[Option[DB]]
 
         if( db.isEmpty ) throw DatabaseNotExistingException("relational")
-
         db.get.saveProps(props)
       }
     )
