@@ -22,7 +22,7 @@ object WorkerPoolApp extends App {
     clearLogFile()
 
     DyskobolSystem.run{implicit builder => sink =>
-        val source          = builder add stages.FileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
+        val source          = builder add stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
 
         val balancer = builder add Balance[FlowElements](workers, waitForAllDownstreams = true)
         val merge = builder add Merge[FlowElements](workers)

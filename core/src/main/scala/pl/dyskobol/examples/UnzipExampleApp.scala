@@ -22,7 +22,7 @@ object UnzipExampleApp extends App {
 
     DyskobolSystem.run{implicit builder => sink =>
       implicit val bufferedGenerated = new GeneratedFilesBuffer
-      val source          = builder add  stages.FileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
+      val source          = builder add  stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
       val broadcast       = builder add stages.Broadcast(4)
       val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
       val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)

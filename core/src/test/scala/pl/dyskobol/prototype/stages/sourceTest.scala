@@ -20,7 +20,7 @@ class sourceTest extends FunSuite {
     var got = 0
 
     RunnableGraph.fromGraph(GraphDSL.create() { implicit builder: GraphDSL.Builder[NotUsed] =>
-      val source      = stages.FileSource("./core/res/test.iso")
+      val source      = stages.VfsFileSource("./core/res/test.iso")
       val sink        = stages.Sink()
       val printer     = builder.add(Flow[FlowElements].map(fp => {
         println(fp._1.name)

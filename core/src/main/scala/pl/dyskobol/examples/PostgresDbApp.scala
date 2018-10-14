@@ -27,7 +27,7 @@ object PostgresDbApp extends App {
 
       implicit val actionRespository = pl.dyskobol.persistance.basicRepository
       implicit val commandHandler = new CommandHandler()
-      val source          = builder add  stages.FileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
+      val source          = builder add  stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
       val broadcast       = builder add stages.Broadcast(3)
       val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
       val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)

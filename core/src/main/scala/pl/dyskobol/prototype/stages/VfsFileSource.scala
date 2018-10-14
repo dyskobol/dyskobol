@@ -13,7 +13,7 @@ import bindings.Sleuthkit
 import scala.concurrent.Future
 import scala.concurrent.duration.{Duration, FiniteDuration}
 
-class FileReaderGraph(val path: String, val timeout: FiniteDuration = Duration(1, TimeUnit.SECONDS))(implicit val generatedFilesBuffer: Option[GeneratedFilesBuffer] = None) extends GraphStage[SourceShape[FlowElements]] {
+class VfsFileSource(val path: String, val timeout: FiniteDuration = Duration(1, TimeUnit.SECONDS))(implicit val generatedFilesBuffer: Option[GeneratedFilesBuffer] = None) extends GraphStage[SourceShape[FlowElements]] {
   val out: Outlet[FlowElements] = Outlet("Files")
   override val shape: SourceShape[FlowElements] = SourceShape(out)
 
