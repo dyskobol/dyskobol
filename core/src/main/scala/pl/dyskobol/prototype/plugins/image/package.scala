@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream
 
 import akka.NotUsed
 import akka.stream.FlowShape
-import akka.stream.scaladsl.GraphDSL
+import akka.stream.scaladsl.{Flow, GraphDSL}
 import javax.imageio.ImageIO
 import org.apache.commons.imaging.Imaging
 import org.apache.commons.imaging.common.IImageMetadata.IImageMetadataItem
@@ -30,7 +30,7 @@ package object image {
 
   object foreaches extends foreaches {
 
-    def imageMeta(onlyKeys: Seq[String] = Nil): ForEach[(File, FileProperties)] = {
+    def imageMeta(onlyKeys: Seq[String] = Nil): Flow[FlowElements, FlowElements, NotUsed] = {
       onlyKeys match {
         case Nil =>
           //extract all metadata
@@ -45,7 +45,7 @@ package object image {
 
         case seq: Seq[String] =>
           //extract only defined in param
-          ForEach((pair: (FlowElements)) => {
+          ForEach((pair: FlowElements) => {
             val (file, prop) = pair
             val bytes = Array.ofDim[Byte](file.size.toInt)
             file.createStream().read(bytes)

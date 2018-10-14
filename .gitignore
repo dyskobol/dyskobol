@@ -13,6 +13,7 @@
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
+.idea
 
 # Gradle:
 .idea/**/gradle.xml
@@ -50,3 +51,10 @@ fabric.properties
 
 *.class
 *.log
+
+# Scala
+core/target/*
+native/target/*
+project/target/*
+project/project/*
+target/*

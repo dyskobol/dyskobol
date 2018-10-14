@@ -4,12 +4,10 @@ import akka.NotUsed
 import akka.stream.scaladsl.{Broadcast, Flow, GraphDSL, Sink, Source}
 import pl.dyskobol.model.{File, FlowElements}
 package object stages {
-  def FileSource(path: String)(implicit bufferedGenerated: GeneratedFilesBuffer = null) = Source.fromGraph(new FileReaderGraph(path)( Option(bufferedGenerated) ))
+  def FileSource(path: String)(implicit bufferedGenerated: GeneratedFilesBuffer = null) = Source.fromGraph(new FileReaderGraph(path)( Option(bufferedGenerated) )).async
 
-  def ForEach(fe: ((FlowElements) => Unit)) =
-    new ForEach[FlowElements](fe)
-  def Filter(fe: ((FlowElements) => Boolean)) =
-    Flow[FlowElements].filter(fe)
+  def ForEach(f: FlowElements => Unit): Flow[FlowElements, FlowElements, NotUsed] = Flow[FlowElements].map(fe => {f(fe); fe})
+  def Filter(f: FlowElements => Boolean) = Flow[FlowElements].filter(f)
   def Broadcast(out: Int) = akka.stream.scaladsl.Broadcast[FlowElements](out)
   def Merge(ins: Int) = akka.stream.scaladsl.Merge[FlowElements](ins)
   def Sink() = akka.stream.scaladsl.Sink.ignore

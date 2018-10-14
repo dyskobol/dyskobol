@@ -8,7 +8,6 @@ import akka.stream.OverflowStrategy
 import akka.stream.scaladsl.{Flow, Sink}
 import pl.dyskobol.model.{File, FileProperties, FlowElements}
 import pl.dyskobol.persistance.{CommandHandler, SaveFiles, SaveProps}
-import pl.dyskobol.prototype.Main.DUMMY_DB
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration

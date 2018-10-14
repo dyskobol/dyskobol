@@ -10,7 +10,6 @@ import slick.driver.PostgresDriver.api._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.Duration
-import pl.dyskobol.prototype.Main.DUMMY_DB
 
 class DB(val hostName: String, val dbName: String, val username: String, val password: String) {
   val files = TableQuery[FileInfo]
