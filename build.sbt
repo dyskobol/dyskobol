@@ -12,13 +12,18 @@ lazy val core = (project in file("core")).
     name := "dyskobol",
 
     version := "0.0.1-SNAPSHOT",
-    mainClass in (Compile, run) := Some("pl.dyskobol.prototype.Main"),
-    mainClass in (Compile, packageBin) := Some("pl.dyskobol.prototype.Main"),
-    scalaVersion := "2.12.4",
+    mainClass in (Compile, run) := Some("pl.dyskobol.RuntimeCompilation"),
+    mainClass in (Compile, packageBin) := Some("pl.dyskobol.RuntimeCompilation"),
+    scalaVersion := "2.12.7",
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-actor" % "2.5.11",
-      "com.typesafe.akka" %% "akka-testkit" % "2.5.11" % Test,
-      "com.typesafe.akka" %% "akka-stream" % "2.5.11",
+
+
+      "org.scala-lang" % "scala-library" % "2.12.7",
+      "org.scala-lang" % "scala-reflect" % "2.12.7",
+      "org.scala-lang" % "scala-compiler" % "2.12.7",
+      "com.typesafe.akka" %% "akka-actor" % "2.5.17",
+      "com.typesafe.akka" %% "akka-testkit" % "2.5.17" % Test,
+      "com.typesafe.akka" %% "akka-stream" % "2.5.17",
       "org.xerial" % "sqlite-jdbc" % "3.7.2",
       "com.mchange" % "c3p0" % "0.9.2.1",
       "org.apache.tika" % "tika-core" % "1.17",
@@ -45,3 +50,4 @@ lazy val core = (project in file("core")).
 lazy val native = (project in file("native")).
   settings(sourceDirectory in nativeCompile := sourceDirectory.value).
   enablePlugins(JniNative)
+
