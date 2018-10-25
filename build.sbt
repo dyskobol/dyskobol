@@ -2,7 +2,7 @@ ivyLoggingLevel := UpdateLogging.Quiet
 
 lazy val root = (project in file(".")).
   aggregate(core, native).settings(
-  mainClass in (Compile, run) := Some("pl.dyskobol.prototype.Main")
+  mainClass in (Compile, run) := Some("pl.dyskobol.Main")
 )
 
 
@@ -12,8 +12,8 @@ lazy val core = (project in file("core")).
     name := "dyskobol",
 
     version := "0.0.1-SNAPSHOT",
-    mainClass in (Compile, run) := Some("pl.dyskobol.RuntimeCompilation"),
-    mainClass in (Compile, packageBin) := Some("pl.dyskobol.RuntimeCompilation"),
+    mainClass in (Compile, run) := Some("pl.dyskobol.Main"),
+    mainClass in (Compile, packageBin) := Some("pl.dyskobol.Main"),
     scalaVersion := "2.12.7",
     libraryDependencies ++= Seq(
 
