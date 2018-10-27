@@ -21,7 +21,7 @@ object WorkerPoolApp extends App {
   def run(conf: Config, workers: Int = 4): Unit = {
     clearLogFile()
 
-    DyskobolSystem.run{implicit builder => sink =>
+    DyskobolSystem.run{implicit timeMonitor => implicit builder => sink =>
         val source          = builder add stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
 
         val balancer = builder add Balance[FlowElements](workers, waitForAllDownstreams = true)
