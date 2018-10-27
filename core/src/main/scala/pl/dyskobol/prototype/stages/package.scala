@@ -9,7 +9,7 @@ import pl.dyskobol.model.{File, FlowElements}
 import scala.concurrent.duration.Duration
 package object stages {
   def VfsFileSource(path: String)(implicit bufferedGenerated: GeneratedFilesBuffer = null)
-  = Source.fromGraph( new VfsFileSource(path, Duration(1, TimeUnit.SECONDS))( Option(bufferedGenerated) )).async
+  = Source.fromGraph( new VFSFileSource(path, Duration(1, TimeUnit.SECONDS))( Option(bufferedGenerated) )).async
 
   def ForEach(f: FlowElements => Unit): Flow[FlowElements, FlowElements, NotUsed] = Flow[FlowElements].map(fe => {f(fe); fe})
   def Filter(f: FlowElements => Boolean) = Flow[FlowElements].filter(f)
