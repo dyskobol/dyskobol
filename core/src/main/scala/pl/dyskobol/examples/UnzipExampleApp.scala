@@ -20,7 +20,7 @@ object UnzipExampleApp extends App {
   def run(conf: Config): Unit = {
     clearLogFile()
 
-    DyskobolSystem.run{implicit builder => sink =>
+    DyskobolSystem.run{implicit timeMonitor => implicit builder => sink =>
       implicit val bufferedGenerated = new GeneratedFilesBuffer
       val source          = builder add  stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
       val broadcast       = builder add stages.Broadcast(4)

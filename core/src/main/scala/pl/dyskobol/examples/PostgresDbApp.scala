@@ -19,7 +19,7 @@ object PostgresDbApp extends App {
   }
 
   def run(conf: Config): Unit = {
-    DyskobolSystem.run{implicit builder => sink =>
+    DyskobolSystem.run{implicit timeMonitor => implicit builder => sink =>
       implicit val dbs = Map("relational" -> new DB(
         conf.getObjectList("dyskobol.dbs.postgres").get(0).toConfig.getString("host"),
         conf.getObjectList("dyskobol.dbs.postgres").get(0).toConfig.getString("dbName"),
