@@ -10,6 +10,7 @@ import pl.dyskobol.prototype.{DyskobolSystem, plugins, stages}
 
 
 object PostgresDbApp extends App {
+  val a: Array[String] = args
   if (args.length < 1) {
     println("No configuration file provided")
   } else {
@@ -38,7 +39,7 @@ object PostgresDbApp extends App {
       val persistProps = builder add plugins.db.flows.PersistProps()
 
 
-      source ~> mimeResolver ~> persistFiles ~>  broadcast ~> imageProcessing  ~> merge ~> persistProps ~> sink
+      conf.getObject("dyskobol").toConfig.getString("flow")
                                                  broadcast ~> docMeta          ~> merge
                                                  broadcast ~> fileMeta         ~> merge
 
