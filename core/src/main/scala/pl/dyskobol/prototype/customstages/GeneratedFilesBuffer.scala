@@ -1,4 +1,4 @@
-package pl.dyskobol.prototype.stages
+package pl.dyskobol.prototype.customstages
 
 import pl.dyskobol.model.File
 

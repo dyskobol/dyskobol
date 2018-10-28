@@ -2,7 +2,7 @@ ivyLoggingLevel := UpdateLogging.Quiet
 
 lazy val root = (project in file(".")).
   aggregate(core, native).settings(
-  mainClass in (Compile, run) := Some("pl.dyskobol.Main")
+  mainClass in (Compile, run) := Some("pl.dyskobol.examples.MetricsApp")
 )
 
 
@@ -12,8 +12,8 @@ lazy val core = (project in file("core")).
     name := "dyskobol",
 
     version := "0.0.1-SNAPSHOT",
-    mainClass in (Compile, run) := Some("pl.dyskobol.Main"),
-    mainClass in (Compile, packageBin) := Some("pl.dyskobol.Main"),
+    mainClass in (Compile, run) := Some("pl.dyskobol.examples.MetricsApp"),
+    mainClass in (Compile, packageBin) := Some("pl.dyskobol.examples.MetricsApp"),
     scalaVersion := "2.12.7",
     libraryDependencies ++= Seq(
 
@@ -40,7 +40,10 @@ lazy val core = (project in file("core")).
       "org.postgresql" % "postgresql" % "9.3-1100-jdbc4",
       "com.typesafe.slick" %% "slick" % "3.2.0",
       "org.slf4j" % "slf4j-nop" % "1.6.4",
-      "com.typesafe.akka" %% "akka-persistence" % "2.5.4"
+      "com.typesafe.akka" %% "akka-persistence" % "2.5.4",
+      "net.codingwell" %% "scala-guice" % "4.2.1",
+      "me.tongfei" % "progressbar" % "0.7.2"
+
     )
   ).
 

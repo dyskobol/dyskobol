@@ -1,6 +1,6 @@
 package pl.dyskobol
 
-import com.typesafe.config.Config
+import com.typesafe.config.{Config, ConfigFactory}
 import pl.dyskobol.prototype.DyskobolSystem
 
 import scala.reflect.runtime.universe
@@ -13,18 +13,23 @@ abstract class Wrapper {
 private object Main extends App {
   def getSrcCode(conf:Config): String =
     s"""
-      import pl.dyskobol._
       import akka.stream._
       import akka.stream.scaladsl.GraphDSL.Implicits._
-      import com.typesafe.config.Config
+      import akka.stream.scaladsl.{Balance, GraphDSL, Merge}
+      import com.google.inject.Guice
+      import com.typesafe.config.{Config, ConfigFactory}
+      import pl.dyskobol.model.FlowElements
       import pl.dyskobol.prototype.plugins.dummyDb.flows.clearLogFile
-      import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
-      import pl.dyskobol.prototype.{DyskobolSystem, plugins, stages}
+      import pl.dyskobol.prototype.plugins.metrics.Configure
+      import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
+
       private class WrapperImpl extends Wrapper {
 
         override def run(conf: Config): Unit = {
             clearLogFile()
-            DyskobolSystem.run{implicit builder => sink =>
+            val injector = Guice.createInjector(new DyskobolModule())
+            val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
+            dyskobolSystem.run{implicit processMonitor => implicit builder => sink =>
               ${conf.getObject("dyskobol").toConfig.getString("flow")}
               ClosedShape
             } {
@@ -40,7 +45,7 @@ private object Main extends App {
   if (args.length < 1) {
     println("No configuration file provided")
   } else {
-    val conf: Config = DyskobolSystem.readConfig(args(0))
+    val conf: Config = readConfig(args(0))
     val classDef = tb.parse {
       getSrcCode(conf)
     }
@@ -49,7 +54,7 @@ private object Main extends App {
     instance.run(conf)
 
   }
-
+  def readConfig(path: String): Config = ConfigFactory.parseFile(new java.io.File(path))
 
 
 }

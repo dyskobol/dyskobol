@@ -5,7 +5,7 @@ import akka.stream.scaladsl.GraphDSL
 import akka.stream.{FlowShape, Graph}
 import pl.dyskobol.model.FlowElements
 import pl.dyskobol.prototype.plugins.plugin
-import pl.dyskobol.prototype.stages
+import pl.dyskobol.prototype.{customstages, stages}
 import akka.stream.scaladsl.GraphDSL.Implicits._
 
 class DocumentMetadataExtract extends plugin {

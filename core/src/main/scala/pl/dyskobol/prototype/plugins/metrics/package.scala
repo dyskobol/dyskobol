@@ -10,6 +10,8 @@ package object metrics {
   case class Configure(stream: java.io.PrintStream)
   case class TimeMeasurement(key: String, checkInMilis: Long, checkOutMilis: Long, flowElements: FlowElements)
   case class GetResult(mean: Boolean, max: Boolean, min: Boolean)
+  case class AddToProcessing(size: Long)
+  case class Processed(size: Long)
 
   def checkInGateway(gatewaysKey: String): Flow[(File, FileProperties), (File, FileProperties), NotUsed] = Flow[FlowElements].map(fe => {
     fe._2.checkIn(gatewaysKey, System.nanoTime())
@@ -23,7 +25,7 @@ package object metrics {
     fe}
   )
 
-  def ProcessingTimeGateways(gatewaysKey: String)(implicit builder: GraphDSL.Builder[Any], timeMonitor: ActorRef): (FlowShape[(File, FileProperties), (File, FileProperties)], FlowShape[(File, FileProperties), (File, FileProperties)]) =
-    (builder.add(checkInGateway(gatewaysKey)), builder.add(checkOutGateway(gatewaysKey, timeMonitor)))
+  def ProcessingTimeGateways(gatewaysKey: String)(implicit builder: GraphDSL.Builder[Any], processMonitor: ActorRef): (FlowShape[(File, FileProperties), (File, FileProperties)], FlowShape[(File, FileProperties), (File, FileProperties)]) =
+    (builder.add(checkInGateway(gatewaysKey)), builder.add(checkOutGateway(gatewaysKey, processMonitor)))
 
 }

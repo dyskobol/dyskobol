@@ -26,6 +26,13 @@ JNIEXPORT jlong JNICALL Java_bindings_Sleuthkit_00024_openImgNat
 
 /*
  * Class:     bindings_Sleuthkit__
+ * Method:    getImgSize
+ * Signature: (J)J
+ */
+JNIEXPORT jlong JNICALL
+Java_bindings_Sleuthkit_00024_getImgSize(JNIEnv * , jobject , jlong);
+/*
+ * Class:     bindings_Sleuthkit__
  * Method:    openFsNat
  * Signature: (J)J
  */

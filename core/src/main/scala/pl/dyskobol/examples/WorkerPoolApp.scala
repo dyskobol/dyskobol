@@ -3,10 +3,11 @@ package pl.dyskobol.examples
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
 import akka.stream.scaladsl.{Balance, GraphDSL, Merge}
-import com.typesafe.config.Config
+import com.google.inject.Guice
+import com.typesafe.config.{Config, ConfigFactory}
 import pl.dyskobol.model.FlowElements
 import pl.dyskobol.prototype.plugins.dummyDb.flows.clearLogFile
-import pl.dyskobol.prototype.{DyskobolSystem, plugins, stages}
+import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
 
 
@@ -14,15 +15,18 @@ object WorkerPoolApp extends App {
   if (args.length < 1) {
     println("No configuration file provided")
   } else {
-    val config = DyskobolSystem.readConfig(args(0))
+    val config = readConfig(args(0))
     run(config)
   }
 
   def run(conf: Config, workers: Int = 4): Unit = {
     clearLogFile()
+    val injector = Guice.createInjector(new DyskobolModule())
+    val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
 
-    DyskobolSystem.run{implicit timeMonitor => implicit builder => sink =>
-        val source          = builder add stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
+    dyskobolSystem.run{ implicit processMonitor => implicit builder => sink =>
+
+    val source          = builder add stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
 
         val balancer = builder add Balance[FlowElements](workers, waitForAllDownstreams = true)
         val merge = builder add Merge[FlowElements](workers)
@@ -56,4 +60,5 @@ object WorkerPoolApp extends App {
       println("COMPLETED")
     }
   }
+  def readConfig(path: String): Config = ConfigFactory.parseFile(new java.io.File(path))
 }
