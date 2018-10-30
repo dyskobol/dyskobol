@@ -13,6 +13,7 @@ abstract class Wrapper {
 private object Main extends App {
   def getSrcCode(conf:Config): String =
     s"""
+      import pl.dyskobol._
       import akka.stream._
       import akka.stream.scaladsl.GraphDSL.Implicits._
       import akka.stream.scaladsl.{Balance, GraphDSL, Merge}
@@ -21,6 +22,7 @@ private object Main extends App {
       import pl.dyskobol.model.FlowElements
       import pl.dyskobol.prototype.plugins.dummyDb.flows.clearLogFile
       import pl.dyskobol.prototype.plugins.metrics.Configure
+      import pl.dyskobol.prototype.customstages.GeneratedFilesBuffer
       import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
       private class WrapperImpl extends Wrapper {
