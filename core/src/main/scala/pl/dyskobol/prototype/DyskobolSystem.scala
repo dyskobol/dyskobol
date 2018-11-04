@@ -39,11 +39,14 @@ class DyskobolSystem @Inject()(@Named("MonitorActor") val monitor: ActorRef, @Na
     val log = Logging.getLogger(system, this)
 
     val decider: Supervision.Decider = {
-      case DyskobolException(fe, e) => {
+      case DyskobolException(fe, e) =>
         log.error(e.getMessage)
         monitor ! Processed(fe._1.size)
         Supervision.Resume
-      }
+
+      case e: Throwable =>
+        log.error(e.getMessage)
+        Supervision.Resume
     }
 
     implicit val executionContext = ExecutionContexts.global()
