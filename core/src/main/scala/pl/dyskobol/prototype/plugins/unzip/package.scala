@@ -4,7 +4,8 @@ import java.util.zip.ZipInputStream
 
 import pl.dyskobol.model.{File, FileStream, FlowElements}
 import pl.dyskobol.prototype.plugins.document.{DocumentContentExtract, DocumentMetadataExtract}
-import pl.dyskobol.prototype.stages.{FilesGenerator, GeneratedFilesBuffer}
+import pl.dyskobol.prototype.stages.FilesGenerator
+import pl.dyskobol.prototype.customstages.GeneratedFilesBuffer
 import org.apache.commons.io.IOUtils
 import java.io.{FileInputStream, FileOutputStream, InputStream}
 

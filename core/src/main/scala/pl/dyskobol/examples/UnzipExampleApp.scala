@@ -2,10 +2,13 @@ package pl.dyskobol.examples
 
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
-import com.typesafe.config.Config
+import com.google.inject.Guice
+import com.typesafe.config.{Config, ConfigFactory}
+import pl.dyskobol.examples.MetricsApp.{args, readConfig, run}
+import pl.dyskobol.prototype.customstages.GeneratedFilesBuffer
 import pl.dyskobol.prototype.plugins.dummyDb.flows.clearLogFile
-import pl.dyskobol.prototype.stages.GeneratedFilesBuffer
-import pl.dyskobol.prototype.{DyskobolSystem, plugins, stages}
+
+import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
 
 
@@ -13,15 +16,18 @@ object UnzipExampleApp extends App {
   if (args.length < 1) {
     println("No configuration file provided")
   } else {
-    val config = DyskobolSystem.readConfig(args(0))
+    val config = readConfig(args(0))
     run(config)
   }
 
-  def run(conf: Config): Unit = {
+  def run(conf: Config, workers: Int = 4): Unit = {
     clearLogFile()
+    val injector = Guice.createInjector(new DyskobolModule())
+    val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
 
-    DyskobolSystem.run{implicit builder => sink =>
-      implicit val bufferedGenerated = new GeneratedFilesBuffer
+    dyskobolSystem.run{ implicit processMonitor => implicit builder => sink =>
+
+    implicit val bufferedGenerated = new GeneratedFilesBuffer
       val source          = builder add  stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
       val broadcast       = builder add stages.Broadcast(4)
       val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
@@ -45,4 +51,6 @@ object UnzipExampleApp extends App {
       println("COMPLETED")
     }
   }
+
+  def readConfig(path: String): Config = ConfigFactory.parseFile(new java.io.File(path))
 }

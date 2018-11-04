@@ -5,12 +5,21 @@ import java.util.Date
 import scala.collection.mutable
 
 class FileProperties {
+  def getCheckInTime(gatewaysKey: String): Option[Long] = {
+    checkIns.get(gatewaysKey)
+  }
+
+  def checkIn(gatewaysKey: String, timeInNanos: Long) ={
+    checkIns += (gatewaysKey -> timeInNanos)
+  }
+
 
   var _fileId: Option[Long] = None
   lazy val stringValues: mutable.Map[String, String] = mutable.Map()
   lazy val numberValues: mutable.Map[String, BigDecimal] = mutable.Map()
   lazy val dateValues: mutable.Map[String, Date] = mutable.Map()
   lazy val byteValues:  mutable.Map[String, Array[Byte]] = mutable.Map()
+  lazy val checkIns: mutable.Map[String, Long] = mutable.Map()
 
   def getAll() = stringValues.iterator ++ numberValues.iterator ++ dateValues.iterator ++ byteValues.iterator
 

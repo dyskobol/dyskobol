@@ -9,6 +9,8 @@ object Sleuthkit {
 
   @native def openImgNat(path: String): Long
 
+ @native def getImgSize(image: Long): Long
+
   @native def openFsNat(image: Long): Long
 
   @native def getDirFilesNat(filesystem: Long, path: String): Array[File]

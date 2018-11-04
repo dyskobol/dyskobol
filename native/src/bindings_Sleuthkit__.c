@@ -42,6 +42,17 @@ Java_bindings_Sleuthkit_00024_openImgNat(JNIEnv * env, jobject obj, jstring path
 
     return (jlong) img_info;
 }
+/*
+ * Class:     bindings_Sleuthkit__
+ * Method:    getImgSize
+ * Signature: (J)J
+ */
+JNIEXPORT jlong JNICALL
+Java_bindings_Sleuthkit_00024_getImgSize(JNIEnv * env, jclass obj, jlong image) {
+
+return (jlong)  (((TSK_IMG_INFO*) image ) -> size);
+}
+
 
 /*
  * Class:     bindings_Sleuthkit__

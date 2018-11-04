@@ -13,7 +13,7 @@ import org.apache.commons.imaging.common.ImageMetadata
 import org.apache.commons.imaging.common.ImageMetadata.Item
 import pl.dyskobol.model.{File, FileProperties}
 import pl.dyskobol.model.FlowElements
-import pl.dyskobol.prototype.stages
+
 import pl.dyskobol.prototype.stages.ForEach
 
 package object image {

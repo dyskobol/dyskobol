@@ -1,26 +1,30 @@
-package pl.dyskobol.prototype.stages
+package pl.dyskobol.prototype.customstages
 
 import java.util.{TimerTask, concurrent}
 import java.util.concurrent.{TimeUnit, TimeoutException}
 
+import akka.actor.ActorRef
 import akka.stream.scaladsl.{Flow, Source}
 import akka.stream.{Attributes, Graph, Outlet, SourceShape}
 import akka.stream.stage._
 import pl.dyskobol.model.{File, FilePointer, FileProperties, FlowElements}
 import pl.dyskobol.prototype.plugins.file
 import bindings.Sleuthkit
+import pl.dyskobol.prototype.plugins.metrics.{AddToProcessing, ProcessMonitor}
 
 import scala.concurrent.Future
 import scala.concurrent.duration.{Duration, FiniteDuration}
 
-class VFSFileSource(val path: String, val timeout: FiniteDuration = Duration(1, TimeUnit.SECONDS))(implicit val generatedFilesBuffer: Option[GeneratedFilesBuffer] = None) extends GraphStage[SourceShape[FlowElements]] {
+class VFSFileSource(val path: String, val timeout: FiniteDuration = Duration(1, TimeUnit.SECONDS))(implicit val processMonitor: ActorRef, generatedFilesBuffer: Option[GeneratedFilesBuffer] = None) extends GraphStage[SourceShape[FlowElements]] {
   val out: Outlet[FlowElements] = Outlet("Files")
   override val shape: SourceShape[FlowElements] = SourceShape(out)
 
   override def createLogic(inheritedAttributes: Attributes): GraphStageLogic =
     new TimerGraphStageLogic(shape) with OutHandler {
-
-      private val filesystem: Long = Sleuthkit.openFsNat(Sleuthkit.openImgNat(path))
+      private val image: Long = Sleuthkit.openImgNat(path)
+      private val imageSize: Long = Sleuthkit.getImgSize(image)
+      processMonitor ! AddToProcessing(imageSize)
+      private val filesystem: Long = Sleuthkit.openFsNat(image)
       private val root: FilePointer = Sleuthkit.getFileInode(filesystem, ".")
 
       private var files: List[File] = Nil
