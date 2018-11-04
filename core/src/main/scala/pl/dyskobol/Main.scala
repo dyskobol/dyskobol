@@ -1,8 +1,24 @@
 package pl.dyskobol
 
-import com.typesafe.config.{Config, ConfigFactory}
-import pl.dyskobol.prototype.DyskobolSystem
+import java.io.{BufferedReader, File, PrintWriter, StringReader}
 
+import com.typesafe.config.{Config, ConfigFactory, ConfigValue, ConfigValueFactory}
+
+import scala.tools.nsc.interpreter._
+import javax.script._
+import pl.dyskobol.prototype.DyskobolSystem
+import pl.dyskobol._
+import akka.stream._
+import akka.stream.scaladsl.GraphDSL.Implicits._
+import akka.stream.scaladsl.{Balance, GraphDSL, Merge}
+import com.google.inject.Guice
+import pl.dyskobol.model.FlowElements
+import pl.dyskobol.prototype.plugins.dummyDb.flows.clearLogFile
+import pl.dyskobol.prototype.plugins.metrics.Configure
+import pl.dyskobol.prototype.customstages.GeneratedFilesBuffer
+import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
+
+import scala.io.StdIn
 import scala.reflect.runtime.universe
 import scala.tools.reflect.ToolBox
 
@@ -44,8 +60,42 @@ private object Main extends App {
 
 
   val tb = universe.runtimeMirror(getClass.getClassLoader).mkToolBox()
+
+  def readImgPath():String = {
+    val filePath = StdIn.readLine("Please provide path to VFS file: ").trim
+    if(new File(filePath).exists())
+      return filePath
+    else{
+      println("That file doesn't exist")
+      return readImgPath()
+    }
+  }
+
+  def getProcess(): Option[(String, examples.Process)] = {
+    val processKey = StdIn.readLine("Please choose process number to execute:").trim
+    if (examples.processes.contains(processKey)){
+      return examples.processes.get(processKey)
+    }else{
+      println("Enter valid key:")
+      return getProcess()
+    }
+
+
+  }
+
+  def runInteractiveApp() = {
+    val defaultConfig =readConfig("./core/res/dyskobol.conf")
+    var filePath = readImgPath()
+    val conf = defaultConfig.withValue("dyskobol.imagePath", ConfigValueFactory.fromAnyRef(filePath))
+    examples.introduce()
+    val process = getProcess()
+    process.get._2.run(conf)
+
+
+  }
+
   if (args.length < 1) {
-    println("No configuration file provided")
+    runInteractiveApp()
   } else {
     val conf: Config = readConfig(args(0))
     val classDef = tb.parse {

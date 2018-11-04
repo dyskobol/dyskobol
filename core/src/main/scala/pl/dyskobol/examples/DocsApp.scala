@@ -1,18 +1,17 @@
 package pl.dyskobol.examples
 
-
 import akka.stream._
 import akka.stream.scaladsl.GraphDSL.Implicits._
 import akka.stream.scaladsl.{Balance, GraphDSL, Merge}
 import com.google.inject.Guice
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.Config
 import pl.dyskobol.model.FlowElements
 import pl.dyskobol.prototype.plugins.dummyDb.flows.clearLogFile
 import pl.dyskobol.prototype.plugins.metrics.Configure
 import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
 
-object MetricsApp extends Process {
+object DocsApp extends Process {
   override def run(config: Config): Unit = {
     clearLogFile()
     val workers = config.getObject("dyskobol").toConfig.getInt("workers")
@@ -31,20 +30,13 @@ object MetricsApp extends Process {
 
       val worker = GraphDSL.create() {implicit builder => {
 
-        val broadcast       = builder add stages.Broadcast(3)
-        val fileMeta        = builder add plugins.file.flows.FileMetadataExtract(full = false)
-        val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
         val docMeta         = builder add  plugins.document.flows.DocumentMetaDataExtract()
-        val merge           = builder add  stages.Merge(3)
+        val docContent      = builder add plugins.document.flows.DocumentContentExtract()
         val (docsCheckin, docsCheckOut) = plugins.metrics.ProcessingTimeGateways("process.docs")
-        val (basicCheckIn, basicCheckOut) = plugins.metrics.ProcessingTimeGateways("process.basic")
-        val (imageCheckIn, imageCheckOut) = plugins.metrics.ProcessingTimeGateways("process.image")
 
-        broadcast ~> imageCheckIn~> imageProcessing~>imageCheckOut  ~> merge
-        broadcast ~> docsCheckin~> docMeta ~> docsCheckOut         ~> merge
-        broadcast ~> basicCheckIn~> fileMeta  ~> basicCheckOut     ~> merge
+        docsCheckin~> docMeta ~> docMeta ~> docsCheckOut
 
-        FlowShape[FlowElements, FlowElements](broadcast.in, merge.out)
+        FlowShape[FlowElements, FlowElements](docsCheckin.in, docsCheckOut.out)
       }}
 
       source ~> flowCheckIn ~> mimeResolver ~> persistFiles ~> balancer

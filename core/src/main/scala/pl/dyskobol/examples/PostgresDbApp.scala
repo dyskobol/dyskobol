@@ -11,16 +11,9 @@ import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
 
 
-object PostgresDbApp extends App {
-  val a: Array[String] = args
-  if (args.length < 1) {
-    println("No configuration file provided")
-  } else {
-    val config = readConfig(args(0))
-    run(config)
-  }
+object PostgresDbApp extends Process  {
 
-  def run(conf: Config, workers: Int = 4): Unit = {
+  def run(conf: Config): Unit = {
     clearLogFile()
     val injector = Guice.createInjector(new DyskobolModule())
     val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
@@ -53,6 +46,5 @@ object PostgresDbApp extends App {
       println("COMPLETED")
     }
   }
-  def readConfig(path: String): Config = ConfigFactory.parseFile(new java.io.File(path))
 
 }
