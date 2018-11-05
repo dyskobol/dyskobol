@@ -11,16 +11,11 @@ import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
 
 
-object WorkerPoolApp extends App {
-  if (args.length < 1) {
-    println("No configuration file provided")
-  } else {
-    val config = readConfig(args(0))
-    run(config)
-  }
+object WorkerPoolApp extends Process {
 
-  def run(conf: Config, workers: Int = 4): Unit = {
+  def run(conf: Config): Unit = {
     clearLogFile()
+    val workers = conf.getObject("dyskobol").toConfig.getInt("workers")
     val injector = Guice.createInjector(new DyskobolModule())
     val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
 
