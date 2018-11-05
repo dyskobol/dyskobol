@@ -23,8 +23,8 @@ class ProcessMonitor extends Actor{
   var stream: PrintStream = System.out
 
   def updateProgressBar(): Unit ={
-    this.pb.stepTo(this.processedSize.toInt)
-    this.pb.maxHint(this.totalSize.toInt)
+    this.pb.stepTo((this.processedSize / Math.pow(10, 6)).toLong)
+    this.pb.maxHint((this.totalSize / Math.pow(10, 6)).toLong)
   }
 
   override def receive: Receive = {
@@ -48,7 +48,8 @@ class ProcessMonitor extends Actor{
 
     case "stop" => {
 
-      this.pb.stepTo(this.totalSize) //xD
+      this.pb.maxHint((this.totalSize / Math.pow(10, 6)).toLong)
+      this.pb.stepTo((this.totalSize / Math.pow(10, 6)).toLong)
       this.pb.close()
       times.foreach(measures =>
         stream.println(s"${measures._1}: measures:${measures._2.length} mean: ${(measures._2.sum / measures._2.length) / Math.pow(10, 9)} s"))
