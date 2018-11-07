@@ -283,11 +283,13 @@ Java_bindings_Sleuthkit_00024_readNat(JNIEnv * env, jclass obj, jlong file, jlon
         throwOutOfMemoryError(env, "Not enough space for the ByteArray.");
     }
 
-    jbyte *bytes = (*env)->GetByteArrayElements(env, data, 0);
+    jbyte *bytes = (jbyte*) (malloc(sizeof(char) * count));
 
     ssize_t read = tsk_fs_file_read(file_, offset, bytes, count, TSK_FS_FILE_READ_FLAG_NONE);
 
     (*env)->SetByteArrayRegion(env, data, 0, count, bytes);
+
+    free(bytes);
 
     return data;
 }
@@ -308,15 +310,17 @@ Java_bindings_Sleuthkit_00024_readToBufferNat(JNIEnv * env, jclass obj, jlong fi
         return -1; // File ended
     }
 
-    jbyte *bytes = (*env)->GetByteArrayElements(env, buffer, 0);
+    jbyte *bytes = (jbyte*) (malloc(sizeof(char) * count));
 
-    ssize_t read = tsk_fs_file_read(file_, fileOffset, bytes+bufferOffset, count, TSK_FS_FILE_READ_FLAG_NONE);
+    ssize_t read = tsk_fs_file_read(file_, fileOffset, bytes, count, TSK_FS_FILE_READ_FLAG_NONE);
 
     if( read < 0 ) {
         return read;
     }
 
     (*env)->SetByteArrayRegion(env, buffer, bufferOffset, read, bytes);
+
+    free(bytes);
 
     return (jlong) read;
 }
