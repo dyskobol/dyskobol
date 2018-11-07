@@ -15,12 +15,13 @@ import pl.dyskobol.prototype.plugins.metrics.{AddToProcessing, ProcessMonitor}
 import scala.concurrent.Future
 import scala.concurrent.duration.{Duration, FiniteDuration}
 
-class VFSFileSource(val path: String, val timeout: FiniteDuration = Duration(1, TimeUnit.SECONDS))(implicit val processMonitor: ActorRef, generatedFilesBuffer: Option[GeneratedFilesBuffer] = None) extends GraphStage[SourceShape[FlowElements]] {
+class VFSFileSource(val path: String, val timeout: FiniteDuration = Duration(1, TimeUnit.SECONDS))(implicit val processMonitor: ActorRef, generatedFilesBuffer: Option[GeneratedFilesBuffer] = None)
+      extends GraphStage[SourceShape[FlowElements]] {
   val out: Outlet[FlowElements] = Outlet("Files")
   override val shape: SourceShape[FlowElements] = SourceShape(out)
 
   override def createLogic(inheritedAttributes: Attributes): GraphStageLogic =
-    new TimerGraphStageLogic(shape) with OutHandler {
+    new TimerGraphStageLogic(shape) with OutHandler with StageLogging {
       private val image: Long = Sleuthkit.openImgNat(path)
       private val imageSize: Long = Sleuthkit.getImgSize(image)
       processMonitor ! AddToProcessing(imageSize)
@@ -50,10 +51,19 @@ class VFSFileSource(val path: String, val timeout: FiniteDuration = Duration(1, 
       }
 
       def nextFile(): Option[File] = {
-        // Generated outside
-        if (generatedFiles.hasNext) {
-          return Some(generatedFiles.next())
-        } else if (generatedFilesBuffer.isDefined ) {
+        // Generated outside must be processed first, they might throw errors
+        while( generatedFiles.hasNext ) {
+          try {
+            return Some(generatedFiles.next())
+          } catch {
+            case e: Throwable =>
+              log.error("Error in generator:")
+              log.error(e.getMessage)
+              e.printStackTrace()
+          }
+        }
+
+        if (generatedFilesBuffer.isDefined ) {
           generatedFiles = generatedFilesBuffer.get.empty()
           if( generatedFiles.hasNext) return nextFile()
         }
