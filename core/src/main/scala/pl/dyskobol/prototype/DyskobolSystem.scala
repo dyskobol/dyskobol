@@ -34,7 +34,7 @@ class DyskobolModule extends AbstractModule with ScalaModule{
 class DyskobolSystem @Inject()(@Named("MonitorActor") val monitor: ActorRef, @Named("System") implicit val system: ActorSystem) extends App {
 
 
-  def run(graph: ActorRef => GraphDSL.Builder[Future[Done]] ⇒ SinkShape[FlowElements] => ClosedShape)(onComplete: => Unit): Unit = {
+  def run(graph: ActorRef => GraphDSL.Builder[Future[Done]] ⇒ SinkShape[FlowElements] => ClosedShape)(onComplete: => Unit): Future[Done] = {
 
     val log = Logging.getLogger(system, this)
 
@@ -54,13 +54,14 @@ class DyskobolSystem @Inject()(@Named("MonitorActor") val monitor: ActorRef, @Na
     implicit val materializer = ActorMaterializer(ActorMaterializerSettings(system).withSupervisionStrategy(decider))
 
     val sink: Sink[(File, FileProperties), Future[Done]] = Sink.foreach((fe:FlowElements) => {monitor ! Processed(fe._1.size)})
-
-    RunnableGraph
+    val result = RunnableGraph
       .fromGraph(GraphDSL.create(sink) {graph(monitor)})
       .run()
+    result
       .onComplete(_ => {
         system.terminate()
         monitor ! "stop"
         onComplete})
+    result
   }
 }
