@@ -23,10 +23,11 @@ object ImageApp extends Process {
       val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::Nil)
       val mimeResolver    = builder add plugins.filetype.flows.resolver
       val persistFiles = builder add plugins.dummyDb.flows.PersistFiles()
+      val persistProps = builder add plugins.dummyDb.flows.PersistProps()
 
 
 
-      source ~> mimeResolver ~> persistFiles ~> imageProcessing  ~> sink
+      source ~> mimeResolver ~> persistFiles ~> imageProcessing ~> persistProps ~> sink
 
 
       ClosedShape
