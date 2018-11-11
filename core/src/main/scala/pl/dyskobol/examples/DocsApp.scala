@@ -34,7 +34,7 @@ object DocsApp extends Process {
         val docContent      = builder add plugins.document.flows.DocumentContentExtract()
         val (docsCheckin, docsCheckOut) = plugins.metrics.ProcessingTimeGateways("process.docs")
 
-        docsCheckin~> docMeta ~> docMeta ~> docsCheckOut
+        docsCheckin~> docMeta ~> docContent ~> docsCheckOut
 
         FlowShape[FlowElements, FlowElements](docsCheckin.in, docsCheckOut.out)
       }}

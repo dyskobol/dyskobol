@@ -23,7 +23,7 @@ class ImagePluginTest extends PluginTest {
       "/IMAGES/JPG/INVALID.JPG" -> Seq(), //Empty props
        "/IMAGES/JPG/SONY_CYBERSHOT.JPG" -> Seq(("Make","'SONY'"))
     )
-   testFlow(imagePath, ImageMetaExtract("image/jpeg"::Nil), 5, propsToFileMap)
+   testFlowProps(imagePath, ImageMetaExtract("image/jpeg"::Nil), Some(5), propsToFileMap)
   }
 
   test("test tiff extract"){
@@ -46,7 +46,7 @@ class ImagePluginTest extends PluginTest {
       )
       )
 
-   testFlow(imagePath, ImageMetaExtract("image/tiff"::Nil), 3, propsToFileMap)
+   testFlowProps(imagePath, ImageMetaExtract("image/tiff"::Nil), Some(3), propsToFileMap)
   }
 
 }

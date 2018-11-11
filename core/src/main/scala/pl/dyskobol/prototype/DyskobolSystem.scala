@@ -40,7 +40,7 @@ class DyskobolSystem @Inject()(@Named("MonitorActor") val monitor: ActorRef, @Na
 
     val decider: Supervision.Decider = {
       case DyskobolException(fe, e) =>
-        log.error(e.getMessage)
+        log.error(s"Error while processing file${fe._1.name}: ${e.getMessage}")
         monitor ! Processed(fe._1.size)
         Supervision.Resume
 

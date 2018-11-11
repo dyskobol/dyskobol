@@ -91,7 +91,6 @@ private object Main extends App {
     val process = getProcess()
     process.get._2.run(conf)
 
-
   }
 
   if (args.length < 1) {

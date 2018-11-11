@@ -10,8 +10,9 @@ lazy val core = (project in file("core")).
   settings(
     organizationName := "pl.dyskobol",
     name := "dyskobol",
+    javaOptions += "-Dpackaging.type=jar",
 
-    version := "0.0.1-SNAPSHOT",
+      version := "0.0.1-SNAPSHOT",
     mainClass in (Compile, run) := Some("pl.dyskobol.Main"),
     mainClass in (Compile, packageBin) := Some("pl.dyskobol.Main"),
     scalaVersion := "2.12.7",
@@ -26,8 +27,8 @@ lazy val core = (project in file("core")).
       "com.typesafe.akka" %% "akka-stream" % "2.5.17",
       "org.xerial" % "sqlite-jdbc" % "3.7.2",
       "com.mchange" % "c3p0" % "0.9.2.1",
-      "org.apache.tika" % "tika-core" % "1.18",
-      "org.apache.tika" % "tika-parsers" % "1.18",
+      "org.apache.tika" % "tika-core" % "1.19.1",
+      "org.apache.tika" % "tika-parsers" % "1.19.1",
       "org.scalatest" %% "scalatest" % "3.0.2" % "test",
       "org.apache.poi" % "poi" % "3.17",
       "org.apache.poi" % "poi-ooxml" % "3.17",
@@ -44,6 +45,7 @@ lazy val core = (project in file("core")).
       "me.tongfei" % "progressbar" % "0.7.2",
       "org.apache.pdfbox" % "jbig2-imageio" % "3.0.1",
       "com.github.jai-imageio" % "jai-imageio-jpeg2000" % "1.3.0",
+      "javax.ws.rs" % "javax.ws.rs-api" % "2.1.1"
     )
   ).
 
