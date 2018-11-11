@@ -42,7 +42,7 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
     mark = i
   }
 
-  override def markSupported(): Boolean = true
+  override def markSupported(): Boolean = false
 
   override def read(bytes: Array[Byte], bufferOffset: Int, len: Int): Int = {
     val read = Sleuthkit.readToBufferNat(fileHandle, fileOffset, len, bytes, bufferOffset).toInt
