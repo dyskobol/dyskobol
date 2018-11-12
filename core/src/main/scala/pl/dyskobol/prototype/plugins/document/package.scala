@@ -45,7 +45,7 @@ package object document {
   }
 
   object foreaches extends foreaches {
-    def msofficeXContent() = extractCreator(metaExtract, new OOXMLParser)
+    def msofficeXContent() = extractCreator(contentExtract, new OOXMLParser)
 
     def htmlContent() =
       extractCreator(contentExtract, new HtmlParser())

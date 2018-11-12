@@ -33,7 +33,7 @@ class DocumentMetadataTest extends PluginTest{
   test("test Ms office word 2007+ meta extract"){
     val imagePath = "./core/res/test.iso"
     val propsToFileMap: mutable.Map[String, Seq[(String, Any)]] = scala.collection.mutable.Map(
-      "/DOCUMENTS/JOURNAL.PONE.0041015.S002.DOCX" -> Seq(
+      "/DOCUMENTS/JOURNAL_PONE_0041015_S002.DOCX" -> Seq(
         ("Creation-Date", "2012-01-30T16:34:00Z"),
         ("dc:title", "The Trier Social Stress Test (TSST)"),
         ("Last-Author", "vrgassli")
@@ -46,7 +46,7 @@ class DocumentMetadataTest extends PluginTest{
   test("test Ms office powerpoint 2007+ meta extract"){
     val imagePath = "./core/res/test.iso"
     val propsToFileMap: mutable.Map[String, Seq[(String, Any)]] = scala.collection.mutable.Map(
-      "/DOCUMENTS/JOURNAL.PONE.0041015.S002.DOCX" -> Seq(
+      "/DOCUMENTS/ELT_METHODS_DENDRINOS_TEST.PPTX" -> Seq(
         ("Creation-Date", "2015-08-10T14:47:42Z"),
         ("dc:publisher", "National and Kapodistrian University of Athens"),
         ("Application-Name", "Microsoft Office PowerPoint")
