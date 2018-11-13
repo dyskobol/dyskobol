@@ -1,13 +1,17 @@
 package pl.dyskobol.prototype.plugins
 
-import java.io.InputStream
+import java.io.{File, FileInputStream, InputStream}
 
 import akka.NotUsed
+import akka.stream.Graph
 import akka.stream.scaladsl.GraphDSL
+import org.apache.poi.openxml4j.opc.OPCPackage
+import org.apache.poi.xwpf.usermodel.XWPFDocument
 import org.apache.tika.metadata.{MSOffice, Metadata}
 import org.apache.tika.parser.{ParseContext, Parser}
 import org.apache.tika.parser.html.HtmlParser
 import org.apache.tika.parser.microsoft.OfficeParser
+import org.apache.tika.parser.microsoft.ooxml.OOXMLParser
 import org.apache.tika.parser.odf.OpenDocumentParser
 import org.apache.tika.parser.pdf.PDFParser
 import org.apache.tika.parser.txt.TXTParser
@@ -36,9 +40,12 @@ package object document {
 
     def isOpenOffice = mimesIn(supportedMimes.openOffice)
 
+    def isMsOfficeX = mimesIn(supportedMimes.msOfficeX)
+
   }
 
   object foreaches extends foreaches {
+    def msofficeXContent() = extractCreator(contentExtract, new OOXMLParser)
 
     def htmlContent() =
       extractCreator(contentExtract, new HtmlParser())
@@ -76,6 +83,9 @@ package object document {
     def openMeta() =
       extractCreator(metaExtract, new OpenDocumentParser())
 
+    def msOfficeXMeta() =
+      extractCreator(metaExtract, new OOXMLParser())
+
 
     private def contentExtract(parser: Parser, inputStream: InputStream, props: FileProperties) = {
       val handler = new WriteOutContentHandler(-1)
@@ -97,6 +107,7 @@ package object document {
     private def extractCreator(extrFun: (Parser, InputStream, FileProperties) => Unit, parser: Parser) =
       ForEach((pair: (FlowElements)) => {
         val (file, prop) = pair
+
         extrFun(parser, file.createStream(), prop)
       })
 
@@ -105,12 +116,15 @@ package object document {
   object supportedMimes {
     val msOffice = List("application/msword",
       "application/vnd.ms-excel",
+      "application/vnd.ms-excel",
+      "application/vnd.ms-excel")
+
+    val msOfficeX = List(
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "application/vnd.ms-excel",
-      "application/vnd.ms-excel",
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "application/vnd.ms-powerpoint",
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "application/vnd.ms-powerpoint"
+
     )
     val openOffice = List("application/vnd.oasis.opendocument.text",
       "application/vnd.oasis.opendocument.text-template",

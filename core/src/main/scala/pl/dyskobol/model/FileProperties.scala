@@ -23,6 +23,18 @@ class FileProperties {
 
   def getAll() = stringValues.iterator ++ numberValues.iterator ++ dateValues.iterator ++ byteValues.iterator
 
+  def get(k: String): Any = {
+    if(stringValues.get(k).isDefined)
+      return stringValues(k)
+
+    if(numberValues.get(k).isDefined)
+      return numberValues(k)
+
+    if(dateValues.get(k).isDefined)
+      return dateValues(k)
+
+    return byteValues(k)
+  }
 
   def addProperty(name: String, value: String): Unit = {
     stringValues += (name -> value)
