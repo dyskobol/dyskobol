@@ -37,7 +37,7 @@ Java_bindings_Sleuthkit_00024_openImgNat(JNIEnv * env, jobject obj, jstring path
     const TSK_IMG_INFO* img_info = tsk_img_open_utf8(images_count, images, TSK_IMG_TYPE_DETECT, sector_size);
 
     if( img_info == NULL ) {
-        return throwFileNotFound(env, "Specified image not found.");
+        throwFileNotFound(env, "Specified image not found.");
     }
 
     return (jlong) img_info;
@@ -65,7 +65,7 @@ Java_bindings_Sleuthkit_00024_openFsNat(JNIEnv * env, jclass obj, jlong image) {
     TSK_OFF_T offset = 0; // I guess
     TSK_FS_INFO* filesystem_info = tsk_fs_open_img( (TSK_IMG_INFO*) image, 0, TSK_FS_TYPE_DETECT);
     if( filesystem_info == NULL ) {
-        return throwIOException(env, "Unable to open the file system.");
+        throwIOException(env, "Unable to open the file system.");
     }
 
     return (jlong) filesystem_info;
@@ -147,8 +147,8 @@ Java_bindings_Sleuthkit_00024_getDirFilesNat(JNIEnv * env, jclass obj, jlong fil
     list.env = env;
     list.files = malloc(sizeof(jobject)*list.size);
 
-    if( tsk_fs_dir_walk(filesystem, inode, TSK_FS_DIR_WALK_FLAG_ALLOC + TSK_FS_DIR_WALK_FLAG_NOORPHAN, create_list, &list) ) {
-        return throwIOException(env, "Unable to walk directory");
+    if( tsk_fs_dir_walk(filesystem, inode, TSK_FS_DIR_WALK_FLAG_ALLOC | TSK_FS_DIR_WALK_FLAG_NOORPHAN, create_list, &list) ) {
+        throwIOException(env, "Unable to walk directory");
     }
 
     tsk_fs_file_close(file);

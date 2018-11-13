@@ -10,6 +10,8 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
   private var fileOffset: Long = 0
   private var mark: Long = -1
 
+  openFile()
+
   private def openFile(): Unit = {
     if( opened ) return
     fileHandle = Sleuthkit.openFileNat(filesystem, file.addr)
