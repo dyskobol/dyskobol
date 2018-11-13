@@ -1,6 +1,6 @@
 package pl.dyskobol.model
 
-import java.io.InputStream
+import java.io.{IOException, InputStream}
 
 import bindings.Sleuthkit
 
@@ -8,8 +8,7 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
   var opened = false
   private var fileHandle: Long = 0
   private var fileOffset: Long = 0
-  private var mark: Long = 0
-  openFile()
+  private var mark: Long = -1
 
   private def openFile(): Unit = {
     if( opened ) return
@@ -34,15 +33,13 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
     else -1
   }
 
-  override def available(): Int = {
-    return (file.size - fileOffset).toInt
-  }
+  override def available(): Int = (file.size - fileOffset).toInt
 
   override def mark(i: Int): Unit = {
-    mark = i
+    mark = fileOffset
   }
 
-  override def markSupported(): Boolean = false
+  override def markSupported(): Boolean = true
 
   override def read(bytes: Array[Byte], bufferOffset: Int, len: Int): Int = {
     val read = Sleuthkit.readToBufferNat(fileHandle, fileOffset, len, bytes, bufferOffset).toInt
@@ -53,6 +50,9 @@ class FileStream(val filesystem: Long, val file: File) extends InputStream {
   override def read(bytes: Array[Byte]): Int = read(bytes, 0, bytes.length)
 
   override def reset(): Unit = {
+    if( mark < 0 ) {
+      throw new IOException("Mark not set")
+    }
     fileOffset = mark
     mark = 0
   }
