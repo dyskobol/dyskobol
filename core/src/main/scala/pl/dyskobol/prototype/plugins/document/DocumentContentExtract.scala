@@ -10,7 +10,7 @@ import akka.stream.scaladsl.GraphDSL.Implicits._
 
 
 class DocumentContentExtract extends plugin {
-  override def name: String = "image metadata extractor"
+  override def name: String = "document content extractor"
 
   override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
     GraphDSL.create() { implicit builder =>

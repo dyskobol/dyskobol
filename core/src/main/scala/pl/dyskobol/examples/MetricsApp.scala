@@ -15,12 +15,12 @@ import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 object MetricsApp extends Process {
   override def run(config: Config): Unit = {
     clearLogFile()
-    val workers = config.getObject("dyskobol").toConfig.getInt("workers")
+    val workers = config.getObject("dyskobol.process").toConfig.getInt("workers")
     val injector = Guice.createInjector(new DyskobolModule())
     val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
     dyskobolSystem.run{ implicit processMonitor => implicit builder => sink =>
       processMonitor ! Configure(System.out)
-      val source          = builder add stages.VfsFileSource(config.getObject("dyskobol").toConfig.getString("imagePath"))
+      val source          = builder add stages.VfsFileSource(config.getObject("dyskobol.process").toConfig.getString("imagePath"))
 
       val balancer = builder add Balance[FlowElements](workers, waitForAllDownstreams = true)
       val merge = builder add Merge[FlowElements](workers)

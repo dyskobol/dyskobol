@@ -19,7 +19,7 @@ object ImageApp extends Process {
     dyskobolSystem.run{ implicit processMonitor => implicit builder => sink =>
 
     implicit val bufferedGenerated = new GeneratedFilesBuffer
-      val source          = builder add  stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
+      val source          = builder add  stages.VfsFileSource(conf.getObject("dyskobol.process").toConfig.getString("imagePath"))
       val imageProcessing = builder add plugins.image.flows.ImageMetaExtract("image/jpeg"::"image/tiff"::Nil)
       val mimeResolver    = builder add plugins.filetype.flows.resolver
       val persistFiles = builder add plugins.dummyDb.flows.PersistFiles()

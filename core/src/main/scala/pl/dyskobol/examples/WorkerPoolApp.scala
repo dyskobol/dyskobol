@@ -15,13 +15,13 @@ object WorkerPoolApp extends Process {
 
   def run(conf: Config): Unit = {
     clearLogFile()
-    val workers = conf.getObject("dyskobol").toConfig.getInt("workers")
+    val workers = conf.getObject("dyskobol.process").toConfig.getInt("workers")
     val injector = Guice.createInjector(new DyskobolModule())
     val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
 
     dyskobolSystem.run{ implicit processMonitor => implicit builder => sink =>
 
-    val source          = builder add stages.VfsFileSource(conf.getObject("dyskobol").toConfig.getString("imagePath"))
+    val source          = builder add stages.VfsFileSource(conf.getObject("dyskobol.process").toConfig.getString("imagePath"))
 
         val balancer = builder add Balance[FlowElements](workers, waitForAllDownstreams = true)
         val merge = builder add Merge[FlowElements](workers)

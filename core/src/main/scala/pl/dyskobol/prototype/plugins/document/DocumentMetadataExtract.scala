@@ -9,7 +9,7 @@ import pl.dyskobol.prototype.{customstages, stages}
 import akka.stream.scaladsl.GraphDSL.Implicits._
 
 class DocumentMetadataExtract extends plugin {
-  override def name: String = "image metadata extractor"
+  override def name: String = "document metadata extractor"
 
   override def flow(): Graph[FlowShape[(FlowElements), (FlowElements)], NotUsed] = {
     GraphDSL.create() { implicit builder =>

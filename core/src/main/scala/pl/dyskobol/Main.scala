@@ -18,6 +18,7 @@ import pl.dyskobol.prototype.plugins.metrics.Configure
 import pl.dyskobol.prototype.customstages.GeneratedFilesBuffer
 import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
 
+import scala.collection.mutable
 import scala.io.StdIn
 import scala.reflect.runtime.universe
 import scala.tools.reflect.ToolBox
@@ -71,25 +72,47 @@ private object Main extends App {
     }
   }
 
-  def getProcess(): Option[(String, examples.Process)] = {
+  def getProcess(): examples.Process = {
     val processKey = StdIn.readLine("Please choose process number to execute:").trim
     if (examples.processes.contains(processKey)){
-      return examples.processes.get(processKey)
+      return examples.processes(processKey)._2
     }else{
       println("Enter valid key:")
       return getProcess()
     }
+  }
 
+  def buildConfiguration(process: examples.Process, conf: Config):Config = {
+    println(process.helpMessage)
+    var newConfig = conf
+    val unrecognized = mutable.MutableList[String]()
+    StdIn.readLine("Enter options:").trim.split("--").filter(!_.isEmpty).foreach(s => {
+      val option = s.split(" +").mkString
+      if (option.equals("all"))
+      return newConfig.withValue(s"dyskobol.process.$option", ConfigValueFactory.fromAnyRef(true))
 
+      if (process.configOptions.contains(option))
+        newConfig = newConfig.withValue(s"dyskobol.process.$option", ConfigValueFactory.fromAnyRef(true))
+      else
+        unrecognized += option
+
+    })
+    if(unrecognized.isEmpty)
+      return newConfig
+    println(s"Unrecongized options: ${unrecognized.mkString(", ")}")
+    return buildConfiguration(process, newConfig)
   }
 
   def runInteractiveApp() = {
     val defaultConfig =readConfig("./core/res/dyskobol.conf")
-    var filePath = readImgPath()
-    val conf = defaultConfig.withValue("dyskobol.imagePath", ConfigValueFactory.fromAnyRef(filePath))
+    val filePath = readImgPath()
+    var conf = defaultConfig.withValue("dyskobol.process.imagePath", ConfigValueFactory.fromAnyRef(filePath))
     examples.introduce()
     val process = getProcess()
-    process.get._2.run(conf)
+    if (process.configOptions.nonEmpty){
+     conf = buildConfiguration(process, conf)
+    }
+    process.run(conf)
 
   }
 
