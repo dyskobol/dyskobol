@@ -6,7 +6,7 @@ import com.google.inject.Guice
 import org.scalatest.FunSuite
 import pl.dyskobol.model.{File, FileProperties}
 import akka.stream.scaladsl.GraphDSL.Implicits._
-
+import pl.dyskobol.prototype.plugins.metrics.Configure
 
 import scala.concurrent.duration._
 import pl.dyskobol.prototype.{DyskobolModule, DyskobolSystem, plugins, stages}
@@ -60,14 +60,13 @@ class PluginTest extends FunSuite {
   def testFlowProps(imagePath: String, plugin: Graph[FlowShape[(File, FileProperties), (File, FileProperties)], NotUsed],
                     expectedProcessedFiles: Option[Int], expectedPropsExtractedFromFile: scala.collection.mutable.Map[String, Seq[(String, Any)]]): Any = {
 
-
-
     val injector = Guice.createInjector(new DyskobolModule())
     val dyskobolSystem = injector.getInstance(classOf[DyskobolSystem])
 
     val assertionPlugin = new AssertPlugin(expectedProcessedFiles, expectedPropsExtractedFromFile, mutable.Map[String,String]())
     val result =  dyskobolSystem.run { implicit processMonitor =>implicit builder =>
           sink =>
+            processMonitor ! Configure(System.out, false)
 
             val source = builder add stages.VfsFileSource(imagePath)
             val testedPlugin = builder add plugin

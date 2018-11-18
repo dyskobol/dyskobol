@@ -7,7 +7,7 @@ import akka.stream.scaladsl.{Flow, GraphDSL}
 import pl.dyskobol.model.{File, FileProperties, FlowElements}
 
 package object metrics {
-  case class Configure(stream: java.io.PrintStream)
+  case class Configure(stream: java.io.PrintStream, monitorProgress: Boolean = true)
   case class TimeMeasurement(key: String, checkInMilis: Long, checkOutMilis: Long, flowElements: FlowElements)
   case class GetResult(mean: Boolean, max: Boolean, min: Boolean)
   case class AddToProcessing(size: Long)

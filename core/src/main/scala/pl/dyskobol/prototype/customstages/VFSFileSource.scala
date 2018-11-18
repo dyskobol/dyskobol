@@ -22,6 +22,7 @@ class VFSFileSource(val path: String, val timeout: FiniteDuration = Duration(1, 
 
   override def createLogic(inheritedAttributes: Attributes): GraphStageLogic =
     new TimerGraphStageLogic(shape) with OutHandler with StageLogging {
+      processMonitor ! "start"
       private val image: Long = Sleuthkit.openImgNat(path)
       private val imageSize: Long = Sleuthkit.getImgSize(image)
       processMonitor ! AddToProcessing(imageSize)
