@@ -22,12 +22,10 @@ package object examples {
   }
   val processes: Map[String, (String, Process)] = Map(
     "1" -> ("Docs, file meta and basic info processing with stats ",MetricsApp),
-    "2" -> ("Application persising data in PostgresDB",PostgresDbApp),
-    "3" -> ("Docs, file meta and basic info with unzipping",UnzipExampleApp),
-    "4" -> ("Docs, file meta and basic info on worker pool",WorkerPoolApp),
-    "5" -> ("Docs meta and content ",DocsApp),
-    "6" -> ("Image meta and thumbnail ",ImageApp),
-    "7" -> ("Customizable processing",CustomizableApp),
+    "2" -> ("Docs, file meta and basic info with unzipping",UnzipExampleApp),
+    "3" -> ("Docs meta and content ",DocsApp),
+    "4" -> ("Image meta and thumbnail ",ImageApp),
+    "5" -> ("Customizable processing",CustomizableApp),
   )
 
 }
