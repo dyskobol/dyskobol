@@ -93,6 +93,7 @@ class PluginTest extends FunSuite {
     val assertionPlugin = new AssertPlugin(expectedProcessedFiles, mutable.Map[String,Seq[(String, Any)]](), expectedChunks)
     val result =  dyskobolSystem.run { implicit processMonitor =>implicit builder =>
           sink =>
+            processMonitor ! Configure(System.out, false)
 
             val source = builder add stages.VfsFileSource(imagePath)
             val testedPlugin = builder add plugin
